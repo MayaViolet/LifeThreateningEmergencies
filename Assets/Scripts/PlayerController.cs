@@ -1,15 +1,51 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DaikonForge;
+using DaikonForge.Tween;
 
 public class PlayerController : MonoBehaviour {
 
-	// Use this for initialization
+	public float moveSpeed = 3;
+
+	Animator anim;
+	TweenBase currentTween;
+
 	void Start () {
-	
+		anim = GetComponentInChildren<Animator>();
+		ClickHandler.Instance.OnMovementClick += OnMovementClick;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	void OnMovementClick(Vector3 location)
+	{
+		Vector3 offset = location - transform.position;
+		float distance = offset.magnitude;
+		float time = distance / moveSpeed;
+
+		//face movement direction
+		Vector3 scale = transform.localScale;
+		if (offset.x > 0)
+		{
+			scale.x = -Mathf.Abs(scale.x);
+		}
+		else
+		{
+			scale.x = Mathf.Abs(scale.x);
+		}
+		transform.localScale = scale;
+
+		if (currentTween != null)
+		{
+			currentTween.Stop();
+		}
+		anim.SetBool("Walking", true);
+		currentTween = transform.TweenMoveTo(location)
+			.SetDuration(time)
+			.OnCompleted(OnMoveComplete)
+			.Play();
+	}
+
+	void OnMoveComplete(TweenBase tween)
+	{
+		anim.SetBool("Walking", false);
 	}
 }
