@@ -15,9 +15,20 @@ namespace BitterEnd {
 				"\n" +
 				"\tannie \"Something about rice cakes.\"");
 			
-			CollectionAssert.AreEquivalent (new[] {"Annie", "Varus"}, dialogue.Characters.Keys);
-			CollectionAssert.AreEquivalent (new[] {"start"}, dialogue.DialogueParts.Keys);
+			CollectionAssert.AreEquivalent (new[] {"annie", "varus"}, dialogue.Characters.Keys);
+			var annie = dialogue.Characters ["annie"];
+			var varus = dialogue.Characters ["varus"];
 
+			Assert.AreEqual ("Annie", annie.Name);
+			Assert.AreEqual ("Varus", varus.Name);
+
+			CollectionAssert.AreEquivalent (new[] {"start"}, dialogue.DialogueParts.Keys);
+			CollectionAssert.AreEqual (
+				new[] {
+					new Line ("Ambient text ..."),
+					new Line (annie, "Something about rice cakes."),
+				},
+				dialogue.DialogueParts ["start"].Lines);
 		}
 	}
 }
