@@ -1,13 +1,15 @@
 using System;
 
-public class Line
-{
-	public Character Character { get; private set; }
-	public string Text { get; private set; }
-
-	public Line (Character character, string text)
+namespace BitterEnd {
+	public class Line
 	{
-		Character = character;
-		Text = text;
+		public Character Character { get; private set; }
+		public string Text { get; private set; }
+
+		public Line (Character character, string text)
+		{
+			Character = character;
+			Text = text;
+		}
 	}
 }
