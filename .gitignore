@@ -8,3 +8,4 @@ Temp
 *.apk
 .DS_Store
 Assets/test-results
+Assets/test-results.meta
