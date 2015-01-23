@@ -34,5 +34,10 @@ namespace BitterEnd
 
 			return Character == line.Character && Text == line.Text;
 		}
+
+		public override int GetHashCode ()
+		{
+			return base.GetHashCode ();
+		}
 	}
 }

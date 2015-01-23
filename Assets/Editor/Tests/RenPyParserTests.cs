@@ -1,19 +1,25 @@
 ﻿using NUnit.Framework;
+using System.Reflection;
 using System.Collections;
+using System.IO;
+using System.Diagnostics;
 
 namespace BitterEnd {
 	[TestFixture]
 	public class RenPyParserTests {
 		[Test]
 		public void TestSimpleDialogue() {
-			var dialogue = RenPyParser.ReadDialogueFromString (
-				"define annie = Character('Annie')\n" +
-				"define varus = Character(\"Varus\")\n" +
-				"\n" +
-				"label start:\n" +
-				"\t\"Ambient text ...\"\n" +
-				"\n" +
-				"\tannie \"Something about rice cakes.\"");
+			var assembly = Assembly.GetExecutingAssembly ();
+			var resource = string.Format ("Editor.Tests.TestDialogue.txt");
+			string s;
+			using (var stream = assembly.GetManifestResourceStream(resource)) {
+				Debug.Assert(stream != null);
+				using (var reader = new StreamReader(stream)) {
+					s = reader.ReadToEnd();
+				}
+			}
+
+			var dialogue = RenPyParser.ReadDialogueFromString (s);
 			
 			CollectionAssert.AreEquivalent (new[] {"annie", "varus"}, dialogue.Characters.Keys);
 			var annie = dialogue.Characters ["annie"];
@@ -27,6 +33,7 @@ namespace BitterEnd {
 				new[] {
 					new Line ("Ambient text ..."),
 					new Line (annie, "Something about rice cakes."),
+					new Line (varus, "Sounds good."),
 				},
 				dialogue.DialogueParts ["start"].Lines);
 		}

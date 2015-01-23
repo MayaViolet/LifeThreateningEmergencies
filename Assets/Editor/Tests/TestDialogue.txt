@@ -1,0 +1,8 @@
+define annie = Character('Annie')
+define varus = Character("Varus")
+
+label start:
+	"Ambient text ..."
+
+	annie "Something about rice cakes."
+	varus "Sounds good."
