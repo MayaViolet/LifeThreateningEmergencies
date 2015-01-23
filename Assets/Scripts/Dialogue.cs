@@ -22,7 +22,7 @@ namespace BitterEnd
 			var ashe = d.Characters ["Ashe"] = new Character ("Ashe");
 
 			var start = d.DialogueParts ["start"] = new DialoguePart ("start");
-			start.Lines.Add(new Line(leona, "<i>~thin rice cakes~</i>\nWowdy!"));
+			start.Lines.Add(new Line(leona, "<i>~thin <b>rice</b> cakes~</i>\nWowdy!"));
 			start.Lines.Add (new Line (ashe, "Even better than <b>thick</b> rice cakes!"));
 
 			return d;
