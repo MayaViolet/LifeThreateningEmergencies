@@ -4,7 +4,8 @@ using System.Collections;
 using System.IO;
 using System.Diagnostics;
 
-namespace BitterEnd {
+namespace BitterEnd
+{
 	[TestFixture]
 	public class RenPyParserTests {
 		[Test]
@@ -28,14 +29,21 @@ namespace BitterEnd {
 			Assert.AreEqual ("Annie", annie.Name);
 			Assert.AreEqual ("Varus", varus.Name);
 
-			CollectionAssert.AreEquivalent (new[] {"start"}, dialogue.DialogueParts.Keys);
+			CollectionAssert.AreEquivalent (new[] {"start", "thin", "thick"}, dialogue.DialogueParts.Keys);
 			CollectionAssert.AreEqual (
-				new[] {
-					new Line ("Ambient text ..."),
-					new Line (annie, "Something about rice cakes."),
-					new Line (varus, "Sounds good."),
-				},
-				dialogue.DialogueParts ["start"].Lines);
+			new[] {
+				new Line ("Ambient text ..."),
+				new Line (annie, "Something about rice cakes."),
+				new Line (varus, "Sounds good."),
+			},
+			dialogue.DialogueParts ["start"].Lines);
+
+			CollectionAssert.AreEqual (
+			new[] {
+				new Menu.Choice("Thin rice cakes.") {JumpTargetLabel = "thin", JumpTarget = dialogue.DialogueParts["thin"]},
+				new Menu.Choice("Thick rice cakes.") {JumpTargetLabel = "thick", JumpTarget = dialogue.DialogueParts["thick"]},
+			},
+			dialogue.DialogueParts ["start"].Menu.Choices);
 		}
 	}
 }
