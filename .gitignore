@@ -6,3 +6,4 @@ Temp
 *.pidb
 *.userprefs
 *.apk
+.DS_Store
