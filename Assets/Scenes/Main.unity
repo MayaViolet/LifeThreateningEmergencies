@@ -1258,6 +1258,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1236784730}
   portraitImage: {fileID: 844559478}
   dialogueBase: {fileID: 1309775308}
+  menuButton: {fileID: 11412426, guid: c8ccef2ec34014d9e9c5301841f466bc, type: 2}
 --- !u!1 &1899949772
 GameObject:
   m_ObjectHideFlags: 0
