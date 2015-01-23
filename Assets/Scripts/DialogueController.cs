@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using DaikonForge;
 using DaikonForge.Tween;
+using BitterEnd;
 
 public class DialogueController : MonoBehaviour {
 
