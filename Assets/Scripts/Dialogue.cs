@@ -24,4 +24,31 @@ public class Dialogue
 
 		return d;
 	}
+
+	public Iterator Start() {
+		return new Iterator(this);
+	}
+
+	public class Iterator {
+		private Dialogue _dialogue;
+		private DialoguePart _currentPart;
+		private int _currentLine;
+
+		public Iterator(Dialogue dialogue) {
+			_dialogue = dialogue;
+			_currentPart = _dialogue.DialogueParts["start"];
+			_currentLine = 0;
+		}
+
+		public Line CurrentLine {
+			get {
+				return _currentPart.Lines[_currentLine];
+			}
+		}
+
+		public bool Next() {
+			++_currentLine;
+			return _currentLine < _currentPart.Lines.Count;
+		}
+	}
 }
