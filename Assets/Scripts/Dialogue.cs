@@ -17,10 +17,11 @@ public class Dialogue
 		var d = new Dialogue ();
 
 		var leona = d.Characters ["Leona"] = new Character ("Leona");
-		d.Characters ["Ashe"] = new Character ("Ashe");
+		var ashe = d.Characters ["Ashe"] = new Character ("Ashe");
 
 		var start = d.DialogueParts ["start"] = new DialoguePart ();
-		start.Lines.Add(new Line(leona, "~thin rice cakes~\nWowdy!"));
+		start.Lines.Add(new Line(leona, "<i>~thin rice cakes~</i>\nWowdy!"));
+		start.Lines.Add (new Line (ashe, "Even better than <b>thick</b> rice cakes!"));
 
 		return d;
 	}
