@@ -40,4 +40,10 @@ public class DialogueController : MonoBehaviour {
 		hidePosition = showPosition + dialogueBase.rect.height * 2 * Vector3.down;
 		dialogueBase.position = hidePosition;
 	}
+
+	public void ShowLine(Line newLine)
+	{
+		dialogueText.text = newLine.Text;
+		visible = true;
+	}
 }
