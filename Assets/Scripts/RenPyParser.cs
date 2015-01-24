@@ -74,15 +74,19 @@ namespace BitterEnd
 		private Dialogue _dialogue;
 		private ParserState _state;
 		private DialoguePart _currentPart;
+		private DialogueMenu _currentMenu;
 		private DialogueMenu.Choice _currentChoice;
 		private Stack<DialoguePart> _partStack;
+		private List<DialogueJump> _dialogueJumps;
 
 		private Dialogue Parse() {
 			_dialogue = new Dialogue ();
 			_state = ParserState.PROLOGUE;
 			_currentPart = null;
+			_currentMenu = null;
 			_currentChoice = null;
 			_partStack = new Stack<DialoguePart> ();
+			_dialogueJumps = new List<DialogueJump> ();
 
 			var lines = _source.Split ('\n').Select (s => s.Trim ()).Where (s => s.Length > 0);
 
@@ -184,31 +188,14 @@ namespace BitterEnd
 			}
 
 			// Compile jumps.
-			foreach (var pair in _dialogue.DialogueParts) {
-				if (pair.Value.JumpTargetLabel != null) {
+			foreach (var dialogueJump in _dialogueJumps) {
+				if (dialogueJump.TargetLabel != null) {
 					DialoguePart jumpTarget;
-					if (!_dialogue.DialogueParts.TryGetValue (pair.Value.JumpTargetLabel, out jumpTarget)) {
-						throw new FormatException(string.Format ("Couldn't find target for jump {0}.", pair.Value.JumpTargetLabel));
+					if (!_dialogue.DialogueParts.TryGetValue (dialogueJump.TargetLabel, out jumpTarget)) {
+						throw new FormatException(string.Format ("Couldn't find target for jump {0}.", dialogueJump.TargetLabel));
 					}
 
-					pair.Value.JumpTarget = jumpTarget;
-				}
-
-				if (pair.Value.Menu == null) {
-					continue;
-				}
-
-				foreach (var choice in pair.Value.Menu.Choices) {
-					if (choice.JumpTargetLabel == null) {
-						continue;
-					}
-
-					DialoguePart jumpTarget;
-					if (!_dialogue.DialogueParts.TryGetValue(choice.JumpTargetLabel, out jumpTarget)) {
-						throw new FormatException(string.Format("Couldn't find target for jump {0}.", choice.JumpTargetLabel));
-					}
-
-					choice.JumpTarget = jumpTarget;
+					dialogueJump.Target = jumpTarget;
 				}
 			}
 
@@ -236,6 +223,7 @@ namespace BitterEnd
 			
 			var name = match.Groups[1].Value;
 			_currentPart = _dialogue.DialogueParts[name] = new DialoguePart(name);
+			_currentMenu = null;
 			_dialogue.DialoguePartOrder.Add (name);
 			return true;
 		}
@@ -266,7 +254,7 @@ namespace BitterEnd
 				return false;
 			}
 			
-			_currentPart.Menu = new DialogueMenu();
+			_currentPart.Elements.Add (_currentMenu = new DialogueMenu());
 			return true;
 		}
 		
@@ -277,7 +265,7 @@ namespace BitterEnd
 			}
 			
 			_currentChoice = new DialogueMenu.Choice(match.Groups[2].Value);
-			_currentPart.Menu.Choices.Add (_currentChoice);
+			_currentMenu.Choices.Add (_currentChoice);
 			return true;
 		}
 		
@@ -288,12 +276,15 @@ namespace BitterEnd
 			}
 			
 			// Implementation differs depending on if called from LINES or MENU_CHOICE.
-			
-			if (_currentPart.Menu == null) {
-				_currentPart.JumpTargetLabel = match.Groups [1].Value;
+
+			DialogueJump jump;
+			if (_currentMenu == null) {
+				_currentPart.Elements.Add (jump = new DialogueJump(match.Groups [1].Value));
 			} else {
-				_currentChoice.JumpTargetLabel = match.Groups [1].Value;
+				jump = _currentChoice.DialogueJump = new DialogueJump(match.Groups [1].Value);
 			}
+
+			_dialogueJumps.Add (jump);
 			
 			return true;
 		}
@@ -304,7 +295,6 @@ namespace BitterEnd
 				return false;
 			}
 
-			_currentChoice.JumpTargetLabel = null;
 			return true;
 		}
 		

@@ -7,6 +7,18 @@ define jordyn = Character('Jordyn')
 define cat = Character('Cat')
 
 label start:
+menu:
+  "blah":
+    jump blah
+  "thing":
+    jump whatever
+    
+label blah:
+  if spoken_to:
+    jump whatever
+  endif
+  
+  $ spoken_to = True
   chisomo "Alright, time to get off my ass and start preparing dinner."
   chisomo "Enok, we're running low on carrots. Go grab some more, will you?"
   enok "I literally just got here."
