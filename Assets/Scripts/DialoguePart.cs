@@ -12,13 +12,6 @@ namespace BitterEnd {
 		public List<DialogueElement> Elements { get { return _elements; } }
 		private List<DialogueElement> _elements = new List<DialogueElement>();
 
-		/// <remarks>If exists, the <c>Menu</c> shown at the end of this part.</remarks>
-		public DialogueMenu Menu { get; set; }
-
-		/// <remarks>Either Menu or JumpTarget(Label) may be specified, but not both.</remarks>
-		public string JumpTargetLabel { get; set; }
-		public DialoguePart JumpTarget { get; set; }
-
 		public DialoguePart (string name)
 		{
 			Name = name;
@@ -40,15 +33,6 @@ namespace BitterEnd {
 
 			foreach (var element in Elements) {
 				element.RenderTo(sb);
-			}
-
-			if (JumpTarget != null) {
-				sb.AppendFormat ("\n\tjump {0}\n", JumpTarget.Name);
-			}
-
-			if (Menu != null) {
-				sb.AppendFormat ("\n");
-				Menu.RenderTo(sb);
 			}
 
 			sb.AppendFormat ("\n");
@@ -73,65 +57,100 @@ namespace BitterEnd {
 				DialoguePart = dialoguePart;
 				_currentElement = 0;
 				_returns = new Stack<Return>();
+
+				ProcessUntilLine();
 			}
 			
-			public DialogueLine CurrentLine {
+			public DialogueElement CurrentElement {
 				get {
-					return (DialogueLine) DialoguePart.Elements[_currentElement];
+					Debug.Log ("Get element " + _currentElement.ToString() + " from " + DialoguePart);
+					return DialoguePart.Elements[_currentElement];
 				}
 			}
-			
-			public bool Next() {
-				while (true) {
-					++_currentElement;
 
-					if (_currentElement >= DialoguePart.Elements.Count) {
-						if (!_returns.Any()) {
-							return false;
-						} else {
-							var ourReturn = _returns.Pop ();
-							DialoguePart = ourReturn.DialoguePart;
-							_currentElement = ourReturn.NextElement - 1;
-							continue;
-						}
+			public bool Next() {
+				++_currentElement;
+				ProcessUntilLine ();
+
+				if (DialoguePart == null || _currentElement >= DialoguePart.Elements.Count) {
+					if (!_returns.Any()) {
+						return false;
 					}
 
-					var element = DialoguePart.Elements[_currentElement];
+					Debug.Log ("Returning");
+					var ourReturn = _returns.Pop ();
+					DialoguePart = ourReturn.DialoguePart;
+					_currentElement = ourReturn.NextElement - 1;
+					return Next ();
+				}
+
+				return true;
+			}
+
+			private void ProcessUntilLine() {
+				while (_currentElement < DialoguePart.Elements.Count) {
+					var element = CurrentElement;
 					// This bit is neither object-oriented nor functional.  Sorry!
 
-					if (element is DialogueLine) {
-						return true;
+					var sb = new StringBuilder ();
+					element.RenderTo (sb);
+					Debug.Log (sb.ToString ());
+
+					if (element is DialogueLine || element is DialogueMenu) {
+						return;
+					}
+
+					var jump = element as DialogueJump;
+					if (jump != null) {
+						// Jumps always clear the return stack (for conditionals).
+						_returns = new Stack<Return> ();
+
+						DialoguePart = jump.Target;
+						if (DialoguePart == null) {
+							return;
+						}
+
+						_currentElement = 0;
+						continue;
 					}
 
 					var assignment = element as DialogueAssignment;
 					if (assignment != null) {
-						ValueStore.Store(assignment.Variable, assignment.Value);
+						ValueStore.Store (assignment.Variable, assignment.Value);
+						++_currentElement;
 						continue;
 					}
 
 					var conditional = element as DialogueConditional;
 					if (conditional != null) {
-						var value = ValueStore.Retrieve(conditional.Variable) ^ conditional.Negated;
-						if (value) {
-							_returns.Push (new Return(DialoguePart, _currentElement + 1));
-							DialoguePart = conditional.DialoguePart;
-							_currentElement = -1;
+						var value = ValueStore.Retrieve (conditional.Variable) ^ conditional.Negated;
+						if (!value) {
+							++_currentElement;
+							continue;
 						}
+
+						sb = new StringBuilder ();
+						conditional.DialoguePart.RenderTo (sb);
+						Debug.Log (sb.ToString ());
+						_returns.Push (new Return (DialoguePart, _currentElement + 1));
+						DialoguePart = conditional.DialoguePart;
+						_currentElement = 0;
 						continue;
 					}
 
 					var sound = element as DialogueSound;
 					if (sound != null) {
-						var audioClip = Resources.Load<AudioClip>(string.Format ("Sounds/{0}", sound.ResourceId));
-		
-						var audioSource = GameObject.FindGameObjectWithTag("DialogueController").GetComponent<AudioSource>();
+						var audioClip = Resources.Load<AudioClip> (string.Format ("Sounds/{0}", sound.ResourceId));
+
+						var audioSource = GameObject.FindGameObjectWithTag ("DialogueController").GetComponent<AudioSource> ();
 						audioSource.clip = audioClip;
 						audioSource.Play ();
 
+						++_currentElement;
 						continue;
 					}
 
-					throw new InvalidOperationException(string.Format ("Unknown DialogueElement: {0}", element));
+					throw new InvalidOperationException (string.Format ("Unknown DialogueElement: {0}", element));
 				}
 			}
 		}

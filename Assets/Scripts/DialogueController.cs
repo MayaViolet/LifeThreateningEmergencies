@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DaikonForge;
@@ -56,30 +57,70 @@ public class DialogueController : MonoBehaviour
 	public void BeginDialogue (Dialogue dialogue)
 	{
 		dialogueIterator = dialogue.Start ();
-		ShowLine (dialogueIterator.CurrentLine);
+		ShowCurrent ();
 	}
 
 	public void AdvanceDialogue ()
 	{
-		if (dialogueIterator.Next ()) {
-			ShowLine (dialogueIterator.CurrentLine);
-			return;
-		}
-
-		var jumpTarget = dialogueIterator.DialoguePart.JumpTarget;
-		if (jumpTarget != null) {
-			dialogueIterator = jumpTarget.Start ();
-			ShowLine (dialogueIterator.CurrentLine);
-			return;
-		}
-
-		// Check for menu display, otherwise we're done.
-		var menu = dialogueIterator.DialoguePart.Menu;
-		if (menu == null) {
+		if (!dialogueIterator.Next ()) {
 			visible = false;
 			return;
 		}
 
+		ShowCurrent ();
+	}
+
+	private void ShowCurrent() {
+		var element = dialogueIterator.CurrentElement;
+		
+		var line = element as DialogueLine;
+		if (line != null) {
+			ShowLine (line);
+			return;
+		}
+		
+		var menu = element as DialogueMenu;
+		if (menu != null) {
+			ShowMenu (menu);
+			return;
+		}
+		
+		throw new FormatException (string.Format ("Couldn't show a {0}.", element));
+	}
+	
+	private void ShowLine (DialogueLine newLine)
+	{
+		dialogueText.text = newLine.Text;
+		
+		string portraitId = null;
+		var character = newLine.Character;
+		
+		if (character != null) {
+			portraitId = newLine.Character.PortraitId;
+			dialogueTitle.text = character.Friendly;
+			dialogueText.text = string.Format ("\n{0}", dialogueText.text);
+		} else {
+			dialogueTitle.text = "";
+		}
+		
+		if (portraitId != null) {
+			var texture = Resources.Load<Sprite> (string.Format ("Portraits/{0}", portraitId));
+			if (texture == null) {
+				Debug.LogError (string.Format ("Portrait '{0}' not found", portraitId));
+				portraitImage.enabled = false;
+			} else {
+				portraitImage.sprite = texture;
+				portraitImage.enabled = true;
+			}
+		} else {
+			portraitImage.enabled = false;
+		}
+		
+		visible = true;
+	}
+
+	private void ShowMenu(DialogueMenu menu) {
+		// Check for menu display, otherwise we're done.
 		if (_menuButtons != null) {
 			// Don't double-show menu.
 			return;
@@ -115,43 +156,12 @@ public class DialogueController : MonoBehaviour
 
 		_menuButtons = null;
 
-		if (choice.JumpTarget == null) {
+		if (choice.DialogueJump == null) {
 			visible = false;
 			return;
 		}
 
-		dialogueIterator = choice.JumpTarget.Start ();
-		ShowLine (dialogueIterator.CurrentLine);
-	}
-
-	private void ShowLine (DialogueLine newLine)
-	{
-		dialogueText.text = newLine.Text;
-
-		string portraitId = null;
-		var character = newLine.Character;
-
-		if (character != null) {
-			portraitId = newLine.Character.PortraitId;
-			dialogueTitle.text = character.Friendly;
-			dialogueText.text = string.Format ("\n{0}", dialogueText.text);
-		} else {
-			dialogueTitle.text = "";
-		}
-
-		if (portraitId != null) {
-			var texture = Resources.Load<Sprite> (string.Format ("Portraits/{0}", portraitId));
-			if (texture == null) {
-				Debug.LogError (string.Format ("Portrait '{0}' not found", portraitId));
-				portraitImage.enabled = false;
-			} else {
-				portraitImage.sprite = texture;
-				portraitImage.enabled = true;
-			}
-		} else {
-			portraitImage.enabled = false;
-		}
-
-		visible = true;
+		dialogueIterator = choice.DialogueJump.Target.Start ();
+		ShowCurrent ();
 	}
 }
