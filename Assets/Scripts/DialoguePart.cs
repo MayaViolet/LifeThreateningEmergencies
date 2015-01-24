@@ -96,7 +96,7 @@ namespace BitterEnd {
 					element.RenderTo (sb);
 					Debug.Log (sb.ToString ());
 
-					if (element is DialogueLine || element is DialogueMenu) {
+					if (element is DialogueLine || element is DialogueMenu || element is DialogueTransition) {
 						return;
 					}
 

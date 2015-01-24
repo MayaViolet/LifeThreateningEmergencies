@@ -1,0 +1,9 @@
+define enok = Character('Enok')
+define nalini = Character('Nalini')
+
+label start:
+  $ visited_farm_once = True
+  nalini "Oh, Enok! Need a hand with anything?"
+  enok "Just grabbing some carrots. Thanks, though."
+  nalini "Okay, just shout if you need anything."
+  enok "Will do."
