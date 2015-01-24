@@ -2,6 +2,10 @@ define enok = Character('Enok')
 define nalini = Character('Nalini')
   
 label start:
+  if visited_farm_twice:
+    jump visited_farm_twice
+  endif
+  
   nalini "Need a hand?"
 
   menu:
@@ -19,3 +23,6 @@ label makeout:
   nalini "Actually... I'm busy later too. Sorry!"
   enok "Alright, your loss."
   nalini "It's really not. Bye."
+
+label visited_farm_twice:
+  nalini "Ripening onions? Easy! Just put them in this machine and the AI will handle the rest."

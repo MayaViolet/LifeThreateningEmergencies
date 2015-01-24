@@ -22,7 +22,8 @@ label visited_farm_twice:
       jump remind_to_ripen
     endif
   endif
-  transition: "Lift"
+  
+  transition: "Mess"
   
 label remind_to_ripen:
   $ reminded_to_ripen = True

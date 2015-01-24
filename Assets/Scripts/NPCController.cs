@@ -28,7 +28,7 @@ public class NPCController : MonoBehaviour {
 
 	void OnDialogue(DialogueLine nextLine)
 	{
-		if (nextLine.Character.Name == characterName)
+		if (nextLine.Character != null && nextLine.Character.Name == characterName)
 		{
 			animation.Play();
 		}
