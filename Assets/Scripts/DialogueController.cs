@@ -25,6 +25,8 @@ public class DialogueController : MonoBehaviour
 	private bool _visible;
 	private List<Button> _menuButtons;
 
+	public event Action<DialogueLine> OnDisplayedLine;
+
 	public bool visible {
 		get {
 			return _visible;
@@ -99,9 +101,13 @@ public class DialogueController : MonoBehaviour
 		
 		throw new FormatException (string.Format ("Couldn't show a {0}.", element));
 	}
-	
+
 	private void ShowLine (DialogueLine newLine)
 	{
+		if (OnDisplayedLine != null) {
+			OnDisplayedLine (newLine);
+		}
+
 		dialogueText.text = newLine.Text;
 		
 		string portraitId = null;
