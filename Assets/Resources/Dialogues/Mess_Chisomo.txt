@@ -83,8 +83,17 @@ label talked_shower:
   "He doesn't look too interested in talking much more."
   
 label spoke_to_jordyn:
+  if mentioned_kettle:
+    jump mentioned_kettle
+  endif
+  
+  $ mentioned_kettle = True
+  
   chisomo "Fixed that hot water yet?"
   enok "Nope."
   chisomo "I think we've got a kettle around here somewhere."
   enok "I'm not that desperate."
   chisomo "Suit yourself."
+
+label mentioned_kettle:
+  "..."
