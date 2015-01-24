@@ -1715,6 +1715,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1808221598}
   - 212: {fileID: 1808221597}
+  - 114: {fileID: 1808221599}
   m_Layer: 0
   m_Name: Garden_Bottom
   m_TagString: HeightSort
@@ -1756,6 +1757,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!114 &1808221599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1808221596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d02c9939f7494663ae6f01b9550af05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: Farm_Machine
 --- !u!1 &1882156078
 GameObject:
   m_ObjectHideFlags: 0
