@@ -22,12 +22,17 @@ public class MusicLoopBehaviour : MonoBehaviour
 				_wait = Clips [index].length;
 				AudioSource.Play ();
 		}
-	
+
 		void Update ()
 		{
 				_wait -= Time.deltaTime;
+
 				if (_wait < 0) {
-						PlayClip ((_clipIndex + 1) % _clipCount);
+						int next = _clipIndex;
+						while (next == _clipIndex) {
+								next = Random.Range (0, _clipCount);
+						}
+						PlayClip (next);
 				}
 		}
 }
