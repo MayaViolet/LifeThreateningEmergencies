@@ -13,4 +13,17 @@ label start:
   enok "Will do."
 
 label all_hell_broke_loose:
+  if observed_kettle:
+    jump observed_kettle
+  endif
+  
   $ visited_farm_twice = True
+  
+label observed_kettle:
+  if observed_bucket:
+    jump observed_bucket
+  endif
+  
+  "There's a bucket collecting water."
+  
+label observed_bucket:

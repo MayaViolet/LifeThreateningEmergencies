@@ -25,4 +25,20 @@ label makeout:
   nalini "It's really not. Bye."
 
 label visited_farm_twice:
+  if observed_bucket:
+    jump observed_bucket
+  endif
+  
   nalini "Ripening onions? Easy! Just put them in this machine and the AI will handle the rest."
+  
+label observed_bucket:
+  $ spanner_quest = True
+  nalini "Oh, back again?"
+  enok "I need a bucket."
+  nalini "Well, you can't have that one."
+  enok "Is there another one?"
+  nalini "No."
+  enok "Okay..."
+  nalini "I could fix the leak if I could find my spanner."
+  enok "Fine, I'll find your bloody spanner."
+  nalini "Really? Thank you!"
