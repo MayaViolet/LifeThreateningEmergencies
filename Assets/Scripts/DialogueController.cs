@@ -170,10 +170,18 @@ public class DialogueController : MonoBehaviour
 		_menuButtons = new List<Button> ();
 
 		var cumulativeHeight = 0f;
+		var cumulativeDelay = 0f;
 		foreach (var choice in menu.Choices) {
 			var button = (Button)Instantiate (menuButton);
 			button.transform.SetParent (this.transform, false);
 			button.GetComponentInChildren<Text> ().text = choice.Text;
+			//animate buttons appearing
+			button.TweenScaleFrom(Vector3.zero)
+				.SetDelay(cumulativeDelay)
+				.SetDuration(0.25f)
+				.SetEasing(TweenEasingFunctions.EaseOutQuad)
+				.Play();
+			cumulativeDelay += 0.125f;
 
 			var selectedChoice = choice;
 			button.onClick.AddListener (() => MenuChoiceSelected (selectedChoice));
@@ -192,7 +200,12 @@ public class DialogueController : MonoBehaviour
 	private void MenuChoiceSelected (DialogueMenu.Choice choice)
 	{
 		foreach (var button in _menuButtons) {
-			Destroy (button.gameObject);
+			var otherButton = button;
+			button.TweenScaleTo(Vector3.zero)
+				.SetDuration(0.25f)
+				.SetEasing(TweenEasingFunctions.EaseInQuad)
+				.OnCompleted((TweenBase tween) => Destroy(otherButton))
+				.Play();
 		}
 
 		_menuButtons = null;
