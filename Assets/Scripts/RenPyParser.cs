@@ -69,6 +69,12 @@ namespace BitterEnd
 		private static readonly Regex _parseAnimate =
 			new Regex (@"^animate: (['""])((?:\\\1|.)*?)\1$", RegexOptions.IgnoreCase);
 
+		private static readonly Regex _parseFade =
+			new Regex (@"^fade: (['""])(in|out)\1$", RegexOptions.IgnoreCase);
+
+		private static readonly Regex _parseWait =
+			new Regex (@"^wait: ([0-9.]+)$", RegexOptions.IgnoreCase);
+
 		private enum ParserState {
 			PROLOGUE,
 			LINES,
@@ -127,7 +133,7 @@ namespace BitterEnd
 						continue;
 					}
 
-					if (ParseAssign(line)) {
+					if (ParseAssign (line)) {
 						continue;
 					}
 
@@ -152,7 +158,15 @@ namespace BitterEnd
 						continue;
 					}
 
-					if (ParseAnimate(line)) {
+					if (ParseAnimate (line)) {
+						continue;
+					}
+
+					if (ParseFade (line)) {
+						continue;
+					}
+
+					if (ParseWait (line)) {
 						continue;
 					}
 
@@ -382,6 +396,26 @@ namespace BitterEnd
 
 			_currentPart.Elements.Add (new DialogueAnimate (match.Groups[2].Value));
 
+			return true;
+		}
+
+		private bool ParseFade(string line) {
+			var match = _parseFade.Match (line);
+			if (!match.Success) {
+				return false;
+			}
+
+			_currentPart.Elements.Add (new DialogueFade (match.Groups [2].Value.ToLower () == "in" ? DialogueFade.FadeMode.IN : DialogueFade.FadeMode.OUT));
+			return true;
+		}
+
+		private bool ParseWait(string line) {
+			var match = _parseWait.Match (line);
+			if (!match.Success) {
+				return false;
+			}
+
+			_currentPart.Elements.Add (new DialogueWait(float.Parse (match.Groups [1].Value)));
 			return true;
 		}
 	}

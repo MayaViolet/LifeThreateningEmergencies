@@ -121,6 +121,18 @@ public class DialogueController : MonoBehaviour
 			TransitionHandler.Instance.TransitionTo (transition.SceneId);
 			return;
 		}
+
+		var fade = element as DialogueFade;
+		if (fade != null) {
+			AdvanceDialogue();
+			return;
+		}
+
+		var wait = element as DialogueWait;
+		if (wait != null) {
+			Invoke ("AdvanceDialogue", wait.Time);
+			return;
+		}
 		
 		throw new FormatException (string.Format ("Couldn't show a {0}.", element));
 	}

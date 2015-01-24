@@ -95,7 +95,8 @@ namespace BitterEnd {
 					var element = CurrentElement;
 					// This bit is neither object-oriented nor functional.  Sorry!
 
-					if (element is DialogueLine || element is DialogueMenu || element is DialogueTransition) {
+					if (element is DialogueLine || element is DialogueMenu || element is DialogueTransition
+					    || element is DialogueFade || element is DialogueWait) {
 						return true;
 					}
 
