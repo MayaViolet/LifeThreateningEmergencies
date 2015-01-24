@@ -1,22 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 using System.Collections;
 using BitterEnd;
 
-public class DialogueInteraction : MonoBehaviour, IPointerClickHandler {
-
-	public string dialogue;
-	DialogueController controller;
-
-	void Start()
-	{
-		GameObject controllerGO = GameObject.FindGameObjectWithTag("DialogueController");
-		controller = controllerGO.GetComponent<DialogueController>();
+public class DialogueInteraction : AbstractInteraction {
+	protected override void PerformInteraction() {
+		_dialogueController.BeginDialogue(RenPyParser.ReadDialogueFromResources(dialogue));
 	}
-
-	void IPointerClickHandler.OnPointerClick (PointerEventData eventData)
-	{
-		controller.BeginDialogue(RenPyParser.ReadDialogueFromResources(dialogue));
-	}
-
 }

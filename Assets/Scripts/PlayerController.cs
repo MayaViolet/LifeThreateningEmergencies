@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 using System.Collections;
 using DaikonForge;
 using DaikonForge.Tween;
@@ -17,6 +18,11 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnMovementClick(Vector3 location)
+	{
+		MoveTo (location);
+	}
+
+	public void MoveTo(Vector3 location, Action onComplete = null)
 	{
 		Vector3 offset = location - transform.position;
 		float distance = offset.magnitude;
@@ -38,15 +44,16 @@ public class PlayerController : MonoBehaviour {
 		{
 			currentTween.Stop();
 		}
+
 		anim.SetBool("Walking", true);
 		currentTween = transform.TweenMoveTo(location)
 			.SetDuration(time)
-			.OnCompleted(OnMoveComplete)
+			.OnCompleted(tween => {
+					anim.SetBool ("Walking", false);
+					if (onComplete != null) {
+						onComplete();
+					}
+			})
 			.Play();
-	}
-
-	void OnMoveComplete(TweenBase tween)
-	{
-		anim.SetBool("Walking", false);
 	}
 }

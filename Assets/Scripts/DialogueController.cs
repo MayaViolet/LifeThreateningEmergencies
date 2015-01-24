@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -104,7 +104,7 @@ public class DialogueController : MonoBehaviour {
 		}
 	}
 
-	private void MenuChoiceSelected(Menu.Choice choice) {
+	private void MenuChoiceSelected(DialogueMenu.Choice choice) {
 		foreach (var button in _menuButtons) {
 			Destroy (button.gameObject);
 		}
@@ -115,7 +115,7 @@ public class DialogueController : MonoBehaviour {
 		ShowLine (dialogueIterator.CurrentLine);
 	}
 	
-	private void ShowLine(Line newLine)
+	private void ShowLine(DialogueLine newLine)
 	{
 		dialogueText.text = newLine.Text;
 

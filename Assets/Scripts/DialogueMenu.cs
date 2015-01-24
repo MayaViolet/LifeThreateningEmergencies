@@ -1,15 +1,23 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace BitterEnd
 {
-	public class Menu
+	public class DialogueMenu
 	{
 		public List<Choice> Choices { get { return _choices; } }
 		private List<Choice> _choices = new List<Choice>();
 
-		public Menu ()
+		public DialogueMenu ()
 		{
+		}
+
+		public void RenderTo(StringBuilder sb) {
+			sb.AppendFormat ("menu:\n");
+			foreach (var choice in _choices) {
+				sb.AppendFormat ("\t\"{0}\":\n\t\tjump {1}\n", choice.Text, choice.JumpTarget.Name);
+			}
 		}
 
 		public class Choice
