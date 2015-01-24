@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: CatEmote
+  serializedVersion: 4
+  m_AnimationType: 1
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves: []
+  m_CompressedRotationCurves: []
+  m_PositionCurves: []
+  m_ScaleCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: .600000143, y: -.809999943, z: 0}
+        outSlope: {x: .600000143, y: -.809999943, z: 0}
+        tangentMode: 19
+      - time: .333333343
+        value: {x: 1.20000005, y: .730000019, z: 1}
+        inSlope: {x: -.300000131, y: .335000098, z: 0}
+        outSlope: {x: -.300000131, y: .335000098, z: 0}
+        tangentMode: 1132724224
+      - time: .583333313
+        value: {x: .899999976, y: 1.10000002, z: 1}
+        inSlope: {x: -.480000198, y: .620000064, z: 0}
+        outSlope: {x: -.480000198, y: .620000064, z: 0}
+        tangentMode: 1108082688
+      - time: 1
+        value: {x: 1, y: 1, z: 1}
+        inSlope: {x: .240000039, y: -.240000039, z: 0}
+        outSlope: {x: .240000039, y: -.240000039, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    path: 
+  m_FloatCurves: []
+  m_PPtrCurves: []
+  m_SampleRate: 60
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings: []
+    pptrCurveMapping: []
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_StartTime: 0
+    m_StopTime: 1
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_LoopTime: 0
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: .600000143
+        outSlope: .600000143
+        tangentMode: 10
+      - time: .333333343
+        value: 1.20000005
+        inSlope: -.300000131
+        outSlope: -.300000131
+        tangentMode: 10
+      - time: .583333313
+        value: .899999976
+        inSlope: -.480000198
+        outSlope: -.480000198
+        tangentMode: 10
+      - time: 1
+        value: 1
+        inSlope: .240000039
+        outSlope: .240000039
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalScale.x
+    path: 
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: -.809999943
+        outSlope: -.809999943
+        tangentMode: 10
+      - time: .333333343
+        value: .730000019
+        inSlope: .335000098
+        outSlope: .335000098
+        tangentMode: 10
+      - time: .583333313
+        value: 1.10000002
+        inSlope: .620000064
+        outSlope: .620000064
+        tangentMode: 10
+      - time: 1
+        value: 1
+        inSlope: -.240000039
+        outSlope: -.240000039
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalScale.y
+    path: 
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .333333343
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: .583333313
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalScale.z
+    path: 
+    classID: 4
+    script: {fileID: 0}
+  m_EulerEditorCurves: []
+  m_Events: []
