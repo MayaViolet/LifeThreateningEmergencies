@@ -1,0 +1,21 @@
+define annie = Character('Annie')
+define varus = Character("Varus")
+
+label start:
+	"Ambient text ..."
+
+	annie "Something about rice cakes."
+	varus "Sounds good."
+	
+menu:
+	"Thin rice cakes.":
+		jump thin
+	
+	"Thick rice cakes.":
+		jump thick
+		
+label thin:
+	annie "You're right, thin rice cakes are the best."
+
+label thick:
+	varus "Excellent choice."
