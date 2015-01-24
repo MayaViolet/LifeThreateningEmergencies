@@ -11,27 +11,45 @@ public class ValueStore
 			if (_instance == null)
 			{
 				_instance = new ValueStore();
+				
+				// XXX: testing only!
+				Store ("visited_farm_once", true);
+				Store ("all_hell_broke_loose", true);
 			}
 			return _instance;
 		}
 	}
 
 	Dictionary<string, bool> store;
+	Dictionary<string, List<Action<bool>>> callbacks;
 
 	private ValueStore ()
 	{
 		store = new Dictionary<string, bool>();
+		callbacks = new Dictionary<string, List<Action<bool>>> ();
 	}
 
 	public static void Store(string key, bool value)
 	{
+		bool oldValue;
 		if (!Instance.store.ContainsKey(key))
 		{
+			oldValue = false;
 			Instance.store.Add(key, value);
 		}
 		else
 		{
+			oldValue = Instance.store[key];
 			Instance.store[key] = value;
+		}
+
+		if (oldValue != value) {
+			List<Action<bool>> callbacks;
+			if (Instance.callbacks.TryGetValue(key, out callbacks)) {
+				foreach (var callback in callbacks) {
+					callback(value);
+				}
+			}
 		}
 	}
 
@@ -47,6 +65,15 @@ public class ValueStore
 	public static void Clear()
 	{
 		Instance.store = new Dictionary<string, bool>();
+	}
+
+	public static void OnValueChanged(string key, Action<bool> callback) {
+		List<Action<bool>> callbacks;
+		if (!Instance.callbacks.TryGetValue (key, out callbacks)) {
+			callbacks = Instance.callbacks [key] = new List<Action<bool>> ();
+		}
+
+		callbacks.Add (callback);
 	}
 }
 

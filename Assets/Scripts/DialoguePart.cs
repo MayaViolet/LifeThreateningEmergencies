@@ -63,7 +63,6 @@ namespace BitterEnd {
 			
 			public DialogueElement CurrentElement {
 				get {
-					Debug.Log ("Get element " + _currentElement.ToString() + " from " + DialoguePart);
 					return DialoguePart.Elements[_currentElement];
 				}
 			}
@@ -79,8 +78,7 @@ namespace BitterEnd {
 						if (!_returns.Any()) {
 							return false;
 						}
-						
-						Debug.Log ("Returning");
+
 						var ourReturn = _returns.Pop ();
 						DialoguePart = ourReturn.DialoguePart;
 						_currentElement = ourReturn.NextElement;
@@ -88,10 +86,6 @@ namespace BitterEnd {
 
 					var element = CurrentElement;
 					// This bit is neither object-oriented nor functional.  Sorry!
-
-					var sb = new StringBuilder ();
-					element.RenderTo (sb);
-					Debug.Log (sb.ToString ());
 
 					if (element is DialogueLine || element is DialogueMenu || element is DialogueTransition) {
 						return true;
@@ -126,9 +120,6 @@ namespace BitterEnd {
 							continue;
 						}
 
-						sb = new StringBuilder ();
-						conditional.DialoguePart.RenderTo (sb);
-						Debug.Log (sb.ToString ());
 						_returns.Push (new Return (DialoguePart, _currentElement + 1));
 						DialoguePart = conditional.DialoguePart;
 						_currentElement = 0;

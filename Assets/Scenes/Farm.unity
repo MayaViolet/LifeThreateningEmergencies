@@ -216,7 +216,7 @@ Transform:
   m_Children:
   - {fileID: 969606308}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
 --- !u!111 &72607621
 Animation:
   m_ObjectHideFlags: 0
@@ -416,7 +416,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 1602923155
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e2037fb3b93204ef0b73e497e503bd1b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a298b1083c6a499db7aa778c0108bda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &400685979
 Transform:
@@ -548,7 +548,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!114 &528814567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1278,7 +1278,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!1 &1155583452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,7 +1705,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!1 &1808221596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1715,7 +1715,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1808221598}
   - 212: {fileID: 1808221597}
-  m_Layer: 0
+  - 114: {fileID: 1808221599}
+  - 65: {fileID: 1808221600}
+  m_Layer: 9
   m_Name: Garden_Bottom
   m_TagString: HeightSort
   m_Icon: {fileID: 0}
@@ -1756,6 +1758,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!114 &1808221599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1808221596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d02c9939f7494663ae6f01b9550af05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: Farm_Machine
+--- !u!65 &1808221600
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1808221596}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 18.4765625, y: .860000014, z: .200000003}
+  m_Center: {x: 0, y: .50999999, z: 0}
 --- !u!1 &1882156078
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,6 +1795,7 @@ GameObject:
   - 114: {fileID: 1882156079}
   - 114: {fileID: 1882156083}
   - 82: {fileID: 1882156084}
+  - 114: {fileID: 1882156085}
   m_Layer: 5
   m_Name: DialogueCanvas
   m_TagString: DialogueController
@@ -1923,3 +1950,121 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &1882156085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882156078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2305824c65ae249fc84f26c7d9ed6b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VisibleWhenFlagIs: 1
+  Flag: collected_onion
+--- !u!1 &1924516250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1924516252}
+  - 212: {fileID: 1924516251}
+  - 65: {fileID: 1924516254}
+  - 114: {fileID: 1924516253}
+  - 114: {fileID: 1924516256}
+  - 111: {fileID: 1924516255}
+  m_Layer: 0
+  m_Name: Onion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1924516251
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1924516250}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 3ecc2a3a0d3cd4dcd864f72004a078cf, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!4 &1924516252
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1924516250}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.76600003, y: 2.1500001, z: -9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+--- !u!114 &1924516253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1924516250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d02c9939f7494663ae6f01b9550af05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: Farm_Onion
+--- !u!65 &1924516254
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1924516250}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.47113228, y: 1.20419741, z: .200000003}
+  m_Center: {x: .864189386, y: -.181267262, z: 0}
+--- !u!111 &1924516255
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1924516250}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0f464c6d971ec4707879ebe051978f2d, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 0f464c6d971ec4707879ebe051978f2d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &1924516256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1924516250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19c078c0ac8f4838ae0e037bd05ffe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  singleUse: 0

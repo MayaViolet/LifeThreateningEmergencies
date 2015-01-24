@@ -1,0 +1,4 @@
+label start:
+  $ collected_onions = True
+  "Hmm, they're not quite ready..."
+  "Ah well."
