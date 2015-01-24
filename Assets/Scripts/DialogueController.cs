@@ -18,10 +18,18 @@ public class DialogueController : MonoBehaviour {
 	Vector3 showPosition;
 	Vector3 hidePosition;
 
+	private bool _visible;
+
 	public bool visible
 	{
+		get {
+			return _visible;
+		}
+
 		set
 		{
+			_visible = value;
+
 			if (value)
 			{
 				dialogueBase.TweenMoveTo(showPosition)
