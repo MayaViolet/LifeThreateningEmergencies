@@ -30,7 +30,7 @@ namespace BitterEnd
 		}
 
 		private static readonly Regex _parseDefine =
-			new Regex(@"^define\s+(\w+)\s+=\s+Character\((['""])((?:\\\2|.)*?)\2\)$", RegexOptions.IgnoreCase);
+			new Regex(@"^define\s+(\w+)\s*=\s*Character\((['""])((?:\\\2|.)*?)\2(?:\s*,\s*(['""])((?:\\\4|.)*?)\4)?\)$", RegexOptions.IgnoreCase);
 
 		private static readonly Regex _parseLabel =
 			new Regex (@"^label\s+(\w+):$", RegexOptions.IgnoreCase);
@@ -59,7 +59,8 @@ namespace BitterEnd
 				if ((match = _parseDefine.Match (line)).Success) {
 					var name = match.Groups[1].Value;
 					var friendly = match.Groups[3].Value;
-					dialogue.Characters[name] = new Character(friendly);
+					var portraitId = match.Groups[5].Success ? match.Groups[5].Value : null;
+					dialogue.Characters[name] = new Character(friendly, portraitId);
 					continue;
 				}
 

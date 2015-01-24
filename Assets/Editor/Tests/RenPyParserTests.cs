@@ -29,6 +29,9 @@ namespace BitterEnd
 			Assert.AreEqual ("Annie", annie.Name);
 			Assert.AreEqual ("Varus", varus.Name);
 
+			Assert.AreEqual ("annie_portrait", annie.PortraitId);
+			Assert.IsNull (varus.PortraitId);
+
 			CollectionAssert.AreEquivalent (new[] {"start", "thin", "thick"}, dialogue.DialogueParts.Keys);
 			CollectionAssert.AreEqual (
 			new[] {
