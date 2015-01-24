@@ -1,4 +1,8 @@
 label start:
+  if spoke_to_jordyn:
+    transition: "Mess"
+  endif
+  
   if all_hell_broke_loose:
     transition: "Farm"
    endif

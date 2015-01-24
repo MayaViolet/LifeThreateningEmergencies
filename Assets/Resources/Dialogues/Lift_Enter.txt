@@ -33,6 +33,8 @@ label all_hell_broke_loose:
   ai "Confirmed. Destination: farm."
 
 label talked_shower:
+  $ spoke_to_jordyn = True
+  
   ai "Where can I take you, ENOK SØRENSEN?"
   enok "The hot water is busted. I need to find someone who can fix it."
   ai "JORDYN MILLS would be the most qualified for this role."

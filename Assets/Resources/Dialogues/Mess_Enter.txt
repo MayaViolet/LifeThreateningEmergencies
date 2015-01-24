@@ -59,4 +59,12 @@ label relax:
   enok "Great, I'll get you onions."
   
 label visited_farm_twice:
+  if spoke_to_jordyn:
+    jump spoke_to_jordyn
+  endif
+  
   chisomo "You got the onions? Great, bring 'em over here."
+  
+label spoke_to_jordyn:
+  "I <i>really</i> don't want to have a cold shower."
+  "But is it really that important?"
