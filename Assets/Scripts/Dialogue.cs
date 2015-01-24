@@ -16,14 +16,33 @@ namespace BitterEnd
 		}
 
 		public static Dialogue GetTestDialogue() {
+
 			var d = new Dialogue ();
 
 			var leona = d.Characters ["Leona"] = new Character ("Leona");
 			var ashe = d.Characters ["Ashe"] = new Character ("Ashe");
 
+			var thin = d.DialogueParts ["thin"] = new DialoguePart ("thin");
+			thin.Lines.AddRange (new[] {
+				new Line (leona, "SEEMS FINE."),
+			});
+
+			var thick = d.DialogueParts ["thick"] = new DialoguePart ("thick");
+			thick.Lines.AddRange (new[] {
+				new Line (ashe, "~wowdy~"),
+			});
+
 			var start = d.DialogueParts ["start"] = new DialoguePart ("start");
-			start.Lines.Add(new Line(leona, "<i>~thin <b>rice</b> cakes~</i>\nWowdy!"));
-			start.Lines.Add (new Line (ashe, "Even better than <b>thick</b> rice cakes!"));
+			start.Lines.AddRange (new [] {
+				new Line (leona, "<i>~thin <b>rice</b> cakes~</i>\nWowdy!"),
+				new Line (ashe, "Even better than <b>thick</b> rice cakes!"),
+			});
+
+			start.Menu = new Menu ();
+			start.Menu.Choices.AddRange (new[] {
+				new Menu.Choice ("I prefer thin rice cakes.") {JumpTargetLabel = "thin", JumpTarget = thin},
+				new Menu.Choice ("Thick rice cakes are ethically superior.") {JumpTargetLabel = "thick", JumpTarget = thick},
+			});
 
 			return d;
 		}
@@ -34,24 +53,27 @@ namespace BitterEnd
 
 		public class Iterator {
 			private Dialogue _dialogue;
-			private DialoguePart _currentPart;
+			public DialoguePart CurrentPart { get; private set; }
 			private int _currentLine;
 
-			public Iterator(Dialogue dialogue) {
+			public Iterator(Dialogue dialogue): this(dialogue, "start") {
+			}
+
+			public Iterator(Dialogue dialogue, string part) {
 				_dialogue = dialogue;
-				_currentPart = _dialogue.DialogueParts["start"];
+				CurrentPart = _dialogue.DialogueParts[part];
 				_currentLine = 0;
 			}
 
 			public Line CurrentLine {
 				get {
-					return _currentPart.Lines[_currentLine];
+					return CurrentPart.Lines[_currentLine];
 				}
 			}
 
 			public bool Next() {
 				++_currentLine;
-				return _currentLine < _currentPart.Lines.Count;
+				return _currentLine < CurrentPart.Lines.Count;
 			}
 		}
 	}
