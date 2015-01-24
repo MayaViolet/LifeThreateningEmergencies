@@ -1,3 +1,6 @@
+define nalini = Character('Nalini')
+define enok = Character('Enok')
+
 label start:
   if observed_bucket:
     jump observed_bucket
@@ -42,4 +45,4 @@ label spanner:
 label thief:
   nalini "Ugh, you're so selfish, Enok."
   $ bucket_acquired = True
-
+  $ bucket_stolen = True

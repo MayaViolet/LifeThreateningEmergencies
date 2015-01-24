@@ -113,6 +113,10 @@ label spoke_to_jordyn:
   endif
   
 label observed_kettle:
+  if water_boiled:
+    jump water_boiled
+  endif
+  
   ai "Would you like to go to the showers?"
   $ kettle_to_farm = False
   
@@ -133,3 +137,19 @@ label to_farm:
   
 label coldshower:
   "Well, at least I'm clean."
+
+label water_boiled:
+  ai "Would you like to go to the showers now?"
+  $ kettle_to_farm = False
+
+  menu:
+    "Yep!":
+      jump hotshower
+	
+    "Not yet.":
+	  return
+	  
+label hotshower:
+  sound: "elevator"
+  ai "Confirmed. Destination: showers."
+  "That was worth the wait."

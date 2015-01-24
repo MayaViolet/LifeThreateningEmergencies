@@ -96,4 +96,25 @@ label spoke_to_jordyn:
   chisomo "Suit yourself."
 
 label mentioned_kettle:
+  if spanner_quest:
+    jump spanner_quest
+  endif
+  
+  "..."
+  
+label spanner_quest:
+  if asked_chisomo_re_spanner:
+    jump asked_chisomo_re_spanner
+  endif
+  $ asked_chisomo_re_spanner = True
+  chisomo "Spanner? Don't ask me!"
+  
+label asked_chisomo_re_spanner:
+  if asked_chisomo_again:
+    jump asked_chisomo_again
+  endif
+  $ asked_chisomo_again = True
+  chisomo "You again!? Have you even checked the kitchen cupboard?"
+  
+label asked_chisomo_again:
   "..."

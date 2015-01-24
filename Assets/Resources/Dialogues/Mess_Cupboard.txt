@@ -1,0 +1,5 @@
+label start:
+  "What the…?"
+  "Why is Nalini's spanner in here?"
+  "Well, better get it back to her."
+  $ spanner_acquired = True
