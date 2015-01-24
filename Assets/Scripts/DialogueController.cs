@@ -59,8 +59,15 @@ public class DialogueController : MonoBehaviour {
 				foreach (var choice in menu.Choices) {
 					var button = (Button) Instantiate (menuButton);
 					button.transform.SetParent (this.transform, false);
-					button.GetComponentInChildren<Text>().text = choice.Text;
 					button.transform.position += new Vector3(0, cumulativeHeight, 0);
+
+					button.GetComponentInChildren<Text>().text = choice.Text;
+					var choiceText = choice.Text;
+
+					button.onClick.AddListener(() => {
+						Debug.Log (string.Format ("Choice was selected: {0}", choiceText));
+					});
+
 					cumulativeHeight += button.GetComponent<RectTransform>().rect.height;
 					buttons.Add (button);
 				}
