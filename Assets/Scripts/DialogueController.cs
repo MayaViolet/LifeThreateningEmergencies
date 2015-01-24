@@ -124,7 +124,17 @@ public class DialogueController : MonoBehaviour
 
 		var fade = element as DialogueFade;
 		if (fade != null) {
-			AdvanceDialogue();
+			var gameCamera = Camera.main.GetComponent<GameCamera>();
+
+			TweenBase tween;
+			if (fade.Mode == DialogueFade.FadeMode.IN) {
+				tween = gameCamera.FadeIn (1f);
+			} else {
+				tween = gameCamera.FadeOut (1f);
+				visible = false;
+			}
+
+			tween.OnCompleted(sender => AdvanceDialogue());
 			return;
 		}
 
