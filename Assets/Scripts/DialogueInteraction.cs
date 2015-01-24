@@ -4,14 +4,17 @@ using System;
 using System.Collections;
 using BitterEnd;
 
-public class DialogueInteraction : AbstractInteraction {
-	public string dialogue;
+public class DialogueInteraction : AbstractInteraction
+{
+		public string dialogue;
 
-	protected override void PerformInteraction() {
-		_dialogueController.BeginDialogue(RenPyParser.ReadDialogueFromResources(dialogue));
-	}
+		protected override void PerformInteraction ()
+		{
+				_dialogueController.BeginDialogue (RenPyParser.ReadDialogueFromResources (dialogue));
+		}
 
-	protected override float GetMaximumDistance() {
-		return 2f;
-	}
+		protected override float GetMaximumDistance ()
+		{
+				return 2f;
+		}
 }
