@@ -12,6 +12,7 @@ using BitterEnd;
 public class DialogueController : MonoBehaviour
 {
 	public Text dialogueText;
+	public Text dialogueTitle;
 	public Image portraitImage;
 	public RectTransform dialogueBase;
 	public Button menuButton;
@@ -127,7 +128,16 @@ public class DialogueController : MonoBehaviour
 	{
 		dialogueText.text = newLine.Text;
 
-		var portraitId = newLine.Character != null ? newLine.Character.PortraitId : null;
+		string portraitId = null;
+		var character = newLine.Character;
+
+		if (character != null) {
+			portraitId = newLine.Character.PortraitId;
+			dialogueTitle.text = character.Friendly;
+			dialogueText.text = string.Format ("\n{0}", dialogueText.text);
+		} else {
+			dialogueTitle.text = "";
+		}
 
 		if (portraitId != null) {
 			var texture = Resources.Load<Sprite> (string.Format ("Portraits/{0}", portraitId));

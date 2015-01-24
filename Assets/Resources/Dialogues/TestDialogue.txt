@@ -1,42 +1,21 @@
-define annie = Character("Annie", "Pig")
-define varus = Character("Varus", "SickPig")
+define enok = Character('Enok', 'Pig')
+define tatjana = Character('Tatjana')
+define chisomo = Character('Chisomo', 'SickPig')
+define ai = Character('AI')
+define jordyn = Character('Jordyn')
+
+define cat = Character('Cat')
 
 label start:
-	"Ambient text ..."
+  chisomo "Alright, time to get off my ass and start preparing dinner."
+  chisomo "Enok, we're running low on carrots. Go grab some more, will you?"
+  enok "I literally just got here."
+  chisomo "And I literally need carrots. Assuming you want to eat tonight."
+  enok "Alright, alright."
 
-	annie "Something about rice cakes."
-	
-	sound: "cat"
-	
-	varus "Sounds good."
-	
-menu:
-	"Thin rice cakes.":
-		jump thin
-	
-	"Thick rice cakes.":
-		jump thick
-		
-	"Eating my own foot.":
-		return
-		
-label thin:
-	annie "You're right, thin rice cakes are the best."
-	$ thin = True
-	jump finale
-
-label thick:
-	varus "Excellent choice."
-	$ thin = False
-	jump finale
-	
-label finale:
-	annie "Well, it's about time to go."
-	
-	if thin:
-	    varus "Traitor."
-	endif
-	
-	if not thin:
-	    annie "Dork."
-	endif
+label whatever:
+  enok "So…"
+  chisomo "What?"
+  enok "What am I getting again?"
+  chisomo "Very funny. Stop stalling and go get the carrots."
+  enok "Fine, fine."

@@ -134,6 +134,10 @@ namespace BitterEnd
 						continue;
 					}
 
+					if (ParseLabel (line)) {
+						continue;
+					}
+
 					break;
 
 				case ParserState.MENU:
