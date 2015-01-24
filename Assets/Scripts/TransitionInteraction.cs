@@ -20,4 +20,8 @@ public class TransitionInteraction : AbstractInteraction
 	protected override void PerformInteraction() {
 		TransitionHandler.Instance.TransitionTo(sceneToLoad);
 	}
+
+	protected override float GetMaximumDistance() {
+		return 0.3f;
+	}
 }
