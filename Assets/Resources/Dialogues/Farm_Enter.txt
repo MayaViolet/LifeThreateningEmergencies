@@ -14,6 +14,3 @@ label start:
 
 label all_hell_broke_loose:
   $ visited_farm_twice = True
-  
-  "Hmm, they're not quite ready..."
-  "Ah well."
