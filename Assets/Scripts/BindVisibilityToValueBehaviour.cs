@@ -10,6 +10,7 @@ public class BindVisibilityToValueBehaviour : MonoBehaviour {
 	
 	public VisibleWhen VisibleWhenFlagIs = VisibleWhen.False;
 	public string Flag;
+	public bool UseAnimationIfAvailable = true;
 	private Action<bool> _callback;
 	
 	void Start () {
@@ -27,7 +28,7 @@ public class BindVisibilityToValueBehaviour : MonoBehaviour {
 	}
 
 	private void SetVisibility(bool value, bool force = false) {
-		if (value || force || gameObject.GetComponent<Animation>() == null) {
+		if (!UseAnimationIfAvailable || value || force || gameObject.GetComponent<Animation>() == null) {
 			gameObject.GetComponent<SpriteRenderer> ().enabled = value;
 		} else if (!value) {
 			gameObject.animation.Play ();

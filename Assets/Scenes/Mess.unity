@@ -404,6 +404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VisibleWhenFlagIs: 0
   Flag: all_hell_broke_loose
+  UseAnimationIfAvailable: 1
 --- !u!1 &459744816
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,6 +2680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VisibleWhenFlagIs: 0
   Flag: all_hell_broke_loose
+  UseAnimationIfAvailable: 1
 --- !u!1 &1523521789
 GameObject:
   m_ObjectHideFlags: 0
@@ -2709,6 +2711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VisibleWhenFlagIs: 1
   Flag: all_hell_broke_loose
+  UseAnimationIfAvailable: 1
 --- !u!212 &1523521791
 SpriteRenderer:
   m_ObjectHideFlags: 0

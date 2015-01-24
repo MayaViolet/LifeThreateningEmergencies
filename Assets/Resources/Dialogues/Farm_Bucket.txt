@@ -17,10 +17,10 @@ label observed_bucket:
     "Take the bucket anyway.":
       jump bucket
     
-    "Do nothing.”:
+    "Do nothing.":
       return
 
-noop:
+label noop:
 
 label bucket:
   nalini "Hey! You can't just take that!"
