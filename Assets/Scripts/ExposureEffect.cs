@@ -7,6 +7,7 @@ class ExposureEffect : MonoBehaviour {
 	public float exposure = 1;
 	float lastExposure = 1;
 
+	Shader _shader;
 	Material _material;
 	Material material
 	{
@@ -14,8 +15,11 @@ class ExposureEffect : MonoBehaviour {
 		{
 			if (_material == null)
 			{
-				Shader shader = Shader.Find("Unlit/Texture + Colour");
-				_material = new Material(shader);
+				if (_shader == null)
+				{
+					_shader = Shader.Find("Unlit/Texture + Colour");
+				}
+				_material = new Material(_shader);
 				_material.color = new Color(exposure/2, exposure/2, exposure/2, 1);
 			}
 			return _material;

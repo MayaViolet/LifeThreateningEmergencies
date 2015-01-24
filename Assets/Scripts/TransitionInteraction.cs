@@ -10,11 +10,14 @@
 using System;
 public class TransitionInteraction : AbstractInteraction
 {
+
+	public string sceneToLoad;
+
 	public TransitionInteraction ()
 	{
 	}
 
 	protected override void PerformInteraction() {
-		// TODO
+		TransitionHandler.Instance.TransitionTo(sceneToLoad);
 	}
 }
