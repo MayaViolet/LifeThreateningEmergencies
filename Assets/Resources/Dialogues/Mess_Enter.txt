@@ -2,6 +2,8 @@ define enok = Character('Enok')
 define chisomo = Character('Chisomo')
 
 label start:
+  $ last_was_farm = False
+  
   if visited_farm_once:
     jump visited_farm_once
   endif

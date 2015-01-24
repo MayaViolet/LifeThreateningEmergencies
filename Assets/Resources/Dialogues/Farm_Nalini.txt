@@ -29,7 +29,14 @@ label visited_farm_twice:
     jump observed_bucket
   endif
   
+  if collected_onions:
+    jump collected_onions
+  endif
+  
   nalini "Ripening onions? Easy! Just put them in this machine and the AI will handle the rest."
+  
+label collected_onions:
+  nalini "I wish we had garlic on this station…"
   
 label observed_bucket:
   if spanner_quest:

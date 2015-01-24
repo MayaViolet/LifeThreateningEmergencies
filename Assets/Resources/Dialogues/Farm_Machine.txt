@@ -11,6 +11,10 @@ label start:
     jump already
   endif
   
+  if talked_shower:
+    jump already
+  endif
+  
   $ ripened_onions = True
   "They look much better now."
   

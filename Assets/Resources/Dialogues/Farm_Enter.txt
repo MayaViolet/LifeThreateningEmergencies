@@ -2,6 +2,8 @@ define enok = Character('Enok')
 define nalini = Character('Nalini')
 
 label start:
+  $ last_was_farm = True
+  
   if all_hell_broke_loose:
     jump all_hell_broke_loose
   endif
