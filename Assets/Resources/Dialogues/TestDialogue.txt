@@ -5,6 +5,9 @@ label start:
 	"Ambient text ..."
 
 	annie "Something about rice cakes."
+	
+	sound: "cat"
+	
 	varus "Sounds good."
 	
 menu:

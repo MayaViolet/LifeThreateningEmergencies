@@ -1,3 +1,4 @@
+using UnityEngine;
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -96,6 +97,7 @@ namespace BitterEnd {
 					}
 
 					var element = DialoguePart.Elements[_currentElement];
+					// This bit is neither object-oriented nor functional.  Sorry!
 
 					if (element is DialogueLine) {
 						return true;
@@ -115,6 +117,17 @@ namespace BitterEnd {
 							DialoguePart = conditional.DialoguePart;
 							_currentElement = -1;
 						}
+						continue;
+					}
+
+					var sound = element as DialogueSound;
+					if (sound != null) {
+						var audioClip = Resources.Load<AudioClip>(string.Format ("Sounds/{0}", sound.ResourceId));
+		
+						var audioSource = Camera.main.GetComponentInChildren<AudioSource>();
+						audioSource.clip = audioClip;
+						audioSource.Play ();
+
 						continue;
 					}
 

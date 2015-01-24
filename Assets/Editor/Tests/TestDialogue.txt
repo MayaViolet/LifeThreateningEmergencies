@@ -6,7 +6,7 @@ label start:
 
 	annie "Something about rice cakes."
 	
-	sound: "bloop"
+	sound: "cat"
 	
 	varus "Sounds good."
 	
