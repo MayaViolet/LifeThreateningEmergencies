@@ -30,3 +30,4 @@ label whatever:
   enok "What am I getting again?"
   chisomo "Very funny. Stop stalling and go get the carrots."
   enok "Fine, fine."
+  transition: "Lift"

@@ -63,6 +63,9 @@ namespace BitterEnd
 		private static readonly Regex _parseReturn =
 			new Regex (@"^return$", RegexOptions.IgnoreCase);
 
+		private static readonly Regex _parseTransition =
+			new Regex (@"^transition: (['""])((?:\\\1|.)*?)\1$", RegexOptions.IgnoreCase);
+
 		private enum ParserState {
 			PROLOGUE,
 			LINES,
@@ -139,6 +142,11 @@ namespace BitterEnd
 					}
 
 					if (ParseLabel (line)) {
+						continue;
+					}
+
+					if (ParseTransition (line)) {
+						_state = ParserState.JUMPED;
 						continue;
 					}
 
@@ -341,6 +349,17 @@ namespace BitterEnd
 			}
 
 			_currentPart.Elements.Add (new DialogueSound (match.Groups [2].Value));
+
+			return true;
+		}
+
+		private bool ParseTransition(string line) {
+			var match = _parseTransition.Match (line);
+			if (!match.Success) { 
+				return false;
+			}
+
+			_currentPart.Elements.Add (new DialogueTransition(match.Groups[2].Value));
 
 			return true;
 		}
