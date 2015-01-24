@@ -124,7 +124,7 @@ namespace BitterEnd {
 					if (sound != null) {
 						var audioClip = Resources.Load<AudioClip>(string.Format ("Sounds/{0}", sound.ResourceId));
 		
-						var audioSource = Camera.main.GetComponentInChildren<AudioSource>();
+						var audioSource = GameObject.FindGameObjectWithTag("DialogueController").GetComponent<AudioSource>();
 						audioSource.clip = audioClip;
 						audioSource.Play ();
 
