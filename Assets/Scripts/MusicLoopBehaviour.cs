@@ -14,7 +14,8 @@ public class MusicLoopBehaviour : MonoBehaviour
 	void Awake ()
 	{
 		if (_instance != null) {
-			// TODO: replace _instance's Clips array with this's?
+			_instance.Clips = Clips;
+			_instance.NextClip();
 			Destroy (gameObject);
 			return;
 		}
@@ -38,11 +39,16 @@ public class MusicLoopBehaviour : MonoBehaviour
 		_audioSource.Play ();
 	}
 
+	private void NextClip()
+	{
+		_wait = 0f;
+	}
+
 	void Update ()
 	{
 		_wait -= Time.deltaTime;
 
-		if (_wait < 0) {
+		if (_wait < 0f) {
 			int next = _clipIndex;
 			if (_clipCount <= 1) {
 				PlayClip(next);
