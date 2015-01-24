@@ -21,8 +21,8 @@ abstract public class AbstractInteraction : MonoBehaviour, IPointerClickHandler
 		void IPointerClickHandler.OnPointerClick (PointerEventData eventData)
 		{
 				var from = _playerController.transform.position;
-				var to = eventData.worldPosition;
-				to = new Vector3 (to.x, from.y, to.z);
+				var to = transform.position;
+				to = new Vector3 (to.x, to.y, from.z);
 		
 				var diff = to - from;
 				var maximumDistance = GetMaximumDistance ();
