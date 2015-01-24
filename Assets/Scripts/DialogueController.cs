@@ -98,8 +98,6 @@ public class DialogueController : MonoBehaviour {
 	}
 
 	private void MenuChoiceSelected(Menu.Choice choice) {
-		Debug.Log (string.Format ("Choice was selected: {0}", choice.Text));
-
 		foreach (var button in _menuButtons) {
 			Destroy (button.gameObject);
 		}
@@ -113,6 +111,22 @@ public class DialogueController : MonoBehaviour {
 	private void ShowLine(Line newLine)
 	{
 		dialogueText.text = newLine.Text;
+
+	    var portraitId = newLine.Character != null ? newLine.Character.PortraitId : null;
+
+		if (portraitId != null) {
+			var texture = Resources.Load<Sprite> (string.Format ("Portraits/{0}", portraitId));
+			if (texture == null) {
+				Debug.LogError (string.Format ("Portrait '{0}' not found", portraitId));
+				portraitImage.enabled = false;
+			} else {
+				portraitImage.sprite = texture;
+				portraitImage.enabled = true;
+			}
+		} else {
+			portraitImage.enabled = false;
+		}
+
 		visible = true;
 	}
 }

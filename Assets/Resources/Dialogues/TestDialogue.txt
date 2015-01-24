@@ -1,5 +1,5 @@
-define annie = Character('Annie')
-define varus = Character("Varus")
+define annie = Character('Annie', 'Pig')
+define varus = Character("Varus", 'SickPig')
 
 label start:
 	"Ambient text ..."
