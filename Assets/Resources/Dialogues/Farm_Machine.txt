@@ -1,4 +1,8 @@
 label start:
+  if not farm_visited_twice:
+    jump weird_machine
+  endif
+  
   if not collected_onions:
     jump missing_onions
   endif
@@ -15,3 +19,6 @@ label missing_onions:
   
 label already:
   "..."
+  
+label weird_machine:
+  "Looks like a machine for ripening onions."

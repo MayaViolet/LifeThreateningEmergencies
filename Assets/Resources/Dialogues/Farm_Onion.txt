@@ -1,5 +1,12 @@
 label start:
+  if not visited_farm_twice:
+    jump yummy
+  endif
+  
   $ collected_onions = True
   "Hmm, they're not quite ready..."
   "Ah well."
   animate
+  
+label yummy:
+  "Looks like some delicious onions are growing here."
