@@ -2,7 +2,17 @@ define ai = Character('AI')
 define enok = Character('Enok')
 
 label start:
+  if visited_farm_once:
+    jump visited_farm_once
+  endif
+  
   ai "Hello, ENOK SØRENSEN. What is your destination?"
   enok "The Farm. Lord Chisomo needs his carrots."
-  ai "Confirmed. Destination: Farm."
   sound: "elevator"
+  ai "Confirmed. Destination: Farm."
+  
+label visited_farm_once:
+  ai "Would you like to return to the mess hall?"
+  enok "That's the plan."
+  sound: "elevator"
+  ai "Confirmed. Destination: mess."

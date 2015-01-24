@@ -1,0 +1,21 @@
+define enok = Character('Enok')
+define nalini = Character('Nalini')
+  
+label start:
+  nalini "Need a hand?"
+
+  menu:
+    "Nah, just wanted to say hi.":
+      jump hi
+	
+    "We should make out.":
+      jump makeout
+    
+label hi:
+  nalini "Oh. Well, hi!"
+	
+label makeout:
+  nalini "I'm a little busy right now. Maybe later."
+  nalini "Actually... I'm busy later too. Sorry!"
+  enok "Alright, your loss."
+  nalini "It's really not. Bye."

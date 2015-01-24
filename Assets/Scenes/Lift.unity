@@ -1074,10 +1074,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1598801925}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 566240d6864474b45a7fa37d81ae5ec6, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d02c9939f7494663ae6f01b9550af05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Farm
+  dialogue: Lift_Door
 --- !u!65 &1598801927
 BoxCollider:
   m_ObjectHideFlags: 0

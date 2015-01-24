@@ -55,7 +55,7 @@ public class DialogueController : MonoBehaviour
 		hidePosition = showPosition + dialogueBase.rect.height * 2 * Vector3.down;
 		dialogueBase.localPosition = hidePosition;
 
-		if (enterDialogue != null) {
+		if (!string.IsNullOrEmpty(enterDialogue)) {
 			BeginDialogue (RenPyParser.ReadDialogueFromResources(enterDialogue));
 		}
 	}

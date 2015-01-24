@@ -964,6 +964,7 @@ GameObject:
   - 4: {fileID: 923728505}
   - 212: {fileID: 923728504}
   - 65: {fileID: 923728506}
+  - 114: {fileID: 923728507}
   m_Layer: 0
   m_Name: VegetableGarden
   m_TagString: HeightSort
@@ -1017,6 +1018,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.9140625, y: .529999971, z: .200000003}
   m_Center: {x: 0, y: .469999999, z: 0}
+--- !u!114 &923728507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 923728503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d02c9939f7494663ae6f01b9550af05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: Farm_Carrots
 --- !u!1 &1114588295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,6 +1444,7 @@ GameObject:
   - 4: {fileID: 1612837479}
   - 212: {fileID: 1612837478}
   - 65: {fileID: 1612837480}
+  - 114: {fileID: 1612837481}
   m_Layer: 0
   m_Name: VegetableGarden
   m_TagString: HeightSort
@@ -1484,6 +1498,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.9140625, y: .529999971, z: .200000003}
   m_Center: {x: 0, y: .469999999, z: 0}
+--- !u!114 &1612837481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1612837477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d02c9939f7494663ae6f01b9550af05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: Farm_Carrots
 --- !u!1 &1668924853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1774,6 +1800,7 @@ MonoBehaviour:
   portraitImage: {fileID: 844559478}
   dialogueBase: {fileID: 1309775308}
   menuButton: {fileID: 11412426, guid: c8ccef2ec34014d9e9c5301841f466bc, type: 2}
+  enterDialogue: Farm_Enter
 --- !u!82 &1882156084
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1861,7 +1888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d02c9939f7494663ae6f01b9550af05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: TestDialogue
+  dialogue: Farm_Nalini
 --- !u!135 &2119211737
 SphereCollider:
   m_ObjectHideFlags: 0

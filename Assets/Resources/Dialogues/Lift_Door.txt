@@ -1,0 +1,9 @@
+label start:
+  if visited_farm_once:
+    jump visited_farm_once
+  endif
+
+  transition: "Farm"
+
+label visited_farm_once:
+  transition: "Mess"

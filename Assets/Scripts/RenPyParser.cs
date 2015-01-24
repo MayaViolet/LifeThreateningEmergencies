@@ -96,7 +96,6 @@ namespace BitterEnd
 			foreach (string line in lines) {
 				// I can't believe I'm doing this all with regular expressions but it's a game jam so WHATEVER.
 
-
 				switch (_state) {
 				case ParserState.PROLOGUE:
 					if (ParseDefine (line)) {
@@ -200,7 +199,11 @@ namespace BitterEnd
 				if (dialogueJump.TargetLabel != null) {
 					DialoguePart jumpTarget;
 					if (!_dialogue.DialogueParts.TryGetValue (dialogueJump.TargetLabel, out jumpTarget)) {
-						throw new FormatException(string.Format ("Couldn't find target for jump {0}.", dialogueJump.TargetLabel));
+						throw new FormatException(
+							string.Format (
+							"Couldn't find target for jump {0}. Candidates were: {1}",
+							dialogueJump.TargetLabel,
+							string.Join(", ", _dialogue.DialogueParts.Keys.ToArray())));
 					}
 
 					dialogueJump.Target = jumpTarget;
