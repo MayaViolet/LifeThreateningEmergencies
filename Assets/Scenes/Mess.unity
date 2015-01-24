@@ -2143,7 +2143,7 @@ GameObject:
   - 65: {fileID: 1102064983}
   - 114: {fileID: 1102064982}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Cupboard collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
