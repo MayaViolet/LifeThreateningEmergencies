@@ -8,10 +8,15 @@ define cat = Character('Cat')
 
 label start:
 menu:
+  "transition":
+    jump transition
   "blah":
     jump blah
   "thing":
     jump whatever
+    
+label transition:
+  transition: "Lift"
     
 label blah:
   if spoken_to:

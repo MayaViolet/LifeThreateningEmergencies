@@ -84,6 +84,12 @@ public class DialogueController : MonoBehaviour
 			ShowMenu (menu);
 			return;
 		}
+
+		var transition = element as DialogueTransition;
+		if (transition != null) {
+			TransitionHandler.Instance.TransitionTo (transition.SceneId);
+			return;
+		}
 		
 		throw new FormatException (string.Format ("Couldn't show a {0}.", element));
 	}
