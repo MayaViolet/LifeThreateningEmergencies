@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Farm.unity
   - enabled: 1
     path: Assets/Scenes/Lift.unity
+  - enabled: 1
+    path: Assets/Scenes/Mess.unity
