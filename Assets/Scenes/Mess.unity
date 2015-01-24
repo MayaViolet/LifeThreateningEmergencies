@@ -333,7 +333,7 @@ GameObject:
   - 4: {fileID: 459744817}
   - 212: {fileID: 459744818}
   m_Layer: 0
-  m_Name: Chef_Head
+  m_Name: Head
   m_TagString: HeightSort
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1534,6 +1534,8 @@ GameObject:
   - 212: {fileID: 1910574219}
   - 114: {fileID: 1910574218}
   - 136: {fileID: 1910574217}
+  - 114: {fileID: 1910574221}
+  - 111: {fileID: 1910574222}
   m_Layer: 9
   m_Name: Chef_Body
   m_TagString: HeightSort
@@ -1601,3 +1603,30 @@ Transform:
   - {fileID: 459744817}
   m_Father: {fileID: 0}
   m_RootOrder: 10
+--- !u!114 &1910574221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1910574216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cef82e26330e47128a59549988d5a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterName: chisomo
+--- !u!111 &1910574222
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1910574216}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 1006d599c008b42479856430724bcd69, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 1006d599c008b42479856430724bcd69, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
