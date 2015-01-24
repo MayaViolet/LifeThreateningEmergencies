@@ -33,6 +33,10 @@ label all_hell_broke_loose:
   ai "Confirmed. Destination: farm."
 
 label talked_shower:
+  if spoke_to_jordyn:
+    jump spoke_to_jordyn
+  endif
+  
   $ spoke_to_jordyn = True
   
   ai "Where can I take you, ENOK SØRENSEN?"
@@ -89,6 +93,7 @@ label complain:
   jordyn "Cry me a river."
   ai "I'm sensing some hostility. Would you like to return to the mess hall?"
   jordyn "<i>Please</i> get rid of him."
+  sound: "elevator"
   ai "Confirmed. Destination: mess."
   
 label apologise:
@@ -99,4 +104,32 @@ label apologise:
   enok "Okay. Good luck."
   ai "Would you like me to take you back now?"
   enok "That would be great."
+  sound: "elevator"
   ai "Confirmed. Destination: mess."
+  
+label spoke_to_jordyn:
+  if observed_kettle:
+    jump observed_kettle
+  endif
+  
+label observed_kettle:
+  ai "Would you like to go to the showers?"
+  $ kettle_to_farm = False
+  
+  menu:
+    "I guess so…":
+      jump coldshower
+    
+	"Not yet.":
+	  return
+	  
+	"I want to go to the Farm again.":
+	  jump to_farm
+	  
+label to_farm:
+  $ kettle_to_farm = True
+  sound: "elevator"
+  ai "Confirmed. Destination: farm."
+  
+label coldshower:
+  "Well, at least I'm clean."

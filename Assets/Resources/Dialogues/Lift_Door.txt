@@ -1,4 +1,12 @@
 label start:
+  if observed_kettle:
+    if kettle_to_farm:
+      transition: "Farm"
+    endif
+    
+    transition: "Mess"
+  endif
+  
   if spoke_to_jordyn:
     transition: "Mess"
   endif

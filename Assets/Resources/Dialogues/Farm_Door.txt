@@ -13,6 +13,10 @@ label missing_something:
   "Wait, didn't I come down here for something?"
   
 label visited_farm_twice:
+  if spoke_to_jordyn:
+    transition: "Lift"
+  endif
+  
   if not collected_onions:
     jump missing_something
   endif

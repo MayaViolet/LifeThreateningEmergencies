@@ -1,5 +1,5 @@
 label start:
-  if not farm_visited_twice:
+  if not visited_farm_twice:
     jump weird_machine
   endif
   
