@@ -146,8 +146,9 @@ namespace BitterEnd {
 						continue;
 					}
 
-					if (element is DialogueAnimate) {
-						HostGO.animation.Play ();
+					var animate = element as DialogueAnimate;
+					if (animate != null) {
+						GameObject.FindGameObjectWithTag(animate.GOTag).animation.Play ();
 
 						++_currentElement;
 						continue;

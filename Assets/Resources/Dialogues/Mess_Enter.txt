@@ -20,6 +20,7 @@ label visited_farm_once:
   endif
   
   $ all_hell_broke_loose = True
+  animate: "MainCamera"
   "This seems serious..."
   enok "Uh, I brought the carrots."
   chisomo "DO CARROTS REALLY SEEM LIKE A PRIORITY RIGHT NOW?"

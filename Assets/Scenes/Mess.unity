@@ -614,6 +614,7 @@ GameObject:
   - 114: {fileID: 624997754}
   - 114: {fileID: 624997755}
   - 82: {fileID: 624997756}
+  - 111: {fileID: 624997757}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -785,6 +786,21 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!111 &624997757
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 624997747}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 8a527caac449e4971828ed18401cc6cf, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 8a527caac449e4971828ed18401cc6cf, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &671043219
 GameObject:
   m_ObjectHideFlags: 0
