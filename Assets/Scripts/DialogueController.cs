@@ -70,6 +70,10 @@ public class DialogueController : MonoBehaviour
 
 	public void AdvanceDialogue ()
 	{
+		if (_menuButtons != null) {
+			return;
+		}
+
 		if (!dialogueIterator.Next ()) {
 			visible = false;
 			return;

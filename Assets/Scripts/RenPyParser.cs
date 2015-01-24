@@ -221,7 +221,7 @@ namespace BitterEnd
 			
 			var name = match.Groups[1].Value;
 			var friendly = match.Groups[3].Value;
-			var portraitId = match.Groups[5].Success ? match.Groups[5].Value : null;
+			var portraitId = match.Groups[5].Success ? match.Groups[5].Value : friendly;
 			_dialogue.Characters[name] = new Character(name, friendly, portraitId);
 			return true;
 		}

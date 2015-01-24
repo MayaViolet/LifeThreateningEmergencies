@@ -12,7 +12,17 @@ label start:
   ai "Confirmed. Destination: Farm."
   
 label visited_farm_once:
+  if all_hell_broke_loose:
+    jump all_hell_broke_loose
+  endif
+  
   ai "Would you like to return to the mess hall?"
   enok "That's the plan."
   sound: "elevator"
   ai "Confirmed. Destination: mess."
+  
+label all_hell_broke_loose:
+  ai "Back to the Farm again?"
+  enok "Apparently I need onions now."
+  sound: "elevator"
+  ai "Confirmed. Destination: farm."
