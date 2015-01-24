@@ -17,7 +17,9 @@ public class DialogueController : MonoBehaviour
 	public Image portraitImage;
 	public RectTransform dialogueBase;
 	public Button menuButton;
+	public string enterDialogue;
 	public DialoguePart.Iterator dialogueIterator;
+
 	Vector3 showPosition;
 	Vector3 hidePosition;
 	private bool _visible;
@@ -52,6 +54,10 @@ public class DialogueController : MonoBehaviour
 		showPosition = dialogueBase.localPosition;
 		hidePosition = showPosition + dialogueBase.rect.height * 2 * Vector3.down;
 		dialogueBase.localPosition = hidePosition;
+
+		if (enterDialogue != null) {
+			BeginDialogue (RenPyParser.ReadDialogueFromResources(enterDialogue));
+		}
 	}
 
 	public void BeginDialogue (Dialogue dialogue)
