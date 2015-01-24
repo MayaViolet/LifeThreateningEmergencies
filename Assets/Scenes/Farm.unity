@@ -1795,6 +1795,7 @@ GameObject:
   - 114: {fileID: 1882156079}
   - 114: {fileID: 1882156083}
   - 82: {fileID: 1882156084}
+  - 114: {fileID: 1882156085}
   m_Layer: 5
   m_Name: DialogueCanvas
   m_TagString: DialogueController
@@ -1949,6 +1950,19 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &1882156085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882156078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2305824c65ae249fc84f26c7d9ed6b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VisibleWhenFlagIs: 1
+  Flag: collected_onion
 --- !u!1 &1924516250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,6 +1974,8 @@ GameObject:
   - 212: {fileID: 1924516251}
   - 65: {fileID: 1924516254}
   - 114: {fileID: 1924516253}
+  - 114: {fileID: 1924516256}
+  - 111: {fileID: 1924516255}
   m_Layer: 0
   m_Name: Onion
   m_TagString: Untagged
@@ -1996,7 +2012,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1924516250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.76600003, y: 2.1500001, z: -8.98999977}
+  m_LocalPosition: {x: 2.76600003, y: 2.1500001, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2025,3 +2041,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.47113228, y: 1.20419741, z: .200000003}
   m_Center: {x: .864189386, y: -.181267262, z: 0}
+--- !u!111 &1924516255
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1924516250}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0f464c6d971ec4707879ebe051978f2d, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 0f464c6d971ec4707879ebe051978f2d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &1924516256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1924516250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19c078c0ac8f4838ae0e037bd05ffe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  singleUse: 0
