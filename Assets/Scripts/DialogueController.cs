@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -39,6 +40,8 @@ public class DialogueController : MonoBehaviour
 					.SetEasing (TweenEasingFunctions.EaseInBack)
 					.Play ();
 			}
+
+			Camera.main.GetComponent<PhysicsRaycaster>().enabled = !value;
 		}
 	}
 
