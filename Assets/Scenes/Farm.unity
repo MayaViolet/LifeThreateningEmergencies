@@ -146,6 +146,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 102100031}
   - 114: {fileID: 102100030}
+  - 135: {fileID: 102100032}
+  - 54: {fileID: 102100033}
   m_Layer: 0
   m_Name: PlayerRoot
   m_TagString: PlayerController
@@ -178,6 +180,33 @@ Transform:
   - {fileID: 179582958}
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!135 &102100032
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 102100029}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .200000003
+  m_Center: {x: 0, y: .100000001, z: 0}
+--- !u!54 &102100033
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 102100029}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &179582955
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,7 +791,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 860460423}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.84000015, y: -9.61999989, z: 0}
+  m_LocalPosition: {x: -4.84000015, y: -9.61999989, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -776,6 +805,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 923728505}
   - 212: {fileID: 923728504}
+  - 65: {fileID: 923728506}
   m_Layer: 0
   m_Name: VegetableGarden
   m_TagString: HeightSort
@@ -812,11 +842,23 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 923728503}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8900001, y: -1.90999997, z: -1}
+  m_LocalPosition: {x: -3.8900001, y: -1.90999997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
+--- !u!65 &923728506
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 923728503}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.9140625, y: .529999971, z: .200000003}
+  m_Center: {x: 0, y: .469999999, z: 0}
 --- !u!1 &1155583452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,6 +1179,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1612837479}
   - 212: {fileID: 1612837478}
+  - 65: {fileID: 1612837480}
   m_Layer: 0
   m_Name: VegetableGarden
   m_TagString: HeightSort
@@ -1173,11 +1216,23 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1612837477}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.83999991, y: -1.90999997, z: -1}
+  m_LocalPosition: {x: 3.83999991, y: -1.90999997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
+--- !u!65 &1612837480
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1612837477}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.9140625, y: .529999971, z: .200000003}
+  m_Center: {x: 0, y: .469999999, z: 0}
 --- !u!1 &1668924853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,7 +1242,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1668924856}
   - 114: {fileID: 1668924855}
-  - 114: {fileID: 1668924854}
   m_Layer: 0
   m_Name: HeightSorter
   m_TagString: Untagged
@@ -1195,17 +1249,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1668924854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1668924853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a43b090a5645640ca83c20f8a4a54635, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1668924855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1224,7 +1267,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1668924853}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0256465077, y: -.238981277, z: -6.47070312}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1292,7 +1335,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1731729667}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5999999, y: .159999996, z: -1}
+  m_LocalPosition: {x: -4.5999999, y: .159999996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1366,7 +1409,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1808221596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.95000005, z: -1}
+  m_LocalPosition: {x: 0, y: -3.95000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1607,7 +1650,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2119211735}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.76999998, y: -2.52999997, z: -1}
+  m_LocalPosition: {x: 6.76999998, y: -1.36000001, z: 0}
   m_LocalScale: {x: .832852244, y: .832852244, z: .832852244}
   m_Children: []
   m_Father: {fileID: 0}

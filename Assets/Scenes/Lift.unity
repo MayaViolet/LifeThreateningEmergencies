@@ -606,6 +606,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7202554daa3204a35ae087b8bebdcae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
+  background: {fileID: 0}
+  deadZone: .5
 --- !u!82 &624997756
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1011,7 +1015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 566240d6864474b45a7fa37d81ae5ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Lift
+  sceneToLoad: Farm
 --- !u!65 &1598801927
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -40,6 +40,10 @@ public class GameCamera : MonoBehaviour {
 
 	void LateUpdate()
 	{
+		if (target == null)
+		{
+			return;
+		}
 		Vector2 targetDirection = target.position + offset - transform.position;
 		if (targetDirection.magnitude > deadZone)
 		{

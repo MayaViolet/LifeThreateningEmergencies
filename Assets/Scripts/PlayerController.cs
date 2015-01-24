@@ -56,4 +56,17 @@ public class PlayerController : MonoBehaviour {
 			})
 			.Play();
 	}
+
+	void OnCollisionEnter(Collision other)
+	{
+		print ("CollisionEnter");
+		//if (other.gameObject.layer == LayerMask.NameToLayer("Default"))
+		{
+			anim.SetBool ("Walking", false);
+			if (currentTween != null)
+			{
+				currentTween.Stop();
+			}
+		}
+	}
 }
