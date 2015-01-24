@@ -52,8 +52,6 @@ public class DialogueController : MonoBehaviour {
 		showPosition = dialogueBase.position;
 		hidePosition = showPosition + dialogueBase.rect.height * 2 * Vector3.down;
 		dialogueBase.position = hidePosition;
-
-		BeginDialogue (Dialogue.GetTestDialogue ());
 	}
 
 	public void BeginDialogue(Dialogue dialogue) {

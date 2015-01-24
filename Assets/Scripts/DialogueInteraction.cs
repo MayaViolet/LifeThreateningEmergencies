@@ -5,7 +5,7 @@ using BitterEnd;
 
 public class DialogueInteraction : MonoBehaviour, IPointerClickHandler {
 
-	public Dialogue dialogue;
+	public string dialogue;
 	DialogueController controller;
 
 	void Start()
@@ -16,7 +16,7 @@ public class DialogueInteraction : MonoBehaviour, IPointerClickHandler {
 
 	void IPointerClickHandler.OnPointerClick (PointerEventData eventData)
 	{
-
+		controller.BeginDialogue(RenPyParser.ReadDialogueFromResources(dialogue));
 	}
 
 }

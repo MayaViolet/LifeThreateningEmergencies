@@ -1,4 +1,5 @@
-﻿using System;
+﻿using UnityEngine;
+using System;
 using System.IO;
 using System.Collections;
 using System.Linq;
@@ -12,6 +13,16 @@ namespace BitterEnd
 
 		private RenPyParser(string source) {
 			_source = source;
+		}
+
+		public static Dialogue ReadDialogueFromResources(string filename) {
+			TextAsset textFile = Resources.Load<TextAsset>("Dialogues/"+filename);
+			if (textFile == null)
+			{
+				UnityEngine.Debug.LogError("Dialogue '"+filename+"' not found");
+				return null;
+			}
+			return ReadDialogueFromString(textFile.text);
 		}
 
 		public static Dialogue ReadDialogueFromString(string source) {

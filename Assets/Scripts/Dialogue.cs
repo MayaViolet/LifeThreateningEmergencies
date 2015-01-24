@@ -15,38 +15,6 @@ namespace BitterEnd
 		{
 		}
 
-		public static Dialogue GetTestDialogue() {
-
-			var d = new Dialogue ();
-
-			var leona = d.Characters ["Leona"] = new Character ("Leona");
-			var ashe = d.Characters ["Ashe"] = new Character ("Ashe");
-
-			var thin = d.DialogueParts ["thin"] = new DialoguePart ("thin");
-			thin.Lines.AddRange (new[] {
-				new Line (leona, "SEEMS FINE."),
-			});
-
-			var thick = d.DialogueParts ["thick"] = new DialoguePart ("thick");
-			thick.Lines.AddRange (new[] {
-				new Line (ashe, "~wowdy~"),
-			});
-
-			var start = d.DialogueParts ["start"] = new DialoguePart ("start");
-			start.Lines.AddRange (new [] {
-				new Line (leona, "<i>~thin <b>rice</b> cakes~</i>\nWowdy!"),
-				new Line (ashe, "Even better than <b>thick</b> rice cakes!"),
-			});
-
-			start.Menu = new Menu ();
-			start.Menu.Choices.AddRange (new[] {
-				new Menu.Choice ("I prefer thin rice cakes.") {JumpTargetLabel = "thin", JumpTarget = thin},
-				new Menu.Choice ("Thick rice cakes are ethically superior.") {JumpTargetLabel = "thick", JumpTarget = thick},
-			});
-
-			return d;
-		}
-
 		public Iterator Start() {
 			return new Iterator(this);
 		}
