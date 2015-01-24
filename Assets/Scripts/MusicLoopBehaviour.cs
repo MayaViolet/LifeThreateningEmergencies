@@ -14,6 +14,7 @@ public class MusicLoopBehaviour : MonoBehaviour
 		void Awake ()
 		{
 				if (_instance != null) {
+						// TODO: replace _instance's Clips array with this's?
 						Destroy (gameObject);
 						return;
 				}
