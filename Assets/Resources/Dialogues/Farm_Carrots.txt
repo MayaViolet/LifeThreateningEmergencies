@@ -1,2 +1,3 @@
 label start:
+  $ collected_carrots = True
   "These seem fine. Better get back to Chisomo with them."

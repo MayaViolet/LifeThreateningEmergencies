@@ -2,10 +2,21 @@ label start:
   if visited_farm_twice:
     jump visited_farm_twice
   endif
+  
+  if not collected_carrots:
+    jump missing_something
+  endif
 
   transition: "Lift"
-
+  
+label missing_something:
+  "Wait, didn't I come down here for something?"
+  
 label visited_farm_twice:
+  if not collected_onions:
+    jump missing_something
+  endif
+  
   if not ripened_onions:
     if not reminded_to_ripen:
       jump remind_to_ripen
