@@ -33,6 +33,10 @@ public class DialogueController : MonoBehaviour
 		}
 
 		set {
+			if (_visible == value) {
+				return;
+			}
+
 			_visible = value;
 
 			if (value) {
