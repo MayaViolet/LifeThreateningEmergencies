@@ -2,8 +2,16 @@ define enok = Character('Enok')
 define nalini = Character('Nalini')
 
 label start:
+  if all_hell_broke_loose:
+    jump all_hell_broke_loose
+  endif
+  
   $ visited_farm_once = True
   nalini "Oh, Enok! Need a hand with anything?"
   enok "Just grabbing some carrots. Thanks, though."
   nalini "Okay, just shout if you need anything."
   enok "Will do."
+
+label all_hell_broke_loose:
+  "Hmm, they're not quite ready..."
+  "Ah well."
