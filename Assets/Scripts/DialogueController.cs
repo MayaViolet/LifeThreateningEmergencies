@@ -66,6 +66,17 @@ public class DialogueController : MonoBehaviour
 		}
 	}
 
+	void Update ()
+	{
+		if (!_visible || _menuButtons != null) {
+			return;
+		}
+
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			AdvanceDialogue ();
+		}
+	}
+
 	public void BeginDialogue (Dialogue dialogue, GameObject hostGO)
 	{
 		dialogueIterator = dialogue.Start (hostGO);
