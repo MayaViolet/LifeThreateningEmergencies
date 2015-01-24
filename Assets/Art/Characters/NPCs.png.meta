@@ -6,6 +6,9 @@ TextureImporter:
     21300002: Chef_Head
     21300004: PlayerBody
     21300006: PlayerHead
+    21300008: AI
+    21300010: Player2Body
+    21300012: Player2Head
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -47,11 +50,21 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
+    - name: AI
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 144
+        width: 52
+        height: 66
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Chef_Body
       rect:
         serializedVersion: 2
-        x: 68
-        y: 67
+        x: 2
+        y: 103
         width: 66
         height: 107
       alignment: 7
@@ -60,30 +73,50 @@ TextureImporter:
     - name: Chef_Head
       rect:
         serializedVersion: 2
-        x: 61
-        y: 5
+        x: 100
+        y: 30
         width: 56
         height: 58
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Player2Body
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 3
+        width: 47
+        height: 98
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Player2Head
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 155
+        width: 61
+        height: 55
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PlayerBody
       rect:
         serializedVersion: 2
-        x: 2
-        y: 65
-        width: 64
-        height: 109
-      alignment: 9
-      pivot: {x: .4921875, y: 0}
+        x: 51
+        y: 4
+        width: 47
+        height: 97
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PlayerHead
       rect:
         serializedVersion: 2
-        x: 2
-        y: 5
-        width: 57
-        height: 58
+        x: 124
+        y: 90
+        width: 58
+        height: 63
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
