@@ -22,8 +22,8 @@ namespace BitterEnd {
 			return string.Format ("[DialoguePart: Name={0}]", Name);
 		}
 
-		public Iterator Start() {
-			return new DialoguePart.Iterator (this);
+		public Iterator Start(GameObject hostGO) {
+			return new DialoguePart.Iterator (this, hostGO);
 		}
 
 		public void RenderTo(StringBuilder sb, bool includeLabel = true) {
@@ -50,13 +50,15 @@ namespace BitterEnd {
 			}
 
 			public DialoguePart DialoguePart { get; private set; }
+			public GameObject HostGO { get; private set; }
 			private int _currentElement;
 			private Stack<Return> _returns;
 
-			public Iterator(DialoguePart dialoguePart) {
+			public Iterator(DialoguePart dialoguePart, GameObject hostGO) {
 				DialoguePart = dialoguePart;
 				_currentElement = 0;
 				_returns = new Stack<Return>();
+				HostGO = hostGO;
 
 				ProcessUntilLine();
 			}
@@ -67,6 +69,12 @@ namespace BitterEnd {
 				}
 			}
 
+			public bool HasCurrent {
+				get {
+					return DialoguePart != null && _currentElement < DialoguePart.Elements.Count;
+				}
+			}
+
 			public bool Next() {
 				++_currentElement;
 				return ProcessUntilLine ();
@@ -74,7 +82,7 @@ namespace BitterEnd {
 
 			private bool ProcessUntilLine() {
 				while (true) {
-					if (DialoguePart == null || _currentElement >= DialoguePart.Elements.Count) {
+					if (!HasCurrent) {
 						if (!_returns.Any()) {
 							return false;
 						}
@@ -133,6 +141,13 @@ namespace BitterEnd {
 						var audioSource = GameObject.FindGameObjectWithTag ("DialogueController").GetComponent<AudioSource> ();
 						audioSource.clip = audioClip;
 						audioSource.Play ();
+
+						++_currentElement;
+						continue;
+					}
+
+					if (element is DialogueAnimate) {
+						HostGO.animation.Play ();
 
 						++_currentElement;
 						continue;

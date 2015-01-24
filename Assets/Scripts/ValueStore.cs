@@ -11,10 +11,6 @@ public class ValueStore
 			if (_instance == null)
 			{
 				_instance = new ValueStore();
-				
-				// XXX: testing only!
-				Store ("visited_farm_once", true);
-				Store ("all_hell_broke_loose", true);
 			}
 			return _instance;
 		}

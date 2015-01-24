@@ -10,7 +10,7 @@ public class DialogueInteraction : AbstractInteraction
 
 		protected override void PerformInteraction ()
 		{
-				_dialogueController.BeginDialogue (RenPyParser.ReadDialogueFromResources (dialogue));
+				_dialogueController.BeginDialogue (RenPyParser.ReadDialogueFromResources (dialogue), gameObject);
 		}
 
 		protected override float GetMaximumDistance ()
