@@ -1,0 +1,18 @@
+label start:
+  if visited_farm_twice:
+    jump visited_farm_twice
+  endif
+
+  transition: "Lift"
+
+label visited_farm_twice:
+  if not ripened_onions:
+    if not reminded_to_ripen:
+      jump remind_to_ripen
+    endif
+  endif
+  transition: "Lift"
+  
+label remind_to_ripen:
+  $ reminded_to_ripen = True
+  "Oh, I should ripen them before I go..."

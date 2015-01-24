@@ -70,25 +70,22 @@ namespace BitterEnd {
 
 			public bool Next() {
 				++_currentElement;
-				ProcessUntilLine ();
-
-				if (DialoguePart == null || _currentElement >= DialoguePart.Elements.Count) {
-					if (!_returns.Any()) {
-						return false;
-					}
-
-					Debug.Log ("Returning");
-					var ourReturn = _returns.Pop ();
-					DialoguePart = ourReturn.DialoguePart;
-					_currentElement = ourReturn.NextElement - 1;
-					return Next ();
-				}
-
-				return true;
+				return ProcessUntilLine ();
 			}
 
-			private void ProcessUntilLine() {
-				while (_currentElement < DialoguePart.Elements.Count) {
+			private bool ProcessUntilLine() {
+				while (true) {
+					if (DialoguePart == null || _currentElement >= DialoguePart.Elements.Count) {
+						if (!_returns.Any()) {
+							return false;
+						}
+						
+						Debug.Log ("Returning");
+						var ourReturn = _returns.Pop ();
+						DialoguePart = ourReturn.DialoguePart;
+						_currentElement = ourReturn.NextElement;
+					}
+
 					var element = CurrentElement;
 					// This bit is neither object-oriented nor functional.  Sorry!
 
@@ -97,7 +94,7 @@ namespace BitterEnd {
 					Debug.Log (sb.ToString ());
 
 					if (element is DialogueLine || element is DialogueMenu || element is DialogueTransition) {
-						return;
+						return true;
 					}
 
 					var jump = element as DialogueJump;
@@ -107,7 +104,7 @@ namespace BitterEnd {
 
 						DialoguePart = jump.Target;
 						if (DialoguePart == null) {
-							return;
+							return false;
 						}
 
 						_currentElement = 0;
