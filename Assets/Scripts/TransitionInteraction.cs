@@ -17,4 +17,8 @@ public class TransitionInteraction : AbstractInteraction
 	protected override void PerformInteraction() {
 		// TODO
 	}
+
+	protected override float GetMaximumDistance() {
+		return 0.3f;
+	}
 }

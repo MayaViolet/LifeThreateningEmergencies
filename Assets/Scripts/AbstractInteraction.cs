@@ -16,22 +16,23 @@ abstract public class AbstractInteraction : MonoBehaviour, IPointerClickHandler 
 		var playerControllerGO = GameObject.FindGameObjectWithTag("PlayerController");
 		_playerController = playerControllerGO.GetComponent<PlayerController>();
 	}
-	
-	private const float MAXIMUM_DISTANCE = 2f;
-	
+
 	void IPointerClickHandler.OnPointerClick (PointerEventData eventData)
 	{
 		var from = _playerController.transform.position;
 		var to = eventData.worldPosition;
 		to = new Vector3 (to.x, from.y, to.z);
 		
-		var diff = to - from;	
-		if (diff.magnitude > MAXIMUM_DISTANCE) {
-			_playerController.MoveTo (from + diff.normalized * (diff.magnitude - MAXIMUM_DISTANCE), PerformInteraction);
+		var diff = to - from;
+		var maximumDistance = GetMaximumDistance ();
+		if (diff.magnitude > maximumDistance) {
+			_playerController.MoveTo (from + diff.normalized * (diff.magnitude - maximumDistance), PerformInteraction);
 		} else {
 			PerformInteraction ();
 		}
 	}
 	
 	protected abstract void PerformInteraction ();
+
+	protected abstract float GetMaximumDistance ();
 }
