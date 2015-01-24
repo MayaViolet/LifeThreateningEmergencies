@@ -13,4 +13,67 @@ label start:
   enok "Fine, fine."
   
 label visited_farm_once:
+  if visited_farm_twice:
+    jump visited_farm_twice
+  endif
+  
   "..."
+  
+label visited_farm_twice:
+  if talked_shower:
+    jump talked_shower
+  endif
+  
+  $ talked_shower = True
+  
+  if not ripened_onions:
+    jump not_ripened_onions
+  endif
+  
+  chisomo "Excellent. This should turn out great."
+  jump shower_talk
+  
+label not_ripened_onions:
+  chisomo "You forgot to ripen them."
+  
+  menu:
+    "Oh, uh, the machine was broken. [lie]":
+      jump lie
+		
+    "Shit, I forgot.":
+      jump truth
+
+label lie:
+  chisomo "Again? I guess there are bigger priorities right now."
+  jump shower_talk
+   
+label truth:
+  chisomo "Well, thanks for being upfront. I'll see what I can do."
+  jump shower_talk
+  
+label shower_talk:
+  enok "Do you need anything else?"
+  enok "I should probably get a shower after digging up all those vegetables."
+  chisomo "Nah, I'm all good."
+  chisomo "Oh, but I think the hot water is busted."
+  enok "You've got to be shitting me."
+  chisomo "If you're not doing anything else, maybe you can get it sorted?"
+  
+  menu:
+    "What do you think I'm gonna do about it?":
+      jump whine
+    
+    "I'll see what I can do.":
+      jump optimist
+  
+label whine:
+  chisomo "I'm sure you'll figure something out."
+  enok "So helpful."
+  "Guess I'd better see if anyone is actually free."
+  
+label optimist:
+  chisomo "That's the spirit."
+  "Guess I'd better see if anyone is actually free."
+  
+label talked_shower:
+  "He doesn't look too interested in talking much more."

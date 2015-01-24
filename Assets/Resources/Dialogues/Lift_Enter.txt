@@ -1,5 +1,6 @@
 define ai = Character('AI')
 define enok = Character('Enok')
+define jordyn = Character('Jordyn')
 
 label start:
   if visited_farm_once:
@@ -22,7 +23,78 @@ label visited_farm_once:
   ai "Confirmed. Destination: mess."
   
 label all_hell_broke_loose:
+  if talked_shower:
+    jump talked_shower
+  endif
+  
   ai "Back to the Farm again?"
   enok "Apparently I need onions now."
   sound: "elevator"
   ai "Confirmed. Destination: farm."
+
+label talked_shower:
+  ai "Where can I take you, ENOK SØRENSEN?"
+  enok "The hot water is busted. I need to find someone who can fix it."
+  ai "JORDYN MILLS would be the most qualified for this role."
+  enok "Surely she's busy?"
+  ai "She has not registered herself as unavailable."
+  enok "Alright, take me to her."
+
+  sound: "elevator"
+  ai "She's currently on the other side of the station. It will take approximately 25 minutes to reach her location."
+  enok "Whatever, I don't have anything better to do."
+  ai "Confirmed. Destination: engineering."
+  "This is just how I wanted to spend the evening."
+  enok "So, what's going on with the communication system, anyway?"
+  ai "I can't tell you at this time."
+  enok "Very informative, thanks."
+  ai "You are welcome, ENOK SØRENSON."
+  enok "Right..."
+  "The AI is pretty awkward as an elevator companion."
+  enok "So, uh, what's the weather like in LA right now?"
+  "Siri must be having a better time than me."
+  "The real space isn't as cool as in the commercials."
+  ai "I'm sorry, I can't access that information at present."
+  enok "Well, what good are you, then?"
+  ai "I can only access local systems until the connection to Earth is restored."
+  enok "Fantastic."
+  ai "You're welcome, ENOK SØRENSEN."
+  enok "..."
+  "I can't believe it takes this long to get from one end of the station to the other."
+  "Apparently it has something to do with the artificial gravity, but really it's just a pain in the ass."
+
+  ai "While you wait, you could contact JORDYN MILLS over the UMBRASOFT™ INTERCOM SYSTEM."
+  enok "You couldn't have suggested that before we started moving?"
+  ai "Incorrect."
+  enok "Oh, whatever. Just put me through."
+  ai "Please hold."
+  jordyn "Yo."
+  enok "Hey, did you know the hot water isn't working?"
+  jordyn "Are you fucking kidding me?"
+  enok "Um... no?"
+  jordyn "Don't you realise how important it is to fix the connection with Earth?"
+  enok "Apparently not..."
+  jordyn "You're wasting my time!"
+
+  menu:
+    "Ugh, well fuck you too then. It was just a question.":
+      jump complain
+	
+    "Sorry, I didn't realise it was that bad.":
+      jump apologise
+    
+label complain:
+  jordyn "Cry me a river."
+  ai "I'm sensing some hostility. Would you like to return to the mess hall?"
+  jordyn "<i>Please</i> get rid of him."
+  ai "Confirmed. Destination: mess."
+  
+label apologise:
+  jordyn "We still don't know how self-sustaining this place really is."
+  enok "Can I do anything to help?"
+  jordyn "No."
+  jordyn "…Have a cold shower? I don't know, I have enough on my plate without babysitting you."
+  enok "Okay. Good luck."
+  ai "Would you like me to take you back now?"
+  enok "That would be great."
+  ai "Confirmed. Destination: mess."

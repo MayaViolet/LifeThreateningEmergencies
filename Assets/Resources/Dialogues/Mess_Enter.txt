@@ -13,6 +13,10 @@ label start:
   enok "Alright, alright."
   
 label visited_farm_once:
+  if visited_farm_twice:
+    jump visited_farm_twice
+  endif
+  
   $ all_hell_broke_loose = True
   "This seems serious..."
   enok "Uh, I brought the carrots."
@@ -53,3 +57,6 @@ label relax:
   chisomo "I don't think so...."
   chisomo "Oh, onions!"
   enok "Great, I'll get you onions."
+  
+label visited_farm_twice:
+  chisomo "You got the onions? Great, bring 'em over here."
