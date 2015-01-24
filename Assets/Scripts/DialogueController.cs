@@ -139,7 +139,6 @@ public class DialogueController : MonoBehaviour
 		if (character != null) {
 			portraitId = newLine.Character.PortraitId;
 			dialogueTitle.text = character.Friendly;
-			dialogueText.text = string.Format ("\n{0}", dialogueText.text);
 		} else {
 			dialogueTitle.text = "";
 		}
