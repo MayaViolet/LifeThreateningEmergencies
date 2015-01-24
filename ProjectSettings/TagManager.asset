@@ -5,6 +5,7 @@ TagManager:
   tags:
   - DialogueController
   - PlayerController
+  - HeightSort
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
