@@ -2,8 +2,53 @@ define enok = Character('Enok')
 define chisomo = Character('Chisomo')
 
 label start:
+  if visited_farm_once:
+    jump visited_farm_once
+  endif
+  
   chisomo "Alright, time to get off my ass and start preparing dinner."
   chisomo "Enok, we're running low on carrots. Go grab some more, will you?"
   enok "I literally just got here."
   chisomo "And I literally need carrots. Assuming you want to eat tonight."
   enok "Alright, alright."
+  
+label visited_farm_once:
+  "This seems serious..."
+  enok "Uh, I brought the carrots."
+  chisomo "DO CARROTS REALLY SEEM LIKE A PRIORITY RIGHT NOW?"
+  
+  menu:
+  	"Fuck, what happened?":
+  	  jump freakout
+	
+  	"Dude, relax.":
+  	  jump relax
+    
+label freakout:
+  "Chisomo takes a deep breath."
+  chisomo "It's just a little equipment failure."
+  chisomo "We can't get in contact with Earth."
+  enok "Seriously?"
+  chisomo "It'll be fine. Jordyn is already on it."
+  enok "Of course she is."
+  "He doesn't look so confident. I try not to roll my eyes."
+  enok "So what do we do?"
+  chisomo "We continue preparing dinner."
+  chisomo "I still need onions."
+  enok "Ugh."
+  chisomo "At least it'll distract you."
+  "Jerk."
+  
+label relax:
+  chisomo "Relax? We are in no position to relax!"
+  chisomo "We've lost contact with earth."
+  chisomo "THAT IS VERY BAD."
+  enok "Ouch. Okay, that's bad."
+  enok "But that's why we have Jordyn, right?"
+  chisomo "You're right. She hasn't let us down yet."
+  enok "Yeah, yeah, she's everybody's hero."
+  chisomo "Okay, let's finish dinner. That'll help take my mind off of this."
+  enok "Good thinking. Need anything else?"
+  chisomo "I don't think so...."
+  chisomo "Oh, onions!"
+  enok "Great, I'll get you onions."

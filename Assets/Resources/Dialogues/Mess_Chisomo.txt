@@ -2,8 +2,15 @@ define chisomo = Character('Chisomo')
 define enok = Character('Enok')
 
 label start:
+  if visited_farm_once:
+    jump visited_farm_once
+  endif
+  
   enok "So…"
   chisomo "What?"
   enok "What am I getting again?"
   chisomo "Very funny. Stop stalling and go get the carrots."
   enok "Fine, fine."
+  
+label visited_farm_once:
+  "..."

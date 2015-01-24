@@ -44,6 +44,11 @@ public class MusicLoopBehaviour : MonoBehaviour
 
 		if (_wait < 0) {
 			int next = _clipIndex;
+			if (_clipCount <= 1) {
+				PlayClip(next);
+				return;
+			}
+
 			while (next == _clipIndex) {
 				next = Random.Range (0, _clipCount);
 			}
