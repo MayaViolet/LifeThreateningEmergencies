@@ -71,5 +71,14 @@ public class ValueStore
 
 		callbacks.Add (callback);
 	}
+
+	public static void RemoveValueChanged(string key, Action<bool> callback) {
+		List<Action<bool>> callbacks;
+		if (!Instance.callbacks.TryGetValue (key, out callbacks)) {
+			return;
+		}
+
+		callbacks.Remove (callback);
+	}
 }
 

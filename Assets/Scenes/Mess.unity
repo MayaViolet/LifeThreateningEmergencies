@@ -333,6 +333,7 @@ GameObject:
   - 4: {fileID: 420843001}
   - 212: {fileID: 420843003}
   - 111: {fileID: 420843002}
+  - 114: {fileID: 420843004}
   m_Layer: 0
   m_Name: tv1
   m_TagString: Untagged
@@ -389,6 +390,19 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 491bdd65352a94d65b68b359476c7760, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
+--- !u!114 &420843004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 420843000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2305824c65ae249fc84f26c7d9ed6b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VisibleWhenFlagIs: 0
+  Flag: all_hell_broke_loose
 --- !u!1 &459744816
 GameObject:
   m_ObjectHideFlags: 0
@@ -2527,6 +2541,7 @@ GameObject:
   - 4: {fileID: 1442610868}
   - 212: {fileID: 1442610867}
   - 95: {fileID: 1442610866}
+  - 114: {fileID: 1442610869}
   m_Layer: 0
   m_Name: tv2
   m_TagString: Untagged
@@ -2584,6 +2599,19 @@ Transform:
   - {fileID: 420843001}
   m_Father: {fileID: 0}
   m_RootOrder: 13
+--- !u!114 &1442610869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1442610865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2305824c65ae249fc84f26c7d9ed6b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VisibleWhenFlagIs: 0
+  Flag: all_hell_broke_loose
 --- !u!1 &1598801925
 GameObject:
   m_ObjectHideFlags: 0

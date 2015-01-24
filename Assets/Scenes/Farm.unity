@@ -1795,7 +1795,6 @@ GameObject:
   - 114: {fileID: 1882156079}
   - 114: {fileID: 1882156083}
   - 82: {fileID: 1882156084}
-  - 114: {fileID: 1882156085}
   m_Layer: 5
   m_Name: DialogueCanvas
   m_TagString: DialogueController
@@ -1950,19 +1949,6 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!114 &1882156085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1882156078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2305824c65ae249fc84f26c7d9ed6b2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VisibleWhenFlagIs: 1
-  Flag: collected_onion
 --- !u!1 &1924516250
 GameObject:
   m_ObjectHideFlags: 0
