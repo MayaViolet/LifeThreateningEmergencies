@@ -13,3 +13,4 @@ label start:
   "It'll have to do. But I'd need a bucket too."
 
 label nope:
+  sound: "kettle"

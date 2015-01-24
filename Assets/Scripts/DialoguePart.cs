@@ -95,7 +95,8 @@ namespace BitterEnd {
 					var element = CurrentElement;
 					// This bit is neither object-oriented nor functional.  Sorry!
 
-					if (element is DialogueLine || element is DialogueMenu || element is DialogueTransition) {
+					if (element is DialogueLine || element is DialogueMenu || element is DialogueTransition
+					    || element is DialogueFade || element is DialogueWait) {
 						return true;
 					}
 
@@ -146,8 +147,9 @@ namespace BitterEnd {
 						continue;
 					}
 
-					if (element is DialogueAnimate) {
-						HostGO.animation.Play ();
+					var animate = element as DialogueAnimate;
+					if (animate != null) {
+						GameObject.FindGameObjectWithTag(animate.GOTag).animation.Play ();
 
 						++_currentElement;
 						continue;
