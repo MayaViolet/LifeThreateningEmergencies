@@ -71,6 +71,7 @@ label spanner_acquired:
   nalini "I'll just fix up that leak, then."
   nalini "There, you can have the bucket now."
   enok "Thanks."
+  $ bucket_acquired = True
 
 label spanner_stolen:
   "You hear her mumbling something that sounds like 'selfish jerk'."

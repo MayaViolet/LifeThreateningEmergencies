@@ -24,6 +24,8 @@ label observed_kettle:
     jump observed_bucket
   endif
   
+  $ observed_bucket = True
+  
   "There's a bucket collecting water."
   
 label observed_bucket:

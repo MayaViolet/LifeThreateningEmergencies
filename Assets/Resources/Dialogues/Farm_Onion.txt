@@ -3,6 +3,10 @@ label start:
     jump yummy
   endif
   
+  if collected_onions:
+    jump welp
+  endif
+  
   $ collected_onions = True
   "Hmm, they're not quite ready..."
   "Ah well."
@@ -10,3 +14,6 @@ label start:
   
 label yummy:
   "Looks like some delicious onions are growing here."
+  
+label welp:
+  "It's a hard life, being an onion."
