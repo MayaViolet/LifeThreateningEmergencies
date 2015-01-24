@@ -21,5 +21,30 @@ namespace BitterEnd {
 		{
 			return string.Format ("[DialoguePart: Name={0}]", Name, Lines, Menu);
 		}
+
+		public Iterator Start() {
+			return new DialoguePart.Iterator (this);
+		}
+
+		public class Iterator {
+			public DialoguePart DialoguePart { get; private set; }
+			private int _currentLine;
+
+			public Iterator(DialoguePart dialoguePart) {
+				DialoguePart = dialoguePart;
+				_currentLine = 0;
+			}
+			
+			public Line CurrentLine {
+				get {
+					return DialoguePart.Lines[_currentLine];
+				}
+			}
+			
+			public bool Next() {
+				++_currentLine;
+				return _currentLine < DialoguePart.Lines.Count;
+			}
+		}
 	}
 }

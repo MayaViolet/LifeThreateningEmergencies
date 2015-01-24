@@ -13,7 +13,7 @@ public class DialogueController : MonoBehaviour {
 	public Image portraitImage;
 	public RectTransform dialogueBase;
 	public Button menuButton;
-	public Dialogue.Iterator dialogueIterator;
+	public DialoguePart.Iterator dialogueIterator;
 
 	Vector3 showPosition;
 	Vector3 hidePosition;
@@ -67,7 +67,7 @@ public class DialogueController : MonoBehaviour {
 		}
 
 		// Check for menu display, otherwise we're done.
-		var menu = dialogueIterator.CurrentPart.Menu;
+		var menu = dialogueIterator.DialoguePart.Menu;
 		if (menu == null) {
 			visible = false;
 			return;
@@ -105,6 +105,9 @@ public class DialogueController : MonoBehaviour {
 		}
 
 		_menuButtons = null;
+
+		dialogueIterator = choice.JumpTarget.Start ();
+		ShowLine (dialogueIterator.CurrentLine);
 	}
 	
 	private void ShowLine(Line newLine)

@@ -15,34 +15,8 @@ namespace BitterEnd
 		{
 		}
 
-		public Iterator Start() {
-			return new Iterator(this);
-		}
-
-		public class Iterator {
-			private Dialogue _dialogue;
-			public DialoguePart CurrentPart { get; private set; }
-			private int _currentLine;
-
-			public Iterator(Dialogue dialogue): this(dialogue, "start") {
-			}
-
-			public Iterator(Dialogue dialogue, string part) {
-				_dialogue = dialogue;
-				CurrentPart = _dialogue.DialogueParts[part];
-				_currentLine = 0;
-			}
-
-			public Line CurrentLine {
-				get {
-					return CurrentPart.Lines[_currentLine];
-				}
-			}
-
-			public bool Next() {
-				++_currentLine;
-				return _currentLine < CurrentPart.Lines.Count;
-			}
+		public DialoguePart.Iterator Start() {
+			return this.DialogueParts ["start"].Start ();
 		}
 	}
 }
