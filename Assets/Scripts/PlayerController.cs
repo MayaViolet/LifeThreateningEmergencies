@@ -18,6 +18,11 @@ public class PlayerController : MonoBehaviour {
 
 	void OnMovementClick(Vector3 location)
 	{
+		MoveTo (location);
+	}
+
+	public void MoveTo(Vector3 location)
+	{
 		Vector3 offset = location - transform.position;
 		float distance = offset.magnitude;
 		float time = distance / moveSpeed;
