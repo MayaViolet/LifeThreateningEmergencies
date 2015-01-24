@@ -1,0 +1,14 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# Sprite sheet: TV.png (1552 x 740)
+# $TexturePacker:SmartUpdate:bb9f3f4bf484689ddb4032e87a5603b1:39b8e5523c910e76376b7b7e0853eaf7:339d46a77c1319048a6e74fa7c6cc3c8$
+#
+
+tv1;2;372;773;366;0.5;0
+tv2;777;372;773;366;0.5;0
+tv3;2;4;773;366;0.5;0
+tv4;777;4;773;366;0.5;0
