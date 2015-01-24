@@ -58,13 +58,17 @@ public class DialogueController : MonoBehaviour
 		dialogueBase.localPosition = hidePosition;
 
 		if (!string.IsNullOrEmpty(enterDialogue)) {
-			BeginDialogue (RenPyParser.ReadDialogueFromResources(enterDialogue));
+			BeginDialogue (RenPyParser.ReadDialogueFromResources(enterDialogue), gameObject);
 		}
 	}
 
-	public void BeginDialogue (Dialogue dialogue)
+	public void BeginDialogue (Dialogue dialogue, GameObject hostGO)
 	{
-		dialogueIterator = dialogue.Start ();
+		dialogueIterator = dialogue.Start (hostGO);
+		if (!dialogueIterator.HasCurrent) {
+			return;
+		}
+
 		ShowCurrent ();
 	}
 
@@ -183,7 +187,7 @@ public class DialogueController : MonoBehaviour
 			return;
 		}
 
-		dialogueIterator = choice.DialogueJump.Target.Start ();
+		dialogueIterator = choice.DialogueJump.Target.Start (dialogueIterator.HostGO);
 		ShowCurrent ();
 	}
 }

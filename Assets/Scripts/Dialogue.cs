@@ -1,3 +1,4 @@
+using UnityEngine;
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -19,8 +20,8 @@ namespace BitterEnd
 		{
 		}
 
-		public DialoguePart.Iterator Start() {
-			return this.DialogueParts ["start"].Start ();
+		public DialoguePart.Iterator Start(GameObject hostGO) {
+			return this.DialogueParts ["start"].Start (hostGO);
 		}
 
 		public string Render() {
