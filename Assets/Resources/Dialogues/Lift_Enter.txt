@@ -154,7 +154,10 @@ label to_mess:
   ai "Confirmed. Destination: mess."
   
 label coldshower:
-  "Well, at least I'm clean."
+  $ hot_shower = False
+  sound: "elevator"
+  ai "Confirmed. Destination: showers."
+  transition: "Finish"
 
 label water_boiled:
   ai "Would you like to go to the showers now?"
@@ -168,6 +171,7 @@ label water_boiled:
 	  return
 	  
 label hotshower:
+  $ hot_shower = True
   sound: "elevator"
   ai "Confirmed. Destination: showers."
-  "That was worth the wait."
+  transition: "Finish"
