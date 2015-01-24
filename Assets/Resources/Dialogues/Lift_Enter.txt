@@ -1,0 +1,8 @@
+define ai = Character('AI')
+define enok = Character('Enok')
+
+label start:
+  ai "Hello, ENOK SØRENSEN. What is your destination?"
+  enok "The Farm. Lord Chisomo needs his carrots."
+  ai "Confirmed. Destination: Farm."
+  sound: "elevator"
