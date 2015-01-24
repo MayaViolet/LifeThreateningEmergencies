@@ -83,11 +83,15 @@ namespace BitterEnd {
 			public bool Next() {
 				while (true) {
 					++_currentElement;
+
 					if (_currentElement >= DialoguePart.Elements.Count) {
 						if (!_returns.Any()) {
 							return false;
 						} else {
-							throw new NotImplementedException("Return from conditional.");
+							var ourReturn = _returns.Pop ();
+							DialoguePart = ourReturn.DialoguePart;
+							_currentElement = ourReturn.NextElement - 1;
+							continue;
 						}
 					}
 
