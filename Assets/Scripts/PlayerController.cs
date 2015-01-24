@@ -30,7 +30,18 @@ public class PlayerController : MonoBehaviour {
 
 	public void MoveTo(Vector3 location, Action onComplete = null)
 	{
-		location = new Vector3 (location.x, Math.Min (location.y, maxY), location.z);
+		location = new Vector3 (location.x, Math.Min (location.y, maxY), transform.position.z);
+
+		//raycast to obstacles
+		{
+			Vector3 moveOffset = location - transform.position;
+			Ray moveRay = new Ray(transform.position, moveOffset.normalized);
+			RaycastHit hit;
+			if (Physics.Raycast(moveRay, out hit, moveOffset.magnitude, 1 << LayerMask.NameToLayer("Obstacles")))
+			{
+				location = hit.point - moveRay.direction * 0.1f;
+			}
+		}
 
 		Vector3 offset = location - transform.position;
 		float distance = offset.magnitude;
@@ -65,10 +76,10 @@ public class PlayerController : MonoBehaviour {
 			.Play();
 	}
 
-	void OnCollisionEnter(Collision other)
+	void NopeOnTriggerEnter(Collider other)
 	{
 		print ("CollisionEnter");
-		//if (other.gameObject.layer == LayerMask.NameToLayer("Default"))
+		if (other.gameObject.layer == LayerMask.NameToLayer("Default"))
 		{
 			anim.SetBool ("Walking", false);
 			if (currentTween != null)

@@ -146,8 +146,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 102100031}
   - 114: {fileID: 102100030}
-  - 135: {fileID: 102100032}
-  - 54: {fileID: 102100033}
   m_Layer: 0
   m_Name: PlayerRoot
   m_TagString: PlayerController
@@ -181,33 +179,6 @@ Transform:
   - {fileID: 179582958}
   m_Father: {fileID: 0}
   m_RootOrder: 5
---- !u!135 &102100032
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 102100029}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: .200000003
-  m_Center: {x: 0, y: .100000001, z: 0}
---- !u!54 &102100033
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 102100029}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &179582955
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +245,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 102100031}
   m_RootOrder: 0
+--- !u!1 &324715090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 324715092}
+  - 65: {fileID: 324715091}
+  m_Layer: 10
+  m_Name: NPCObstacle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &324715091
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 324715090}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .910000026, y: .340000004, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &324715092
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 324715090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.03999996, y: -2.36999989, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
 --- !u!1 &400685977
 GameObject:
   m_ObjectHideFlags: 0
@@ -2132,59 +2143,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
---- !u!1 &1102064981
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1102064984}
-  - 65: {fileID: 1102064983}
-  - 114: {fileID: 1102064982}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1102064982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1102064981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d02c9939f7494663ae6f01b9550af05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue: Mess_Cupboard
---- !u!65 &1102064983
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1102064981}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: .790000021, y: .709999979, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &1102064984
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1102064981}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.38000011, y: .670000017, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
 --- !u!1 &1155583452
 GameObject:
   m_ObjectHideFlags: 0
@@ -2612,7 +2570,7 @@ GameObject:
   - 4: {fileID: 1437789314}
   - 212: {fileID: 1437789313}
   - 65: {fileID: 1437789312}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mess_Bench
   m_TagString: HeightSort
   m_Icon: {fileID: 0}
@@ -2626,10 +2584,10 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1437789311}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.01999998, y: 1.08000004, z: .200000003}
+  m_Size: {x: 7.01999998, y: 1.08000004, z: 1.04999995}
   m_Center: {x: 0, y: .430000007, z: 0}
 --- !u!212 &1437789313
 SpriteRenderer:
