@@ -29,7 +29,7 @@ label visited_farm_twice:
     jump observed_bucket
   endif
   
-  if collected_onions:
+  if talked_shower:
     jump collected_onions
   endif
   
