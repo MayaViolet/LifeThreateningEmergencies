@@ -5,7 +5,6 @@ using System.Collections;
 using BitterEnd;
 
 abstract public class AbstractInteraction : MonoBehaviour, IPointerClickHandler {
-	public string dialogue;
 	protected DialogueController _dialogueController;
 	protected PlayerController _playerController;
 	
