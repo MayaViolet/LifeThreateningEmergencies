@@ -18,10 +18,18 @@ public class DialogueController : MonoBehaviour {
 	Vector3 showPosition;
 	Vector3 hidePosition;
 
+	private bool _visible;
+
 	public bool visible
 	{
+		get {
+			return _visible;
+		}
+
 		set
 		{
+			_visible = value;
+
 			if (value)
 			{
 				dialogueBase.TweenMoveTo(showPosition)
@@ -62,7 +70,7 @@ public class DialogueController : MonoBehaviour {
 				var cumulativeHeight = 0f;
 				foreach (var choice in menu.Choices) {
 					var button = (Button) Instantiate (menuButton);
-					button.transform.SetParent (this.transform);
+					button.transform.SetParent (this.transform, false);
 					button.transform.position = new Vector3(0, cumulativeHeight, 0);
 
 					button.GetComponentInChildren<Text>().text = choice.Text;
