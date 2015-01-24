@@ -13,6 +13,7 @@ label start:
   enok "Alright, alright."
   
 label visited_farm_once:
+  $ all_hell_broke_loose = True
   "This seems serious..."
   enok "Uh, I brought the carrots."
   chisomo "DO CARROTS REALLY SEEM LIKE A PRIORITY RIGHT NOW?"
