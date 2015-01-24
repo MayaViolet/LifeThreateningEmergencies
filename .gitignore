@@ -9,3 +9,4 @@ Temp
 .DS_Store
 Assets/test-results
 Assets/test-results.meta
+!Assembly-CSharp-Editor.csproj
