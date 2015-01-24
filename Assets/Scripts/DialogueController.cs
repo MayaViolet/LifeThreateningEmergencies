@@ -33,6 +33,10 @@ public class DialogueController : MonoBehaviour
 		}
 
 		set {
+			if (_visible == value) {
+				return;
+			}
+
 			_visible = value;
 
 			if (value) {
@@ -59,6 +63,17 @@ public class DialogueController : MonoBehaviour
 
 		if (!string.IsNullOrEmpty(enterDialogue)) {
 			BeginDialogue (RenPyParser.ReadDialogueFromResources(enterDialogue), gameObject);
+		}
+	}
+
+	void Update ()
+	{
+		if (!_visible || _menuButtons != null) {
+			return;
+		}
+
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			AdvanceDialogue ();
 		}
 	}
 

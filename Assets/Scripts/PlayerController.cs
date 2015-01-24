@@ -8,6 +8,7 @@ using DaikonForge.Tween;
 public class PlayerController : MonoBehaviour {
 
 	public float moveSpeed = 3;
+	public float maxY;
 
 	Animator anim;
 	TweenBase currentTween;
@@ -17,6 +18,11 @@ public class PlayerController : MonoBehaviour {
 		ClickHandler.Instance.OnMovementClick += OnMovementClick;
 	}
 
+	void OnDrawGizmos() {
+		Gizmos.color = Color.magenta;
+		Gizmos.DrawLine (new Vector3 (-10, maxY, 0), new Vector3 (10, maxY, 0));
+	}
+
 	void OnMovementClick(Vector3 location)
 	{
 		MoveTo (location);
@@ -24,6 +30,8 @@ public class PlayerController : MonoBehaviour {
 
 	public void MoveTo(Vector3 location, Action onComplete = null)
 	{
+		location = new Vector3 (location.x, Math.Min (location.y, maxY), location.z);
+
 		Vector3 offset = location - transform.position;
 		float distance = offset.magnitude;
 		float time = distance / moveSpeed;
