@@ -16,6 +16,13 @@ menu:
 		
 label thin:
 	annie "You're right, thin rice cakes are the best."
+	$ thin = True
+	jump target
 
 label thick:
 	varus "Excellent choice."
+	$ thin = False
+	jump target
+	
+target:
+	annie "Here I am."

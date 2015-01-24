@@ -12,6 +12,10 @@ namespace BitterEnd {
 		/// <remarks>If exists, the <c>Menu</c> shown at the end of this part.</remarks>
 		public Menu Menu { get; set; }
 
+		/// <remarks>Either Menu or JumpTarget(Label) may be specified, but not both.</remarks>
+		public string JumpTargetLabel { get; set; }
+		public DialoguePart JumpTarget { get; set; }
+
 		public DialoguePart (string name)
 		{
 			Name = name;

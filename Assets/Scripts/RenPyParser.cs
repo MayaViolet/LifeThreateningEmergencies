@@ -47,6 +47,9 @@ namespace BitterEnd
 		private static readonly Regex _parseJump =
 			new Regex (@"^jump\s+(\w+)$", RegexOptions.IgnoreCase);
 
+		private static readonly Regex _parseAssign =
+			new Regex (@"^\$\s*(\w+)\s*=\s*(True|False)$", RegexOptions.IgnoreCase);
+
 		private Dialogue Parse() {
 			var dialogue = new Dialogue ();
 			DialoguePart currentPart = null;
@@ -98,6 +101,10 @@ namespace BitterEnd
 						throw new FormatException("Found menu declaration, but already in a menu part.");
 					}
 
+					if (currentPart.JumpTargetLabel != null) {
+						throw new FormatException("Found menu declaration, but part already has a jump.");
+					}
+
 					currentPart.Menu = new Menu();
 					continue;
 				}
@@ -114,10 +121,20 @@ namespace BitterEnd
 
 				if ((match = _parseJump.Match (line)).Success) {
 					if (currentPart.Menu == null) {
-						throw new FormatException(string.Format ("Found jump {0}, but not in a menu choice.", line));
+						if (currentPart.JumpTargetLabel != null) {
+							throw new FormatException(string.Format ("Found jump {0}, but jump already exists.", line));
+						}
+
+						currentPart.JumpTargetLabel = match.Groups[1].Value;
+						continue;
 					}
 
 					currentChoice.JumpTargetLabel = match.Groups[1].Value;
+					continue;
+				}
+
+				if ((match = _parseAssign.Match (line)).Success) {
+					Console.WriteLine (string.Format ("Assign to {0}: {1}", match.Groups[1].Value, match.Groups[2].Value));
 					continue;
 				}
 
@@ -126,6 +143,15 @@ namespace BitterEnd
 
 			// Compile jumps.
 			foreach (var pair in dialogue.DialogueParts) {
+				if (pair.Value.JumpTargetLabel != null) {
+					DialoguePart jumpTarget;
+					if (!dialogue.DialogueParts.TryGetValue (pair.Value.JumpTargetLabel, out jumpTarget)) {
+						throw new FormatException(string.Format ("Couldn't find target for jump {0}.", pair.Value.JumpTargetLabel));
+					}
+
+					pair.Value.JumpTarget = jumpTarget;
+				}
+
 				if (pair.Value.Menu == null) {
 					continue;
 				}

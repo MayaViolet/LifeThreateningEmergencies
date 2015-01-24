@@ -66,6 +66,13 @@ public class DialogueController : MonoBehaviour {
 			return;
 		}
 
+		var jumpTarget = dialogueIterator.DialoguePart.JumpTarget;
+		if (jumpTarget != null) {
+			dialogueIterator = jumpTarget.Start ();
+			ShowLine (dialogueIterator.CurrentLine);
+			return;
+		}
+
 		// Check for menu display, otherwise we're done.
 		var menu = dialogueIterator.DialoguePart.Menu;
 		if (menu == null) {
