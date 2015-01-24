@@ -45,7 +45,11 @@ public class DialogueController : MonoBehaviour {
 		hidePosition = showPosition + dialogueBase.rect.height * 2 * Vector3.down;
 		dialogueBase.position = hidePosition;
 
-		dialogueIterator = Dialogue.GetTestDialogue ().Start ();
+		BeginDialogue (Dialogue.GetTestDialogue ());
+	}
+
+	public void BeginDialogue(Dialogue dialogue) {
+		dialogueIterator = dialogue.Start ();
 		ShowLine (dialogueIterator.CurrentLine);
 	}
 
@@ -58,8 +62,8 @@ public class DialogueController : MonoBehaviour {
 				var cumulativeHeight = 0f;
 				foreach (var choice in menu.Choices) {
 					var button = (Button) Instantiate (menuButton);
-					button.transform.SetParent (this.transform, false);
-					button.transform.position += new Vector3(0, cumulativeHeight, 0);
+					button.transform.SetParent (this.transform);
+					button.transform.position = new Vector3(0, cumulativeHeight, 0);
 
 					button.GetComponentInChildren<Text>().text = choice.Text;
 					var choiceText = choice.Text;
@@ -69,6 +73,7 @@ public class DialogueController : MonoBehaviour {
 					});
 
 					cumulativeHeight += button.GetComponent<RectTransform>().rect.height;
+					Debug.Log (string.Format ("CumulativeHeight is now {0}", cumulativeHeight));
 					buttons.Add (button);
 				}
 
