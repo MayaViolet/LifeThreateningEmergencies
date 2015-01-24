@@ -22,6 +22,7 @@ public class MusicLoopBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		_wait -= Time.deltaTime;
 		if (_wait < 0) {
 			PlayClip ((_clipIndex + 1) % _clipCount);
 		}
