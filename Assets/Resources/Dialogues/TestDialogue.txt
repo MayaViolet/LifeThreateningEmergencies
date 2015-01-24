@@ -17,6 +17,9 @@ menu:
 	"Thick rice cakes.":
 		jump thick
 		
+	"Eating my own foot.":
+		return
+		
 label thin:
 	annie "You're right, thin rice cakes are the best."
 	$ thin = True

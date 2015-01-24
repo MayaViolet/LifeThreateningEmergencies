@@ -60,6 +60,9 @@ namespace BitterEnd
 		private static readonly Regex _parseSound =
 			new Regex (@"^sound: (['""])((?:\\\1|.)*?)\1$", RegexOptions.IgnoreCase);
 
+		private static readonly Regex _parseReturn =
+			new Regex (@"^return$", RegexOptions.IgnoreCase);
+
 		private enum ParserState {
 			PROLOGUE,
 			LINES,
@@ -152,6 +155,11 @@ namespace BitterEnd
 						continue;
 					}
 
+					if (ParseReturn (line)) {
+						_state = ParserState.MENU;
+						continue;
+					}
+
 					break;
 
 				case ParserState.JUMPED:
@@ -187,6 +195,10 @@ namespace BitterEnd
 				}
 
 				foreach (var choice in pair.Value.Menu.Choices) {
+					if (choice.JumpTargetLabel == null) {
+						continue;
+					}
+
 					DialoguePart jumpTarget;
 					if (!_dialogue.DialogueParts.TryGetValue(choice.JumpTargetLabel, out jumpTarget)) {
 						throw new FormatException(string.Format("Couldn't find target for jump {0}.", choice.JumpTargetLabel));
@@ -279,6 +291,16 @@ namespace BitterEnd
 				_currentChoice.JumpTargetLabel = match.Groups [1].Value;
 			}
 			
+			return true;
+		}
+
+		private bool ParseReturn(string line) {
+			var match = _parseReturn.Match (line);
+			if (!match.Success) {
+				return false;
+			}
+
+			_currentChoice.JumpTargetLabel = null;
 			return true;
 		}
 		
