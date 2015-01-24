@@ -19,7 +19,8 @@ public class DialogueController : MonoBehaviour {
 	Vector3 hidePosition;
 
 	private bool _visible;
-
+	private List<Button> _menuButtons;
+	
 	public bool visible
 	{
 		get {
@@ -60,37 +61,51 @@ public class DialogueController : MonoBehaviour {
 	}
 
 	public void AdvanceDialogue() {
-		if (!dialogueIterator.Next ()) {
-			// Check for menu display, otherwise we're done.
-			var menu = dialogueIterator.CurrentPart.Menu;
-			if (menu != null) {
-				var buttons = new List<Button>();
-				var cumulativeHeight = 0f;
-				foreach (var choice in menu.Choices) {
-					var button = (Button) Instantiate (menuButton);
-					button.transform.SetParent (this.transform, false);
-					button.transform.position = new Vector3(0, cumulativeHeight, 0);
+		if (dialogueIterator.Next ()) {
+			ShowLine (dialogueIterator.CurrentLine);
+			return;
+		}
 
-					button.GetComponentInChildren<Text>().text = choice.Text;
-					var choiceText = choice.Text;
-
-					button.onClick.AddListener(() => {
-						Debug.Log (string.Format ("Choice was selected: {0}", choiceText));
-					});
-
-					cumulativeHeight += button.GetComponent<RectTransform>().rect.height;
-					Debug.Log (string.Format ("CumulativeHeight is now {0}", cumulativeHeight));
-					buttons.Add (button);
-				}
-
-				return;
-			}
-
+		// Check for menu display, otherwise we're done.
+		var menu = dialogueIterator.CurrentPart.Menu;
+		if (menu == null) {
 			visible = false;
 			return;
 		}
 
-		ShowLine (dialogueIterator.CurrentLine);
+		if (_menuButtons != null) {
+			// Don't double-show menu.
+			return;
+		}
+
+		_menuButtons = new List<Button>();
+
+		var cumulativeHeight = 0f;
+		foreach (var choice in menu.Choices) {
+			var button = (Button)Instantiate (menuButton);
+			button.transform.SetParent (this.transform, false);
+			button.transform.localPosition = new Vector3 (0, cumulativeHeight, 0);
+
+			button.GetComponentInChildren<Text> ().text = choice.Text;
+
+			var selectedChoice = choice;
+			button.onClick.AddListener (() => MenuChoiceSelected(selectedChoice));
+
+			cumulativeHeight += button.GetComponent<RectTransform> ().rect.height;
+			Debug.Log (string.Format ("CumulativeHeight is now {0}", cumulativeHeight));
+			_menuButtons.Add (button);
+
+		}
+	}
+
+	private void MenuChoiceSelected(Menu.Choice choice) {
+		Debug.Log (string.Format ("Choice was selected: {0}", choice.Text));
+
+		foreach (var button in _menuButtons) {
+			Destroy (button);
+		}
+
+		_menuButtons = null;
 	}
 	
 	private void ShowLine(Line newLine)
