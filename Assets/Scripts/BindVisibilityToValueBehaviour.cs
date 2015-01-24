@@ -13,7 +13,8 @@ public class BindVisibilityToValueBehaviour : MonoBehaviour {
 	private Action<bool> _callback;
 	
 	void Start () {
-		SetVisibility (VisibleWhenFlagIs == VisibleWhen.False);
+		var val = ValueStore.Retrieve (Flag);
+		SetVisibility ((VisibleWhenFlagIs == VisibleWhen.False) ? !val : val, true);
 
 		_callback = value => {
 			SetVisibility ((VisibleWhenFlagIs == VisibleWhen.False) ? !value : value);
@@ -25,7 +26,11 @@ public class BindVisibilityToValueBehaviour : MonoBehaviour {
 		ValueStore.RemoveValueChanged (Flag, _callback);
 	}
 
-	private void SetVisibility(bool value) {
-		gameObject.GetComponent<SpriteRenderer> ().enabled = value;
+	private void SetVisibility(bool value, bool force = false) {
+		if (value || force || gameObject.GetComponent<Animation>() == null) {
+			gameObject.GetComponent<SpriteRenderer> ().enabled = value;
+		} else if (!value) {
+			gameObject.animation.Play ();
+		}
 	}
 }

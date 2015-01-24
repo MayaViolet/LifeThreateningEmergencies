@@ -7,10 +7,9 @@ label start:
     jump welp
   endif
   
-  $ collected_onions = True
   "Hmm, they're not quite ready..."
   "Ah well."
-  animate
+  $ collected_onions = True
   
 label yummy:
   "Looks like some delicious onions are growing here."

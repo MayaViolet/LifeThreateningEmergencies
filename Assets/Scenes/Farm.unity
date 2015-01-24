@@ -1962,6 +1962,7 @@ GameObject:
   - 65: {fileID: 1924516254}
   - 114: {fileID: 1924516253}
   - 111: {fileID: 1924516255}
+  - 114: {fileID: 1924516256}
   m_Layer: 0
   m_Name: Onion
   m_TagString: Untagged
@@ -2042,3 +2043,16 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &1924516256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1924516250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2305824c65ae249fc84f26c7d9ed6b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VisibleWhenFlagIs: 1
+  Flag: collected_onions

@@ -1,4 +1,9 @@
 label start:
+  if spanner_quest:
+    jump spanner_quest
+  endif
+  
+label spanner_quest:
   "What the…?"
   "Why is Nalini's spanner in here?"
   "Well, better get it back to her."
