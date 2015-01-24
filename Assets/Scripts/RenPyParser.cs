@@ -57,6 +57,9 @@ namespace BitterEnd
 		private static readonly Regex _parseEndIf =
 			new Regex (@"^endif$", RegexOptions.IgnoreCase);
 
+		private static readonly Regex _parseSound =
+			new Regex (@"^sound: (['""])((?:\\\1|.)*?)\1$", RegexOptions.IgnoreCase);
+
 		private enum ParserState {
 			PROLOGUE,
 			LINES,
@@ -113,6 +116,10 @@ namespace BitterEnd
 					}
 
 					if (ParseAssign(line)) {
+						continue;
+					}
+
+					if (ParseSound (line)) {
 						continue;
 					}
 
@@ -308,6 +315,17 @@ namespace BitterEnd
 
 			_currentPart = _partStack.Pop ();
 			
+			return true;
+		}
+
+		private bool ParseSound(string line) {
+			var match = _parseSound.Match (line);
+			if (!match.Success) {
+				return false;
+			}
+
+			_currentPart.Elements.Add (new DialogueSound (match.Groups [2].Value));
+
 			return true;
 		}
 	}
