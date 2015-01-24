@@ -29,22 +29,11 @@ public class ClickHandler : MonoBehaviour {
 		_instance = this;
 	}
 
-	void Update()
+	public void CallMovementClick(Vector3 position)
 	{
-		if (Input.GetMouseButtonDown(0))
+		if (OnMovementClick != null)
 		{
-			Ray clickRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-			RaycastHit hitInfo;
-			if (Physics.Raycast(clickRay, out hitInfo, 100))
-			{
-				if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("Walkable"))
-				{
-					if (OnMovementClick != null)
-					{
-						OnMovementClick(hitInfo.point);
-					}
-				}
-			}
+			OnMovementClick(position);
 		}
 	}
 }
