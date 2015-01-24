@@ -33,14 +33,14 @@ public class DialogueController : MonoBehaviour {
 
 			if (value)
 			{
-				dialogueBase.TweenMoveTo(showPosition)
+				dialogueBase.TweenMoveTo(showPosition, true)
 					.SetDuration(0.5f)
 					.SetEasing(TweenEasingFunctions.EaseOutBack)
 					.Play();
 			}
 			else
 			{
-				dialogueBase.TweenMoveTo(hidePosition)
+				dialogueBase.TweenMoveTo(hidePosition, true)
 					.SetDuration(0.5f)
 					.SetEasing(TweenEasingFunctions.EaseInBack)
 					.Play();
@@ -50,9 +50,9 @@ public class DialogueController : MonoBehaviour {
 
 	void Start()
 	{
-		showPosition = dialogueBase.position;
+		showPosition = dialogueBase.localPosition;
 		hidePosition = showPosition + dialogueBase.rect.height * 2 * Vector3.down;
-		dialogueBase.position = hidePosition;
+		dialogueBase.localPosition = hidePosition;
 	}
 
 	public void BeginDialogue(Dialogue dialogue) {
@@ -92,7 +92,6 @@ public class DialogueController : MonoBehaviour {
 			button.onClick.AddListener (() => MenuChoiceSelected(selectedChoice));
 
 			cumulativeHeight += button.GetComponent<RectTransform> ().rect.height;
-			Debug.Log (string.Format ("CumulativeHeight is now {0}", cumulativeHeight));
 			_menuButtons.Add (button);
 
 		}
@@ -102,7 +101,7 @@ public class DialogueController : MonoBehaviour {
 		Debug.Log (string.Format ("Choice was selected: {0}", choice.Text));
 
 		foreach (var button in _menuButtons) {
-			Destroy (button);
+			Destroy (button.gameObject);
 		}
 
 		_menuButtons = null;
