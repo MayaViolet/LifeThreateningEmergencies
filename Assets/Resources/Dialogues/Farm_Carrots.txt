@@ -1,3 +1,10 @@
 label start:
+  if collected_carrots:
+    jump nope
+  endif
+  
   $ collected_carrots = True
   "These seem fine. Better get back to Chisomo with them."
+  
+label nope:
+  "..."
