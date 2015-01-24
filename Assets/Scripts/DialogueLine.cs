@@ -1,20 +1,21 @@
 using System;
+using System.Text;
 
 namespace BitterEnd
 {
-	public class Line
+	public class DialogueLine : DialogueElement
 	{
 		/// <remarks>May be <c>null</c> if ambient text.</remarks>
 		public Character Character { get; private set; }
 
 		public string Text { get; private set; }
 
-		public Line (string text)
+		public DialogueLine (string text)
 		{
 			Text = text;
 		}
 
-		public Line (Character character, string text)
+		public DialogueLine (Character character, string text)
 		{
 			Character = character;
 			Text = text;
@@ -22,12 +23,12 @@ namespace BitterEnd
 
 		public override string ToString ()
 		{
-			return string.Format ("[Line: Character={0}, Text={1}]", Character, Text);
+			return string.Format ("[DialogueLine: Character={0}, Text={1}]", Character, Text);
 		}
 
 		public override bool Equals (object obj)
 		{
-			var line = obj as Line;
+			var line = obj as DialogueLine;
 			if (line == null) {
 				return false;
 			}
@@ -38,6 +39,17 @@ namespace BitterEnd
 		public override int GetHashCode ()
 		{
 			return base.GetHashCode ();
+		}
+
+		public override void RenderTo (StringBuilder sb)
+		{
+			sb.AppendFormat ("\t");
+
+			if (Character != null) {
+				sb.AppendFormat ("{0} ", Character.Name);
+			}
+
+			sb.AppendFormat ("\"{0}\"\n", Text);
 		}
 	}
 }

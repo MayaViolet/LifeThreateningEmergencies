@@ -1,5 +1,5 @@
-define annie = Character('Annie', 'Pig')
-define varus = Character("Varus", 'SickPig')
+define annie = Character("Annie", "Pig")
+define varus = Character("Varus", "SickPig")
 
 label start:
 	"Ambient text ..."
@@ -16,6 +16,21 @@ menu:
 		
 label thin:
 	annie "You're right, thin rice cakes are the best."
+	$ thin = True
+	jump finale
 
 label thick:
 	varus "Excellent choice."
+	$ thin = False
+	jump finale
+	
+label finale:
+	annie "Well, it's about time to go."
+	
+	if thin:
+	    varus "Traitor."
+	endif
+	
+	if not thin:
+	    annie "Dork."
+	endif
