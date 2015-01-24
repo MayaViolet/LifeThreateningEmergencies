@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 using System.Collections;
 using BitterEnd;
 
@@ -23,10 +24,13 @@ public class DialogueInteraction : MonoBehaviour, IPointerClickHandler {
 		to = new Vector3 (to.x, from.y, to.z);
 
    		var diff = to - from;
+		Action complete = () => controller.BeginDialogue(RenPyParser.ReadDialogueFromResources(dialogue));
+	
 		if (diff.magnitude > MAXIMUM_DISTANCE) {
-			playerController.MoveTo(from + diff.normalized * (diff.magnitude - MAXIMUM_DISTANCE));
+			playerController.MoveTo (from + diff.normalized * (diff.magnitude - MAXIMUM_DISTANCE), complete);
+		} else {
+			complete ();
 		}
 
-		controller.BeginDialogue(RenPyParser.ReadDialogueFromResources(dialogue));
 	}
 }
