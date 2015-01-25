@@ -146,6 +146,14 @@ public class DialogueController : MonoBehaviour
 			Invoke ("AdvanceDialogue", wait.Time);
 			return;
 		}
+
+		var moveTo = element as DialogueMoveTo;
+		if (moveTo != null) {
+			var destination = GameObject.FindGameObjectWithTag(moveTo.TargetGO);
+			GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().MoveTo(destination.transform.position);
+			AdvanceDialogue();
+			return;
+		}
 		
 		throw new FormatException (string.Format ("Couldn't show a {0}.", element));
 	}
