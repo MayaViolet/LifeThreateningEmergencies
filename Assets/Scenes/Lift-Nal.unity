@@ -1206,6 +1206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b70cdea73a948c980ff3bcc8692445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Character: 1
   dialogueText: {fileID: 357999292}
   dialogueTitle: {fileID: 558860674}
   portraitImage: {fileID: 844559478}

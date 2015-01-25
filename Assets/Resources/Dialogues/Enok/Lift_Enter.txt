@@ -17,7 +17,7 @@ label visited_farm_once:
     jump all_hell_broke_loose
   endif
   
-  ai "Would you like to return to the mess hall?"
+  ai "Would you like to return to the mess?"
   enok "That's the plan."
   sound: "elevator"
   ai "Confirmed. Destination: mess."

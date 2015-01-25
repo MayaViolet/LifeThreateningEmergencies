@@ -1,0 +1,28 @@
+label start:
+  if spoke_to_jordyn:
+    jump spoke_to_jordyn
+  endif
+  
+  sound: "kettle"
+
+label spoke_to_jordyn:
+  if got_tea:
+    jump got_tea
+  endif
+  
+  if want_tea:
+    jump nope
+  endif
+  
+  $ want_tea = True
+  "Oh wow, there's a kettle here."
+  "That's lucky, but why do we even have one?"
+  "Now I just need the tea."
+
+label nope:
+  sound: "kettle"
+  
+label got_tea:
+  $ made_tea = True
+  "There we go, hot tea."
+  "Now I just need to bring it to Jordyn."

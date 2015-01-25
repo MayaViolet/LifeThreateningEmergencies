@@ -1,0 +1,131 @@
+define chisomo = Character('Chisomo')
+define nalini = Character('Nalini')
+
+label start:
+  if visited_farm_once:
+    jump visited_farm_once
+  endif
+  
+  nalini "So…"
+  chisomo "Worried about Enok?"
+  nalini "I’m just stalling. I’m sorry, I’ll go now."
+  chisomo "Just ignore him, you’ll be fine."
+  nalini "You’re right. I’ll be right back."
+  
+label visited_farm_once:
+  if visited_farm_twice:
+    jump visited_farm_twice
+  endif
+  
+  "..."
+  
+label visited_farm_twice:
+  if talked_shower:
+    jump talked_shower
+  endif
+  
+  if not ripened_onions:
+    jump not_ripened_onions
+  endif
+  
+  chisomo "Excellent. This should turn out great."
+  jump shower_talk
+  
+label not_ripened_onions:
+  if the_onion_returned:
+    jump whatever_onion_girl
+  endif
+  
+  chisomo "Oh, you forgot to ripen them."
+  
+  menu:
+    "I'm sorry. I got distracted.":
+      jump distracted
+		
+    "I'm not going back again.":
+      jump truth
+
+label distracted:
+  chisomo "I don't suppose I can convince you to go back?"
+  menu:
+    "…Fine.":
+      jump return_of_the_onion
+
+    "No way.":
+      jump truth
+      
+label return_of_the_onion:
+  $ the_onion_returned = True
+  chisomo "Great. Use the machine in the corner of the farm."
+   
+label truth:
+  chisomo "Fair enough. I'll make do."
+  jump shower_talk
+  
+label whatever_onion_girl:
+  chisomo "Still didn't manage it? Whatever. We'll make do with these."
+  jump shower_talk
+  
+label shower_talk:
+  $ talked_shower = True
+  
+  nalini "Do you need anything else?"
+  chisomo "Nah, I've got everything I need."
+  nalini "I should probably shower after digging up all those vegetables."
+  chisomo "Oh yeah that reminds me."
+  chisomo "There's no hot water."
+  nalini "The station is just having one of those days, huh?"
+  chisomo "Maybe you can get it sorted?"
+  nalini "I doubt it's high on anyone's agenda, but we'll see."
+  chisomo "Alright, well, good luck."
+  
+label talked_shower:
+  if spoke_to_jordyn:
+    jump spoke_to_jordyn
+  endif
+  
+  "He doesn't look too interested in talking much more."
+  
+label spoke_to_jordyn:
+  if want_tea:
+    jump want_tea
+  endif
+  
+  "..."
+  
+label want_tea:
+  if got_tea:
+    jump already_tea
+  endif
+  
+  	chisomo "Hey."
+	nalini "Do we have any tea?"
+	chisomo "Tea? There's probably some in the farm…"
+	nalini "…"
+	chisomo "I'll get it."
+	
+    fade: "out"
+    wait: 2
+    fade: "in"
+
+	chisomo "Okay, I have tea for you."
+	chisomo "You can have lady grey, hyeonmi nokcha, or oolong."
+	
+    menu:
+	  "Lady grey, please!":
+	      jump got_tea
+	
+	  "Hyeonmi nokcha sounds delicious!":
+	      jump got_tea
+	
+	  "I think it's an oolong sort of night.":
+	  	  jump got_tea
+	
+label got_tea:
+  $ got_tea = True
+	chisomo "Good choice."
+	chisomo "Think you can handle the kettle yourself?"
+	nalini "I'm sure I can."
+	
+label already_tea:
+  chisomo "Enjoy."

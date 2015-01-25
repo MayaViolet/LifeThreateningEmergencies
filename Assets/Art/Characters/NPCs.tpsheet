@@ -4,14 +4,15 @@
 # To import these sprites into your Unity project, download "TexturePackerImporter":
 # http://www.codeandweb.com/texturepacker/unity
 #
-# Sprite sheet: NPCs.png (212 x 212)
-# $TexturePacker:SmartUpdate:58032d6c283fc716bf19700206cedd8c:62eadb885816bed2b71021df5fd2cff0:ced4bd0b865c03f4ba9454db828bf956$
+# Sprite sheet: NPCs.png (824 x 824)
+# $TexturePacker:SmartUpdate:ef00dc4b5e7b7c90d19d6115f82b004c:69778410251394377168cbd7c42ba807:ced4bd0b865c03f4ba9454db828bf956$
 #
 
-AI;70;144;52;66;0.5;0
-Chef_Body;2;103;66;107;0.5;0
-Chef_Head;100;30;56;58;0.5;0
-Player2Body;2;3;47;98;0.5;0
-Player2Head;124;155;61;55;0.5;0
-PlayerBody;51;4;47;97;0.5;0
-PlayerHead;124;90;58;63;0.5;0
+AI;384;302;208;265;0.5;0
+Chef_Body;2;396;264;426;0.5;0
+Chef_Head;594;368;223;232;0.5;0
+JordynHead;384;71;232;229;0.5;0
+Player2Body;2;4;189;390;0.5;0
+Player2Head;502;602;243;220;0.5;0
+PlayerBody;193;8;189;386;0.5;0
+PlayerHead;268;569;232;253;0.5;0

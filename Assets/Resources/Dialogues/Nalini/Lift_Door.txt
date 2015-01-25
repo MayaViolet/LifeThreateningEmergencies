@@ -1,0 +1,14 @@
+label start:
+  if talked_shower:
+    transition: "Mess-Nal"
+  endif
+  
+  if all_hell_broke_loose:
+    transition: "Farm-Nal"
+   endif
+   
+  if visited_farm_once:
+    transition: "Mess-Nal"
+  endif
+
+  transition: "Farm-Nal"

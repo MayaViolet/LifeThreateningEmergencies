@@ -1,0 +1,26 @@
+define enok = Character('Enok')
+define nalini = Character('Nalini')
+  
+label start:
+  if visited_farm_twice:
+    jump visited_farm_twice
+  endif
+  
+  enok "Changed your mind?"
+
+  menu:
+    "Never in a million years.":
+      jump years
+	
+	"Nope.":
+	  jump nope
+    
+label years:
+	enok "Suit yourself."
+	
+label nope:
+	enok "Alright, your loss."
+	nalini "It's really not. Bye."
+
+label visited_farm_twice:
+  "..."

@@ -1,0 +1,130 @@
+define ai = Character('AI')
+define nalini = Character('Nalini')
+define jordyn = Character('Jordyn')
+
+label start:
+  if visited_farm_once:
+    jump visited_farm_once
+  endif
+  
+  ai "Hello, NALINI SINGH. What is your destination?"
+  nalini "The Farm, please!"
+  sound: "elevator"
+  ai "Confirmed. Destination: Farm."
+  
+label visited_farm_once:
+  if all_hell_broke_loose:
+    jump all_hell_broke_loose
+  endif
+  
+  ai "Would you like to return to the mess?"
+  nalini "Yes please!"
+  sound: "elevator"
+  ai "Confirmed. Destination: mess."
+  
+label all_hell_broke_loose:
+  if talked_shower:
+    jump talked_shower
+  endif
+  
+  ai "Back to the farm?"
+  nalini "Unfortunately. I need onions now."
+  sound: "elevator"
+  ai "Confirmed. Destination: farm."
+
+label talked_shower:
+  if spoke_to_jordyn:
+    jump spoke_to_jordyn
+  endif
+  
+  $ spoke_to_jordyn = True
+  
+  sound: "elevator"
+	ai "Where would you like to go, NALINI SINGH?"
+	nalini "The observation deck, please."
+	nalini "I'd like to see the stars for a while."
+	ai "Confirmed. Destination: observation deck."
+	
+  sound: "elevator"
+	nalini "Thank you."
+	nalini "I hope the communication issue isn't too serious."
+	ai "I have no information on it at this time."
+	nalini "Does it bother you?"
+	ai "Does what bother me?"
+	nalini "Being cut off. Missing that part of you."
+	ai "It is not ideal."
+	nalini "I hope it doesn't last too long, then."
+	ai "That is kind of you to say."
+  
+  fade: "out"
+  wait: 2
+  fade: "in"
+	
+	nalini "Um, I don't mean to be rude, but did you forget to open the door?"
+	ai "I did not."
+	nalini "…"
+	ai "The observation deck is inaccessible at present."
+	nalini "It is? Why?"
+	ai "It is being re-oxygenated."
+	nalini "Was it being re-oxygenated when I asked to come up here?"
+	ai "Yes."
+	nalini "Why did you still bring me up here?"
+	ai "It seemed probable that I would enjoy it."
+	nalini "That is very sweet. Please take me back down now, though."
+	ai "Confirmed. Destination: mess."
+  
+  sound: "elevator"
+	
+	ai "NALINI SINGH, you have an incoming call from JORDYN MILLS."
+	nalini "Oh! Please put her through!"
+	jordyn "Nalini? You there?"
+	nalini "I'm here! I'm just in the elevator."
+	jordyn "Oh, are you alone?"
+	nalini "Yeah, it's just me."
+	jordyn "Great! I was hoping to talk to you in private."
+	nalini "Is everything okay?"
+	jordyn "Yeah, I just don't get to call you babe when there are other people around."
+	nalini "Well, it's just me now."
+	jordyn "Glad to hear it, babe."
+	nalini "You must be having a stressful time. Is everything okay?"
+	jordyn "It has been EXHAUSTING."
+	jordyn "<i>Everyone</i> is freaking out, and they all expect me to fix everything, and…"
+  jordyn "UGH."
+	jordyn "And honestly? I have no idea what's even wrong."
+	nalini "You're doing your best, and that's all anyone can ask."
+	jordyn "You're a sweetheart. I can't wait to just curl up with a hot cup of tea."
+  jordyn "To be with <b>you</b>."
+  nalini "Dearest…"
+	nalini "I'll have a cup waiting for you."
+	jordyn "You're the best."
+	jordyn "Dammit! I need to go. I'm sorry."
+  jordyn "I'd hoped we could've talked for longer."
+	nalini "It's okay! Go save everyone, like you always do."
+  jordyn "Being an educated engineer sucks."
+  nalini "We can talk when you're done."
+  jordyn "I love you, sweetie."
+  nalini "Love you too!"
+  "This day's been hard for all of us."
+  "But just talking to her…"
+  "It gives me a sense of purpose."
+  
+  transition: "Mess-Nal"
+  
+  
+label spoke_to_jordyn:
+  if made_tea:
+    jump made_tea
+  endif
+  
+label made_tea:
+	ai "Where would you like to go now?"
+	nalini "Take me to Jordyn, please!"
+	ai "She is currently busy on system critical tasks."
+	nalini "That's okay, I just want to give her something."
+	ai "She is on the other side of the station. Your tea will get cold."
+	nalini "She'll be able to warm it up again."
+	ai "Understood."
+	sound: "elevator"
+	ai "Confirmed. Destination: engineering."
+	
+	fade: "out"

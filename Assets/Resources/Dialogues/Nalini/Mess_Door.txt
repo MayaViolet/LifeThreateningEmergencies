@@ -1,0 +1,20 @@
+label start:
+  if visited_farm_twice:
+    jump visited_farm_twice
+  endif
+  
+  transition: "Lift-Nal"
+  
+label visited_farm_twice:
+  if talked_shower:
+  	transition: "Lift-Nal"
+  endif
+  
+  if the_onion_returned:
+    transition: "Farm-Nal"
+  endif
+  
+  "Better talk to Chisomo first."
+  
+label not_talked_shower:
+  

@@ -1,0 +1,19 @@
+define enok = Character('Enok')
+define nalini = Character('Nalini')
+
+label start:
+  $ last_was_farm = True
+  
+  if all_hell_broke_loose:
+    jump all_hell_broke_loose
+  endif
+  
+  $ visited_farm_once = True
+  enok "Oh, Nalini! Need a hand with anything?"
+  nalini "Just grabbing some carrots. Thanks, though."
+  enok "I've got a carrot for you."
+  nalini "I will cut it off."
+
+
+label all_hell_broke_loose:
+  $ visited_farm_twice = True

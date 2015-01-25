@@ -1,0 +1,44 @@
+define enok = Character('Enok')
+define nalini = Character('Nalini')
+
+label start:
+  if visited_farm_twice:
+    jump visited_farm_twice
+  endif
+  
+  if not collected_carrots:
+    jump missing_something
+  endif
+
+  transition: "Lift-Nal"
+  
+label missing_something:
+  "Wait, didn't I come down here for something?"
+  
+label visited_farm_twice:
+  if spoke_to_jordyn:
+    transition: "Lift-Nal"
+  endif
+  
+  if not collected_onions:
+    jump missing_something
+  endif
+  
+  if not ripened_onions:
+    if not reminded_to_ripen:
+      jump remind_to_ripen
+    endif
+  endif
+  
+  if the_onion_returned:
+    transition: "Mess-Nal"
+  endif
+  
+  enok "Leaving so soon?"
+  nalini "Yes."
+  
+  transition: "Mess-Nal"
+  
+label remind_to_ripen:
+  $ reminded_to_ripen = True
+  "Oh, I should ripen them before I go..."

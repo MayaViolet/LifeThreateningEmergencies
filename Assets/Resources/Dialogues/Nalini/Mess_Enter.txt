@@ -1,0 +1,91 @@
+define nalini = Character('Nalini')
+define enok = Character('Enok')
+define chisomo = Character('Chisomo')
+
+label start:
+  $ last_was_farm = False
+  
+  if visited_farm_once:
+    jump visited_farm_once
+  endif
+  
+  animate: "ChefsHead"
+  wait: 2
+  
+  chisomo "Alright, time to get off my ass and start preparing dinner."
+  chisomo "Nalini, we're running low on carrots. Go grab some more, will you?"
+  nalini "Oh no, do we really need carrots?"
+  chisomo "Yes. Do you suddenly have a problem with carrots?"
+  nalini "No, I just don’t want to have to see Enok…"
+  chisomo "He’s still giving you grief?"
+  nalini "No, it’s fine. I’m sure he’ll be fine."
+  
+label visited_farm_once:
+  if visited_farm_twice:
+    jump visited_farm_twice
+  endif
+  
+  $ all_hell_broke_loose = True
+  
+  animate: "MainCamera"
+  
+  "This seems serious..."
+  nalini "Uhm, hey Chisomo. I brought the carrots…"
+  chisomo "Not a priority!"
+  
+  menu:
+  	"Oh dear, what happened?":
+      jump freakout
+	
+  	"Okay. Take a deep breath.":
+      jump relax
+    
+label freakout:
+  chisomo "It's just a little equipment failure."
+  chisomo "We can't get in contact with Earth."
+  nalini "That sounds bad!"
+  chisomo "It'll be fine. Jordyn is already on it."
+  nalini "Of course she is."
+  "He doesn't look so confident, but I know she'll come through for us."
+  "She always does."
+  nalini "So, what now?"
+  chisomo "We continue preparing dinner."
+  chisomo "I still need onions."
+  nalini "Ugh."
+  chisomo "I'm sorry. Last time, I promise."
+  
+label relax:
+  chisomo "Relax? We're in no position to relax!"
+  chisomo "We've lost contact with Earth."
+  chisomo "THAT IS VERY BAD."
+  nalini "Oh! That does sound bad."
+  nalini "But that's why we have Jordyn, right?"
+  chisomo "You're right. She hasn't let us down yet."
+  nalini "She's a hero."
+  chisomo "Okay, let's finish dinner, then."
+  chisomo "Do you think you can handle one more run?"
+  nalini "I'd rather not… what do you need?"
+  chisomo "Onions."
+  nalini "Okay, I'll get you onions."
+  nalini "But you owe me."
+  chisomo "I know."
+  
+label visited_farm_twice:
+  if spoke_to_jordyn:
+    jump spoke_to_jordyn
+  endif
+  
+  if not the_onion_returned:
+    chisomo "You got the onions? Great, bring 'em over here."
+  endif
+  
+label spoke_to_jordyn:
+  if pontificated:
+    jump noop
+  endif
+  
+  $ pontificated = True
+  "I have no hot water, and I must make tea."
+  "I can figure this out."
+  
+label noop:
