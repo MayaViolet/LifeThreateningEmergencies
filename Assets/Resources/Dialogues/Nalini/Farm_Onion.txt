@@ -8,7 +8,6 @@ label start:
   endif
   
   "Hmm, they're not quite ready..."
-  "Ah well."
   $ collected_onions = True
   
 label yummy:

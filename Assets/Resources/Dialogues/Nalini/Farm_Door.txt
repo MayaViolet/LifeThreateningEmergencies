@@ -1,3 +1,6 @@
+define enok = Character('Enok')
+define nalini = Character('Nalini')
+
 label start:
   if visited_farm_twice:
     jump visited_farm_twice
@@ -26,6 +29,9 @@ label visited_farm_twice:
       jump remind_to_ripen
     endif
   endif
+  
+  enok "Leaving so soon?"
+  nalini "Yes."
   
   transition: "Mess"
   

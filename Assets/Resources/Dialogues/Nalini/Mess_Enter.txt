@@ -26,46 +26,49 @@ label visited_farm_once:
   endif
   
   $ all_hell_broke_loose = True
+  
   animate: "MainCamera"
+  
   "This seems serious..."
-  enok "Uh, I brought the carrots."
-  chisomo "DO CARROTS REALLY SEEM LIKE A PRIORITY RIGHT NOW?"
+  nalini "Uhm, hey Chisomo. I brought the carrots…"
+  chisomo "Not a priority!"
   
   menu:
-  	"Fuck, what happened?":
-  	  jump freakout
+  	"Oh dear, what happened?":
+      jump freakout
 	
-  	"Dude, relax.":
-  	  jump relax
+  	"Okay. Take a deep breath.":
+      jump relax
     
 label freakout:
-  "Chisomo takes a deep breath."
   chisomo "It's just a little equipment failure."
   chisomo "We can't get in contact with Earth."
-  enok "Seriously?"
+  nalini "That sounds bad!"
   chisomo "It'll be fine. Jordyn is already on it."
-  enok "Of course she is."
-  "He doesn't look so confident. I try not to roll my eyes."
-  enok "So what do we do?"
+  nalini "Of course she is."
+  "He doesn't look so confident, but I know she'll come through for us."
+  "She always does."
+  nalini "So, what now?"
   chisomo "We continue preparing dinner."
   chisomo "I still need onions."
-  enok "Ugh."
-  chisomo "At least it'll distract you."
-  "Jerk."
+  nalini "Ugh."
+  chisomo "I'm sorry. Last time, I promise."
   
 label relax:
-  chisomo "Relax? We are in no position to relax!"
-  chisomo "We've lost contact with earth."
+  chisomo "Relax? We're in no position to relax!"
+  chisomo "We've lost contact with Earth."
   chisomo "THAT IS VERY BAD."
-  enok "Ouch. Okay, that's bad."
-  enok "But that's why we have Jordyn, right?"
+  nalini "Oh! That does sound bad."
+  nalini "But that's why we have Jordyn, right?"
   chisomo "You're right. She hasn't let us down yet."
-  enok "Yeah, yeah, she's everybody's hero."
-  chisomo "Okay, let's finish dinner. That'll help take my mind off of this."
-  enok "Good thinking. Need anything else?"
-  chisomo "I don't think so...."
-  chisomo "Oh, onions!"
-  enok "Great, I'll get you onions."
+  nalini "She's a hero."
+  chisomo "Okay, let's finish dinner, then."
+  chisomo "Do you think you can handle one more run?"
+  nalini "I'd rather not… what do you need?"
+  chisimo "Onions."
+  nalini "Okay, I'll get you onions."
+  nalini "But you owe me."
+  chisimo "I know."
   
 label visited_farm_twice:
   if spoke_to_jordyn:
