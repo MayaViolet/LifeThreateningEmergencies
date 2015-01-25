@@ -82,7 +82,7 @@ namespace BitterEnd {
 
 			private bool ProcessUntilLine() {
 				while (true) {
-					if (!HasCurrent) {
+					while (!HasCurrent) {
 						if (!_returns.Any()) {
 							return false;
 						}
