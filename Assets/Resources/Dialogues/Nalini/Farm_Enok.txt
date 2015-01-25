@@ -6,23 +6,21 @@ label start:
     jump visited_farm_twice
   endif
   
-  nalini "Need a hand?"
+  enok "Changed your mind?"
 
   menu:
-    "Nah, just wanted to say hi.":
-      jump hi
+    "Never in a million years.":
+      jump years
 	
-    "We should make out.":
-      jump makeout
+	"Nope.":
+	  jump nope
     
-label hi:
-  nalini "Oh. Well, hi!"
+label years:
+	enok "Suit yourself."
 	
-label makeout:
-  nalini "I'm a little busy right now. Maybe later."
-  nalini "Actually... I'm busy later too. Sorry!"
-  enok "Alright, your loss."
-  nalini "It's really not. Bye."
+label nope:
+	enok "Alright, your loss."
+	nalini "It's really not. Bye."
 
 label visited_farm_twice:
   if observed_bucket:

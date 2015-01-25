@@ -1,5 +1,6 @@
 define ai = Character('AI')
 define enok = Character('Enok')
+define nalini = Character('Nalini')
 define jordyn = Character('Jordyn')
 
 label start:
@@ -7,8 +8,8 @@ label start:
     jump visited_farm_once
   endif
   
-  ai "Hello, ENOK SØRENSEN. What is your destination?"
-  enok "The Farm. Lord Chisomo needs his carrots."
+  ai "Hello, NALINI SINGH. What is your destination?"
+  nalini "The Farm, please!"
   sound: "elevator"
   ai "Confirmed. Destination: Farm."
   

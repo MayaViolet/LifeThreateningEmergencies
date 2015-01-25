@@ -3,14 +3,14 @@ label start:
     jump visited_farm_twice
   endif
   
-  transition: "Lift"
+  transition: "Lift-Nal"
   
 label visited_farm_twice:
   if not talked_shower:
     jump not_talked_shower
   endif
   
-  transition: "Lift"
+  transition: "Lift-Nal"
   
 label not_talked_shower:
   "Better talk to Chisomo first."

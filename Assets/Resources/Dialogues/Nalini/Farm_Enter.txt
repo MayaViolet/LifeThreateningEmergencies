@@ -9,10 +9,11 @@ label start:
   endif
   
   $ visited_farm_once = True
-  nalini "Oh, Enok! Need a hand with anything?"
-  enok "Just grabbing some carrots. Thanks, though."
-  nalini "Okay, just shout if you need anything."
-  enok "Will do."
+  enok "Oh, Nalini! Need a hand with anything?"
+  nalini "Just grabbing some carrots. Thanks, though."
+  enok "I've got a carrot for you."
+  nalini "I will cut it off."
+
 
 label all_hell_broke_loose:
   if observed_kettle:
