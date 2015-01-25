@@ -51,7 +51,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 256
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
@@ -60,132 +60,132 @@ TextureImporter:
     - name: Walk_00000
       rect:
         serializedVersion: 2
-        x: 2
-        y: 146
-        width: 70
-        height: 145
+        x: 1325
+        y: 1173
+        width: 281
+        height: 585
       alignment: 9
-      pivot: {x: .535714269, y: -.0965517238}
+      pivot: {x: .540925264, y: -.0991453007}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Walk_00001
       rect:
         serializedVersion: 2
-        x: 2
-        y: 293
-        width: 73
-        height: 145
+        x: 789
+        y: 577
+        width: 294
+        height: 588
       alignment: 9
-      pivot: {x: .513698637, y: -.0965517238}
+      pivot: {x: .520408154, y: -.100340135}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Walk_00002
       rect:
         serializedVersion: 2
-        x: 208
-        y: 147
-        width: 68
-        height: 144
+        x: 521
+        y: 1167
+        width: 275
+        height: 591
       alignment: 9
-      pivot: {x: .551470578, y: -.104166664}
+      pivot: {x: .556363642, y: -.101522841}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Walk_00003
       rect:
         serializedVersion: 2
-        x: 278
-        y: 2
-        width: 64
-        height: 144
+        x: 262
+        y: 1165
+        width: 257
+        height: 593
       alignment: 9
-      pivot: {x: .6015625, y: -.104166664}
+      pivot: {x: .595330715, y: -.102866776}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Walk_00004
       rect:
         serializedVersion: 2
-        x: 347
-        y: 294
-        width: 65
-        height: 144
+        x: 525
+        y: 576
+        width: 262
+        height: 589
       alignment: 9
-      pivot: {x: .607692301, y: -.104166664}
+      pivot: {x: .603053451, y: -.101867571}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Walk_00005
       rect:
         serializedVersion: 2
-        x: 279
-        y: 294
-        width: 66
-        height: 144
+        x: 1085
+        y: 2
+        width: 266
+        height: 586
       alignment: 9
-      pivot: {x: .613636374, y: -.0972222239}
+      pivot: {x: .609022558, y: -.0972696245}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Walk_00006
       rect:
         serializedVersion: 2
-        x: 210
-        y: 294
-        width: 67
-        height: 144
+        x: 1325
+        y: 590
+        width: 270
+        height: 581
       alignment: 9
-      pivot: {x: .619403005, y: -.0972222239}
+      pivot: {x: .614814818, y: -.0963855386}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Walk_00007
       rect:
         serializedVersion: 2
-        x: 74
-        y: 146
-        width: 66
-        height: 145
+        x: 1057
+        y: 1171
+        width: 266
+        height: 587
       alignment: 9
-      pivot: {x: .613636374, y: -.0896551758}
+      pivot: {x: .609022558, y: -.0936967656}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Walk_00008
       rect:
         serializedVersion: 2
-        x: 77
-        y: 293
-        width: 65
-        height: 145
+        x: 2
+        y: 567
+        width: 262
+        height: 594
       alignment: 9
-      pivot: {x: .607692301, y: -.0896551758}
+      pivot: {x: .603053451, y: -.0909090936}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Walk_00009
       rect:
         serializedVersion: 2
-        x: 142
-        y: 146
-        width: 64
-        height: 145
+        x: 2
+        y: 1163
+        width: 258
+        height: 595
       alignment: 9
-      pivot: {x: .6015625, y: -.0965517238}
+      pivot: {x: .596899211, y: -.0974789932}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Walk_00010
       rect:
         serializedVersion: 2
-        x: 144
-        y: 293
-        width: 64
-        height: 145
+        x: 266
+        y: 571
+        width: 257
+        height: 592
       alignment: 9
-      pivot: {x: .6015625, y: -.0965517238}
+      pivot: {x: .595330715, y: -.0979729742}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Walk_00011
       rect:
         serializedVersion: 2
-        x: 344
-        y: 2
-        width: 63
-        height: 144
+        x: 798
+        y: 1170
+        width: 257
+        height: 588
       alignment: 9
-      pivot: {x: .59523809, y: -.104166664}
+      pivot: {x: .595330715, y: -.100340135}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Walk_00012
       rect:
         serializedVersion: 2
-        x: 278
-        y: 148
-        width: 65
-        height: 144
+        x: 1353
+        y: 5
+        width: 261
+        height: 583
       alignment: 9
-      pivot: {x: .576923072, y: -.104166664}
+      pivot: {x: .582375467, y: -.104631215}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
