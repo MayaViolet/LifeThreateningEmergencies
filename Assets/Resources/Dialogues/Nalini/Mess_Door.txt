@@ -1,0 +1,16 @@
+label start:
+  if visited_farm_twice:
+    jump visited_farm_twice
+  endif
+  
+  transition: "Lift"
+  
+label visited_farm_twice:
+  if not talked_shower:
+    jump not_talked_shower
+  endif
+  
+  transition: "Lift"
+  
+label not_talked_shower:
+  "Better talk to Chisomo first."

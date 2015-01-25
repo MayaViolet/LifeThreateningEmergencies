@@ -1,0 +1,97 @@
+define nalini = Character('Nalini')
+define enok = Character('Enok')
+define chisomo = Character('Chisomo')
+
+label start:
+  $ last_was_farm = False
+  
+  if visited_farm_once:
+    jump visited_farm_once
+  endif
+  
+  animate: "ChefsHead"
+  wait: 2
+  
+  chisomo "Alright, time to get off my ass and start preparing dinner."
+  chisomo "Nalini, we're running low on carrots. Go grab some more, will you?"
+  nalini "Oh no, do we really need carrots?"
+  chisomo "Yes. Do you suddenly have a problem with carrots?"
+  nalini "No, I just don’t want to have to see Enok…"
+  chisomo "He’s still giving you grief?"
+  nalini "No, it’s fine. I’m sure he’ll be fine."
+  
+label visited_farm_once:
+  if visited_farm_twice:
+    jump visited_farm_twice
+  endif
+  
+  $ all_hell_broke_loose = True
+  animate: "MainCamera"
+  "This seems serious..."
+  enok "Uh, I brought the carrots."
+  chisomo "DO CARROTS REALLY SEEM LIKE A PRIORITY RIGHT NOW?"
+  
+  menu:
+  	"Fuck, what happened?":
+  	  jump freakout
+	
+  	"Dude, relax.":
+  	  jump relax
+    
+label freakout:
+  "Chisomo takes a deep breath."
+  chisomo "It's just a little equipment failure."
+  chisomo "We can't get in contact with Earth."
+  enok "Seriously?"
+  chisomo "It'll be fine. Jordyn is already on it."
+  enok "Of course she is."
+  "He doesn't look so confident. I try not to roll my eyes."
+  enok "So what do we do?"
+  chisomo "We continue preparing dinner."
+  chisomo "I still need onions."
+  enok "Ugh."
+  chisomo "At least it'll distract you."
+  "Jerk."
+  
+label relax:
+  chisomo "Relax? We are in no position to relax!"
+  chisomo "We've lost contact with earth."
+  chisomo "THAT IS VERY BAD."
+  enok "Ouch. Okay, that's bad."
+  enok "But that's why we have Jordyn, right?"
+  chisomo "You're right. She hasn't let us down yet."
+  enok "Yeah, yeah, she's everybody's hero."
+  chisomo "Okay, let's finish dinner. That'll help take my mind off of this."
+  enok "Good thinking. Need anything else?"
+  chisomo "I don't think so...."
+  chisomo "Oh, onions!"
+  enok "Great, I'll get you onions."
+  
+label visited_farm_twice:
+  if spoke_to_jordyn:
+    jump spoke_to_jordyn
+  endif
+  
+  chisomo "You got the onions? Great, bring 'em over here."
+  
+label spoke_to_jordyn:
+  if bucket_acquired:
+    jump bucket_acquired
+  endif
+  
+  if pontificated:
+    jump pontificated
+  endif
+  
+  $ pontificated = True
+  "I <i>really</i> don't want to have a cold shower."
+  "But is it really that important?"
+
+label pontificated:
+
+label bucket_acquired:
+  if water_boiled:
+    jump water_boiled
+  endif
+
+label water_boiled:

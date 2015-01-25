@@ -1,0 +1,54 @@
+label start:
+  if bucket_acquired:
+    jump bucket_acquired
+  endif
+  
+  if not mentioned_kettle:
+    jump nope
+  endif
+  
+  if observed_kettle:
+    jump nope
+  endif
+  
+  $ observed_kettle = True
+  "There's an old kettle in here."
+  "Why do we even have this?"
+  "It'll have to do. But I'd need a bucket too."
+
+label nope:
+  sound: "kettle"
+  
+label bucket_acquired:
+  if water_boiled:
+    jump nope
+  endif
+  
+  if water_stage_2:
+    jump water_stage_2
+  endif
+  
+  if water_stage_1:
+    jump water_stage_1
+  endif
+  
+  $ water_stage_1 = True
+  
+  "Great, now I just need to fill up this bucket with hot water."
+  "I'll just wait for the kettle to boil..."
+  sound: 'kettle'
+  "Not very exciting."
+  
+label water_stage_1:
+  $ water_stage_2 = True
+  
+  "Alright, rinse and repeat."
+  sound: 'kettle'
+  "Maybe it'll be worth it."
+  
+label water_stage_2:
+  $ water_boiled = True
+  
+  "One more should do it."
+  sound: 'kettle'
+  "Okay, that should be enough."

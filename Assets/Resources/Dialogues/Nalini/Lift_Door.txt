@@ -1,0 +1,22 @@
+label start:
+  if kettle_to_farm:
+    transition: "Farm"
+  endif
+
+  if observed_kettle:
+    transition: "Mess"
+  endif
+  
+  if spoke_to_jordyn:
+    transition: "Mess"
+  endif
+  
+  if all_hell_broke_loose:
+    transition: "Farm"
+   endif
+   
+  if visited_farm_once:
+    transition: "Mess"
+  endif
+
+  transition: "Farm"

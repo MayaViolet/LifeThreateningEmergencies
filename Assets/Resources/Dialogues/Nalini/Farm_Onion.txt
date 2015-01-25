@@ -1,0 +1,18 @@
+label start:
+  if not visited_farm_twice:
+    jump yummy
+  endif
+  
+  if collected_onions:
+    jump welp
+  endif
+  
+  "Hmm, they're not quite ready..."
+  "Ah well."
+  $ collected_onions = True
+  
+label yummy:
+  "Looks like some delicious onions are growing here."
+  
+label welp:
+  "It's a hard life, being an onion."

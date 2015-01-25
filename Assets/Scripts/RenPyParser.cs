@@ -16,11 +16,11 @@ namespace BitterEnd
 			_source = source;
 		}
 
-		public static Dialogue ReadDialogueFromResources(string filename) {
-			TextAsset textFile = Resources.Load<TextAsset> (string.Format ("Dialogues/{0}/{1}", ValueStore.ActivePlayer, filename));
+		public static Dialogue ReadDialogueFromResources(DialogueController.CharacterChoice character, string filename) {
+			TextAsset textFile = Resources.Load<TextAsset> (string.Format ("Dialogues/{0}/{1}", character == DialogueController.CharacterChoice.Enok ? "Enok" : "Nalini", filename));
 			if (textFile == null)
 			{
-				UnityEngine.Debug.LogError("Dialogue '"+filename+"' not found");
+				UnityEngine.Debug.LogError("Dialogue '"+filename+"' for '" + character + "' not found");
 				return null;
 			}
 			return ReadDialogueFromString(textFile.text);

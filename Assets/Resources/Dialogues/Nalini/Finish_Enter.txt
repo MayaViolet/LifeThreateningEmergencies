@@ -1,0 +1,11 @@
+label start:
+  sound: "shower"
+  wait: 5
+  
+  if hot_shower:
+  	"That was worth the wait."
+  endif
+  
+  if not hot_shower:
+    "Well, at least I'm clean."
+  endif

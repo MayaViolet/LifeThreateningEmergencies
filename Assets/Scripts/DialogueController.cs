@@ -12,6 +12,9 @@ using BitterEnd;
 [RequireComponent(typeof(AudioSource))]
 public class DialogueController : MonoBehaviour
 {
+	public enum CharacterChoice { Enok, Nalini };
+	public CharacterChoice Character = CharacterChoice.Enok;
+
 	public Text dialogueText;
 	public Text dialogueTitle;
 	public Image portraitImage;
@@ -62,7 +65,7 @@ public class DialogueController : MonoBehaviour
 		dialogueBase.localPosition = hidePosition;
 
 		if (!string.IsNullOrEmpty(enterDialogue)) {
-			BeginDialogue (RenPyParser.ReadDialogueFromResources(enterDialogue), gameObject);
+			BeginDialogue (RenPyParser.ReadDialogueFromResources(Character, enterDialogue), gameObject);
 		}
 	}
 

@@ -1,0 +1,28 @@
+label start:
+  if not visited_farm_twice:
+    jump weird_machine
+  endif
+  
+  if not collected_onions:
+    jump missing_onions
+  endif
+  
+  if ripened_onions:
+    jump already
+  endif
+  
+  if talked_shower:
+    jump already
+  endif
+  
+  $ ripened_onions = True
+  "They look much better now."
+  
+label missing_onions:
+  "Looks like a machine for ripening onions. Maybe I can find some onions in here?"
+  
+label already:
+  "..."
+  
+label weird_machine:
+  "Looks like a machine for ripening onions."

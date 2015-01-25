@@ -1,0 +1,90 @@
+define enok = Character('Enok')
+define nalini = Character('Nalini')
+  
+label start:
+  if visited_farm_twice:
+    jump visited_farm_twice
+  endif
+  
+  nalini "Need a hand?"
+
+  menu:
+    "Nah, just wanted to say hi.":
+      jump hi
+	
+    "We should make out.":
+      jump makeout
+    
+label hi:
+  nalini "Oh. Well, hi!"
+	
+label makeout:
+  nalini "I'm a little busy right now. Maybe later."
+  nalini "Actually... I'm busy later too. Sorry!"
+  enok "Alright, your loss."
+  nalini "It's really not. Bye."
+
+label visited_farm_twice:
+  if observed_bucket:
+    jump observed_bucket
+  endif
+  
+  if talked_shower:
+    jump collected_onions
+  endif
+  
+  nalini "Ripening onions? Easy! Just put them in this machine and the AI will handle the rest."
+  
+label collected_onions:
+  nalini "I wish we had garlic on this station…"
+  
+label observed_bucket:
+  if spanner_quest:
+    jump spanner_quest
+  endif
+  
+  $ spanner_quest = True
+  nalini "Oh, back again?"
+  enok "I need a bucket."
+  nalini "Well, you can't have that one."
+  enok "Is there another one?"
+  nalini "No."
+  enok "Okay..."
+  nalini "I could fix the leak if I could find my spanner."
+  enok "Fine, I'll find your bloody spanner."
+  nalini "Really? Thank you!"
+  
+label spanner_quest:
+  if spanner_acquired:
+    jump spanner_acquired
+  endif
+  
+  "..."
+  
+label spanner_acquired:
+  if spanner_stolen:
+    jump spanner_stolen
+  endif
+  
+  if bucket_acquired:
+    jump bucket_acquired
+  endif
+  
+  nalini "Oh, my spanner! Where was it?"
+  enok "In the kitchen cupboard."
+  nalini "Oh, of course!"
+  enok "…"
+  enok "I don't even want to know."
+  nalini "I'll just fix up that leak, then."
+  fade: "out"
+  wait: 1
+  $ bucket_acquired = True
+  fade: "in"
+  nalini "There, you can have the bucket now."
+  enok "Thanks."
+
+label spanner_stolen:
+  "You hear her mumbling something that sounds like 'selfish jerk'."
+  
+label bucket_acquired:
+  "Good luck with your bucket!"
