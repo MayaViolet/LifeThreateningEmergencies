@@ -6,11 +6,15 @@ label start:
   transition: "Lift-Nal"
   
 label visited_farm_twice:
-  if not talked_shower:
-    jump not_talked_shower
+  if talked_shower:
+  	transition: "Lift-Nal"
   endif
   
-  transition: "Lift-Nal"
+  if the_onion_returned:
+    transition: "Farm-Nal"
+  endif
+  
+  "Better talk to Chisomo first."
   
 label not_talked_shower:
-  "Better talk to Chisomo first."
+  

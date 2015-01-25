@@ -24,8 +24,6 @@ label visited_farm_twice:
     jump talked_shower
   endif
   
-  $ talked_shower = True
-  
   if not ripened_onions:
     jump not_ripened_onions
   endif
@@ -34,7 +32,7 @@ label visited_farm_twice:
   jump shower_talk
   
 label not_ripened_onions:
-  if the_return_of_the_onion:
+  if the_onion_returned:
     jump whatever_onion_girl
   endif
   
@@ -69,6 +67,8 @@ label whatever_onion_girl:
   jump shower_talk
   
 label shower_talk:
+  $ talked_shower = True
+  
   nalini "Do you need anything else?"
   chisomo "Nah, I've got everything I need."
   nalini "I should probably shower after digging up all those vegetables."

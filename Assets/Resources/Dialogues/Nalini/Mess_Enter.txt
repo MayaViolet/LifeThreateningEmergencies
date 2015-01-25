@@ -75,7 +75,9 @@ label visited_farm_twice:
     jump spoke_to_jordyn
   endif
   
-  chisomo "You got the onions? Great, bring 'em over here."
+  if not the_onion_returned:
+    chisomo "You got the onions? Great, bring 'em over here."
+  endif
   
 label spoke_to_jordyn:
   "I have no hot water, and I must make tea."

@@ -30,6 +30,10 @@ label visited_farm_twice:
     endif
   endif
   
+  if the_onion_returned:
+    transition: "Mess-Nal"
+  endif
+  
   enok "Leaving so soon?"
   nalini "Yes."
   
