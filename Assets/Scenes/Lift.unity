@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Clips:
-  - {fileID: 8300000, guid: fb30fab386b3e40dbb612dce8da02dc5, type: 3}
+  - {fileID: 8300000, guid: b1a08847f33e2432594499a44ace01d1, type: 3}
 --- !u!82 &118975449
 AudioSource:
   m_ObjectHideFlags: 0
