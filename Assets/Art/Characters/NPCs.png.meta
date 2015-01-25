@@ -9,6 +9,7 @@ TextureImporter:
     21300008: AI
     21300010: Player2Body
     21300012: Player2Head
+    21300014: JordynHead
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -44,7 +45,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 256
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
@@ -53,10 +54,10 @@ TextureImporter:
     - name: AI
       rect:
         serializedVersion: 2
-        x: 70
-        y: 144
-        width: 52
-        height: 66
+        x: 384
+        y: 302
+        width: 208
+        height: 265
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -64,19 +65,29 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 103
-        width: 66
-        height: 107
+        y: 396
+        width: 264
+        height: 426
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Chef_Head
       rect:
         serializedVersion: 2
-        x: 100
-        y: 30
-        width: 56
-        height: 58
+        x: 594
+        y: 368
+        width: 223
+        height: 232
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JordynHead
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 71
+        width: 232
+        height: 229
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -84,39 +95,39 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 3
-        width: 47
-        height: 98
+        y: 4
+        width: 189
+        height: 390
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Player2Head
       rect:
         serializedVersion: 2
-        x: 124
-        y: 155
-        width: 61
-        height: 55
+        x: 502
+        y: 602
+        width: 243
+        height: 220
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PlayerBody
       rect:
         serializedVersion: 2
-        x: 51
-        y: 4
-        width: 47
-        height: 97
+        x: 193
+        y: 8
+        width: 189
+        height: 386
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PlayerHead
       rect:
         serializedVersion: 2
-        x: 124
-        y: 90
-        width: 58
-        height: 63
+        x: 268
+        y: 569
+        width: 232
+        height: 253
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
