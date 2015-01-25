@@ -151,7 +151,7 @@ GameObject:
   - 114: {fileID: 72607622}
   - 111: {fileID: 72607621}
   m_Layer: 9
-  m_Name: PlayerBody
+  m_Name: NPCBody
   m_TagString: HeightSort
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,8 +202,8 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: 6a659052b57ff4c44941764f3d0b2622, type: 3}
-  m_Color: {r: .803921521, g: 1, b: .431372523, a: 1}
+  m_Sprite: {fileID: 21300010, guid: 6a659052b57ff4c44941764f3d0b2622, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &72607620
 Transform:
   m_ObjectHideFlags: 0
@@ -420,7 +420,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
 --- !u!1 &400685977
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +510,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
 --- !u!1 &525110997
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,7 +1346,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 969606307}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.33000004, z: 0}
+  m_LocalPosition: {x: -.100000001, y: 1.39999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 72607620}
@@ -1371,8 +1371,8 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300006, guid: 6a659052b57ff4c44941764f3d0b2622, type: 3}
-  m_Color: {r: .878726304, g: .521568656, b: 1, a: 1}
+  m_Sprite: {fileID: 21300012, guid: 6a659052b57ff4c44941764f3d0b2622, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1114588295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1605,7 +1605,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
 --- !u!1 &1236784728
 GameObject:
   m_ObjectHideFlags: 0
