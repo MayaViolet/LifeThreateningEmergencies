@@ -3,7 +3,10 @@ using System.Collections.Generic;
 
 public class ValueStore
 {
+	public static string ActivePlayer = "Enok";  // Or "Nalini".
+
 	static ValueStore _instance;
+
 	static ValueStore Instance
 	{
 		get
