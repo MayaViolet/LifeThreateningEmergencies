@@ -65,10 +65,10 @@ label relax:
   chisomo "Okay, let's finish dinner, then."
   chisomo "Do you think you can handle one more run?"
   nalini "I'd rather not… what do you need?"
-  chisimo "Onions."
+  chisomo "Onions."
   nalini "Okay, I'll get you onions."
   nalini "But you owe me."
-  chisimo "I know."
+  chisomo "I know."
   
 label visited_farm_twice:
   if spoke_to_jordyn:
@@ -78,23 +78,5 @@ label visited_farm_twice:
   chisomo "You got the onions? Great, bring 'em over here."
   
 label spoke_to_jordyn:
-  if bucket_acquired:
-    jump bucket_acquired
-  endif
-  
-  if pontificated:
-    jump pontificated
-  endif
-  
-  $ pontificated = True
-  "I <i>really</i> don't want to have a cold shower."
-  "But is it really that important?"
-
-label pontificated:
-
-label bucket_acquired:
-  if water_boiled:
-    jump water_boiled
-  endif
-
-label water_boiled:
+  "I have no hot water, and I must make tea."
+  "I can figure this out."

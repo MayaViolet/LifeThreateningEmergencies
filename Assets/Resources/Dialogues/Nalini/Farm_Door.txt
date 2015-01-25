@@ -10,14 +10,14 @@ label start:
     jump missing_something
   endif
 
-  transition: "Lift"
+  transition: "Lift-Nal"
   
 label missing_something:
   "Wait, didn't I come down here for something?"
   
 label visited_farm_twice:
   if spoke_to_jordyn:
-    transition: "Lift"
+    transition: "Lift-Nal"
   endif
   
   if not collected_onions:
@@ -33,7 +33,7 @@ label visited_farm_twice:
   enok "Leaving so soon?"
   nalini "Yes."
   
-  transition: "Mess"
+  transition: "Mess-Nal"
   
 label remind_to_ripen:
   $ reminded_to_ripen = True
