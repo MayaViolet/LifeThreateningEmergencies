@@ -6,7 +6,6 @@ public class MusicLoopBehaviour : MonoBehaviour
 {
 	public AudioClip[] Clips;
 	private AudioSource _audioSource;
-	private int _clipCount;
 	private int _clipIndex;
 	private float _wait;
 	private static MusicLoopBehaviour _instance;
@@ -27,7 +26,6 @@ public class MusicLoopBehaviour : MonoBehaviour
 	void Start ()
 	{
 		_audioSource = GetComponent<AudioSource> ();
-		_clipCount = Clips.Length;
 		PlayClip (0);
 	}
 
@@ -50,13 +48,13 @@ public class MusicLoopBehaviour : MonoBehaviour
 
 		if (_wait < 0f) {
 			int next = _clipIndex;
-			if (_clipCount <= 1) {
+			if (Clips.Length <= 1) {
 				PlayClip(0);
 				return;
 			}
 
 			while (next == _clipIndex) {
-				next = Random.Range (0, _clipCount);
+				next = Random.Range (0, Clips.Length);
 			}
 			PlayClip (next);
 		}
