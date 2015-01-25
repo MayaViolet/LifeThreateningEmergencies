@@ -17,7 +17,7 @@ namespace BitterEnd
 		}
 
 		public static Dialogue ReadDialogueFromResources(string filename) {
-			TextAsset textFile = Resources.Load<TextAsset>("Dialogues/"+filename);
+			TextAsset textFile = Resources.Load<TextAsset> (string.Format ("Dialogues/{0}/{1}", ValueStore.ActivePlayer, filename));
 			if (textFile == null)
 			{
 				UnityEngine.Debug.LogError("Dialogue '"+filename+"' not found");
