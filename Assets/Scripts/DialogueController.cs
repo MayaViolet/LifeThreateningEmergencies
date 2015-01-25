@@ -75,7 +75,7 @@ public class DialogueController : MonoBehaviour
 			return;
 		}
 
-		if (Input.GetKeyDown (KeyCode.Space)) {
+		if (Input.GetKeyDown (KeyCode.Space) || Input.GetMouseButtonDown (0)) {
 			AdvanceDialogue ();
 		}
 	}
@@ -144,6 +144,14 @@ public class DialogueController : MonoBehaviour
 		var wait = element as DialogueWait;
 		if (wait != null) {
 			Invoke ("AdvanceDialogue", wait.Time);
+			return;
+		}
+
+		var moveTo = element as DialogueMoveTo;
+		if (moveTo != null) {
+			var destination = GameObject.FindGameObjectWithTag(moveTo.TargetGO);
+			GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().MoveTo(destination.transform.position);
+			AdvanceDialogue();
 			return;
 		}
 		

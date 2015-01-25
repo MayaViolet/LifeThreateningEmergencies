@@ -9,6 +9,7 @@ label start:
     jump visited_farm_once
   endif
   
+  move_to: "ChefTarget"
   animate: "ChefsHead"
   wait: 2
   
@@ -30,6 +31,7 @@ label visited_farm_once:
   animate: "MainCamera"
   
   "This seems serious..."
+  move_to: "ChefTarget"
   nalini "Uhm, hey Chisomo. I brought the carrots…"
   chisomo "Not a priority!"
   

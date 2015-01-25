@@ -8,6 +8,7 @@ label start:
     jump visited_farm_once
   endif
   
+  move_to: "ChefTarget"
   animate: "ChefsHead"
   wait: 2
   
@@ -25,6 +26,7 @@ label visited_farm_once:
   $ all_hell_broke_loose = True
   animate: "MainCamera"
   "This seems serious..."
+  move_to: "ChefTarget"
   enok "Uh, I brought the carrots."
   chisomo "DO CARROTS REALLY SEEM LIKE A PRIORITY RIGHT NOW?"
   

@@ -173,7 +173,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 102100029}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.16999996, y: -2.75, z: 0}
+  m_LocalPosition: {x: 6.19000006, y: -2.03999996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 179582958}
@@ -280,7 +280,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 324715090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.03999996, y: -2.36999989, z: 0}
+  m_LocalPosition: {x: .5, y: -.970000029, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2283,6 +2283,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 17
+--- !u!1 &1062130562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1062130563}
+  m_Layer: 9
+  m_Name: ChefTarget
+  m_TagString: ChefTarget
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1062130563
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062130562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2, y: .629999995, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1910574220}
+  m_RootOrder: 1
 --- !u!1 &1102064981
 GameObject:
   m_ObjectHideFlags: 0
@@ -3162,6 +3189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b70cdea73a948c980ff3bcc8692445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Character: 0
   dialogueText: {fileID: 1393923030}
   dialogueTitle: {fileID: 1158825088}
   portraitImage: {fileID: 844559478}
@@ -3300,10 +3328,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1910574216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.07000005, y: -2.53999996, z: 0}
+  m_LocalPosition: {x: .469999999, y: -1.13999999, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 459744817}
+  - {fileID: 1062130563}
   m_Father: {fileID: 0}
   m_RootOrder: 9
 --- !u!114 &1910574221
