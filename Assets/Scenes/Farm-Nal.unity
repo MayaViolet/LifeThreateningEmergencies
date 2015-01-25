@@ -1385,8 +1385,6 @@ GameObject:
   - 135: {fileID: 1114588298}
   - 111: {fileID: 1114588297}
   - 114: {fileID: 1114588296}
-  - 114: {fileID: 1114588301}
-  - 114: {fileID: 1114588302}
   m_Layer: 9
   m_Name: Garden_bucket
   m_TagString: HeightSort
@@ -1467,32 +1465,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
---- !u!114 &1114588301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1114588295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d02c9939f7494663ae6f01b9550af05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue: Farm_Bucket
---- !u!114 &1114588302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1114588295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2305824c65ae249fc84f26c7d9ed6b2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VisibleWhenFlagIs: 1
-  Flag: bucket_acquired
-  UseAnimationIfAvailable: 0
 --- !u!1 &1155583452
 GameObject:
   m_ObjectHideFlags: 0

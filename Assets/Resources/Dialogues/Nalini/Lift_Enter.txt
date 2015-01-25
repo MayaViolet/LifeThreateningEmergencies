@@ -1,5 +1,4 @@
 define ai = Character('AI')
-define enok = Character('Enok')
 define nalini = Character('Nalini')
 define jordyn = Character('Jordyn')
 
@@ -113,70 +112,19 @@ label talked_shower:
   
   
 label spoke_to_jordyn:
-  if water_boiled:
-    jump water_boiled
+  if got_tea:
+    jump got_tea
   endif
   
-  if last_was_farm:
-    jump observed_kettle_farm
-  endif
-  
-  ai "Would you like to go to the showers?"
-  $ kettle_to_farm = False
-  
-  menu:
-    "I guess so…":
-      jump coldshower
-    
-	"Not yet.":
-	  return
-	  
-	"I want to go to the Farm again.":
-	  jump to_farm
-	  
-label observed_kettle_farm:
-  ai "Would you like to go to the showers?"
-  $ kettle_to_farm = True
-  
-  menu:
-    "I guess so…":
-      jump coldshower
-    
-	"Not yet.":
-	  return
-	  
-	"I want to go to the Mess again.":
-	  jump to_mess
-	  
-label to_farm:
-  $ kettle_to_farm = True
-  sound: "elevator"
-  ai "Confirmed. Destination: farm."
-  
-label to_mess:
-  $ kettle_to_farm = False
-  sound: "elevator"
-  ai "Confirmed. Destination: mess."
-  
-label coldshower:
-  $ hot_shower = False
-  sound: "elevator"
-  ai "Confirmed. Destination: showers."
-  transition: "Finish"
-
-label water_boiled:
-  ai "Would you like to go to the showers now?"
-  $ kettle_to_farm = False
-
-  menu:
-    "Yep!":
-      jump hotshower
+label got_tea:
+	ai "Where would you like to go now?"
+	nalini "Take me to Jordyn, please!"
+	ai "She is currently busy on system critical tasks."
+	nalini "That's okay, I just want to give her something."
+	ai "She is on the other side of the station. Your tea will get cold."
+	nalini "She'll be able to warm it up again."
+	ai "Understood."
+	sound: "elevator"
+	ai "Confirmed. Destination: engineering."
 	
-    "Not yet.":
-	  return
-	  
-label hotshower:
-  $ hot_shower = True
-  sound: "elevator"
-  ai "Confirmed. Destination: showers."
-  transition: "Finish"
+	fade: "out"

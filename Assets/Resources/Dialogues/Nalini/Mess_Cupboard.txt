@@ -1,16 +1,1 @@
 label start:
-  if spanner_quest:
-    jump spanner_quest
-  endif
-  
-label spanner_quest:
-  if spanner_acquired:
-    jump spanner_acquired
-  endif
-  
-  "What the…?"
-  "Why is Nalini's spanner in here?"
-  "Well, better get it back to her."
-  $ spanner_acquired = True
-  
-label spanner_acquired:

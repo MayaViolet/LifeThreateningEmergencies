@@ -1,16 +1,4 @@
 label start:
-  if kettle_to_farm:
-    transition: "Farm-Nal"
-  endif
-
-  if observed_kettle:
-    transition: "Mess-Nal"
-  endif
-  
-  if spoke_to_jordyn:
-    transition: "Mess-Nal"
-  endif
-  
   if all_hell_broke_loose:
     transition: "Farm-Nal"
    endif
