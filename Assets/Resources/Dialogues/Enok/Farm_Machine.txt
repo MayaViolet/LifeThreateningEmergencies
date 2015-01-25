@@ -16,6 +16,8 @@ label start:
   endif
   
   $ ripened_onions = True
+  animate: "Machine"
+  wait: 2
   "They look much better now."
   
 label missing_onions:
