@@ -173,6 +173,10 @@ namespace BitterEnd
 						continue;
 					}
 
+					if (ParseMoveTo (line)) {
+						continue;
+					}
+
 					break;
 
 				case ParserState.MENU:
