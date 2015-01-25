@@ -94,6 +94,10 @@ label spoke_to_jordyn:
   "..."
   
 label want_tea:
+  if got_tea:
+    jump already_tea
+  endif
+  
   	chisomo "Hey."
 	nalini "Do we have any tea?"
 	chisomo "Tea? There's probably some in the farm…"
@@ -122,3 +126,6 @@ label got_tea:
 	chisomo "Good choice."
 	chisomo "Think you can handle the kettle yourself?"
 	nalini "I'm sure I can."
+	
+label already_tea:
+  chisomo "Enjoy."

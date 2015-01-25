@@ -112,11 +112,11 @@ label talked_shower:
   
   
 label spoke_to_jordyn:
-  if got_tea:
-    jump got_tea
+  if made_tea:
+    jump made_tea
   endif
   
-label got_tea:
+label made_tea:
 	ai "Where would you like to go now?"
 	nalini "Take me to Jordyn, please!"
 	ai "She is currently busy on system critical tasks."

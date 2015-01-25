@@ -1,4 +1,8 @@
 label start:
+  if talked_shower:
+    transition: "Mess-Nal"
+  endif
+  
   if all_hell_broke_loose:
     transition: "Farm-Nal"
    endif

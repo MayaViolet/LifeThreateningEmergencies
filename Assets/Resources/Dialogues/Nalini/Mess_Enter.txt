@@ -80,5 +80,12 @@ label visited_farm_twice:
   endif
   
 label spoke_to_jordyn:
+  if pontificated:
+    jump noop
+  endif
+  
+  $ pontificated = True
   "I have no hot water, and I must make tea."
   "I can figure this out."
+  
+label noop:
