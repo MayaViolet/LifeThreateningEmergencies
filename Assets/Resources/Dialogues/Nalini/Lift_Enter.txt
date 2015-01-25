@@ -8,9 +8,9 @@ label start:
   endif
   
   ai "Hello, NALINI SINGH. What is your destination?"
-  nalini "The Farm, please!"
+  nalini "The farm, please!"
   sound: "elevator"
-  ai "Confirmed. Destination: Farm."
+  ai "Confirmed. Destination: farm."
   
 label visited_farm_once:
   if all_hell_broke_loose:

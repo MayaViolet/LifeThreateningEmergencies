@@ -8,9 +8,9 @@ label start:
   endif
   
   ai "Hello, ENOK SØRENSEN. What is your destination?"
-  enok "The Farm. Lord Chisomo needs his carrots."
+  enok "The farm. Lord Chisomo needs his carrots."
   sound: "elevator"
-  ai "Confirmed. Destination: Farm."
+  ai "Confirmed. Destination: farm."
   
 label visited_farm_once:
   if all_hell_broke_loose:
@@ -27,7 +27,7 @@ label all_hell_broke_loose:
     jump talked_shower
   endif
   
-  ai "Back to the Farm again?"
+  ai "Back to the farm again?"
   enok "Apparently I need onions now."
   sound: "elevator"
   ai "Confirmed. Destination: farm."
@@ -126,7 +126,7 @@ label spoke_to_jordyn:
 	"Not yet.":
 	  return
 	  
-	"I want to go to the Farm again.":
+	"I want to go to the farm again.":
 	  jump to_farm
 	  
 label observed_kettle_farm:
@@ -140,7 +140,7 @@ label observed_kettle_farm:
 	"Not yet.":
 	  return
 	  
-	"I want to go to the Mess again.":
+	"I want to go to the mess again.":
 	  jump to_mess
 	  
 label to_farm:
