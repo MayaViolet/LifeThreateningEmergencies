@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d02c9939f7494663ae6f01b9550af05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: Farm_Nalini
+  dialogue: Farm_Enok
 --- !u!212 &72607619
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -202,7 +202,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300010, guid: 6a659052b57ff4c44941764f3d0b2622, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 6a659052b57ff4c44941764f3d0b2622, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &72607620
 Transform:
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cef82e26330e47128a59549988d5a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterName: nalini
+  characterName: enok
 --- !u!1 &102100029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,7 +1371,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300012, guid: 6a659052b57ff4c44941764f3d0b2622, type: 3}
+  m_Sprite: {fileID: 21300006, guid: 6a659052b57ff4c44941764f3d0b2622, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1114588295
 GameObject:
@@ -2139,6 +2139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b70cdea73a948c980ff3bcc8692445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Character: 1
   dialogueText: {fileID: 1236784730}
   dialogueTitle: {fileID: 525110999}
   portraitImage: {fileID: 844559478}
