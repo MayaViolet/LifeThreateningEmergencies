@@ -1,9 +1,9 @@
 label start:
+  if kettle_to_farm:
+    transition: "Farm"
+  endif
+
   if observed_kettle:
-    if kettle_to_farm:
-      transition: "Farm"
-    endif
-    
     transition: "Mess"
   endif
   

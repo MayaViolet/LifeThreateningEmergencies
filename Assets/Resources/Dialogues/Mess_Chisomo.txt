@@ -53,8 +53,8 @@ label truth:
   
 label shower_talk:
   enok "Do you need anything else?"
-  enok "I should probably get a shower after digging up all those vegetables."
   chisomo "Nah, I'm all good."
+  enok "I should probably get a shower after digging up all those vegetables."
   chisomo "Oh, but I think the hot water is busted."
   enok "You've got to be shitting me."
   chisomo "If you're not doing anything else, maybe you can get it sorted?"
