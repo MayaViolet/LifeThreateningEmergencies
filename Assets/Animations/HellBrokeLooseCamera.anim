@@ -65,27 +65,27 @@ AnimationClip:
         value: {x: -.100000001, y: 0, z: -10}
         inSlope: {x: -1.99999952, y: 0, z: 0}
         outSlope: {x: 1.72500014, y: 0, z: 0}
-        tangentMode: 329795848
+        tangentMode: 0
       - time: .800000072
         value: {x: .0149999997, y: 0, z: -10}
         inSlope: {x: 1.72500014, y: 0, z: 0}
         outSlope: {x: -1.30000126, y: 0, z: 0}
-        tangentMode: 258
+        tangentMode: 0
       - time: .850000024
         value: {x: -.0500000007, y: 0, z: -10}
         inSlope: {x: -1.30000126, y: 0, z: 0}
         outSlope: {x: 2.99999762, y: 0, z: 0}
-        tangentMode: 1065353216
+        tangentMode: 0
       - time: .883333385
         value: {x: .0500000007, y: 0, z: -10}
         inSlope: {x: 2.99999762, y: 0, z: 0}
         outSlope: {x: -.599999905, y: 0, z: 0}
-        tangentMode: 1707729512
+        tangentMode: 0
       - time: .933333397
         value: {x: .0199999996, y: 0, z: -10}
         inSlope: {x: -.599999905, y: 0, z: 0}
         outSlope: {x: .262500286, y: 0, z: 0}
-        tangentMode: 1696161808
+        tangentMode: 0
       - time: 1
         value: {x: .0375000015, y: 0, z: -10}
         inSlope: {x: .262500286, y: 0, z: 0}
@@ -95,7 +95,26 @@ AnimationClip:
       m_PostInfinity: 2
     path: 
   m_ScaleCurves: []
-  m_FloatCurves: []
+  m_FloatCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      - time: 1
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Enabled
+    path: 
+    classID: 114
+    script: {fileID: 11500000, guid: 7202554daa3204a35ae087b8bebdcae6, type: 3}
   m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
@@ -270,5 +289,24 @@ AnimationClip:
     path: 
     classID: 4
     script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      - time: 1
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Enabled
+    path: 
+    classID: 114
+    script: {fileID: 11500000, guid: 7202554daa3204a35ae087b8bebdcae6, type: 3}
   m_EulerEditorCurves: []
   m_Events: []
