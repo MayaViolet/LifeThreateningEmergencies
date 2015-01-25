@@ -90,19 +90,5 @@ label bucket_acquired:
   if water_boiled:
     jump water_boiled
   endif
-  
-  $ water_boiled = True
-  "Great, now I just need to fill up this bucket with hot water."
-  "I'll just wait for the kettle to boil..."
-  sound: 'kettle'
-  "Not very exciting."
-  
-  "Alright, rinse and repeat."
-  sound: 'kettle'
-  "Maybe it'll be worth it."
-  
-  "One more should do it."
-  sound: 'kettle'
-  "Okay, that should be enough."
 
 label water_boiled:

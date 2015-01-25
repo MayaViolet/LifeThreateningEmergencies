@@ -1,6 +1,6 @@
 label start:
-  wait: 1
   sound: "shower"
+  wait: 5
   
   if hot_shower:
   	"That was worth the wait."
