@@ -72,7 +72,7 @@ label shower_talk:
   nalini "Do you need anything else?"
   chisomo "Nah, I've got everything I need."
   nalini "I should probably shower after digging up all those vegetables."
-  chisomo "Oh yeah that reminds me."
+  chisomo "Oh yeah, that reminds me."
   chisomo "There's no hot water."
   nalini "The station is just having one of those days, huh?"
   chisomo "Maybe you can get it sorted?"
@@ -102,30 +102,45 @@ label want_tea:
 	nalini "Do we have any tea?"
 	chisomo "Tea? There's probably some in the farm…"
 	nalini "…"
-	chisomo "I'll get it."
+	chisomo "I'll get it. Do you want lady grey, hyeonmi nokcha, or oolong?"
 	
-    fade: "out"
-    wait: 2
-    fade: "in"
-
-	chisomo "Okay, I have tea for you."
-	chisomo "You can have lady grey, hyeonmi nokcha, or oolong."
-	
-    menu:
+	menu:
 	  "Lady grey, please!":
-	      jump got_tea
+	      jump lady_grey
 	
 	  "Hyeonmi nokcha sounds delicious!":
-	      jump got_tea
+	      jump hmnc
 	
 	  "I think it's an oolong sort of night.":
-	  	  jump got_tea
+	  	  jump oolong
+	
+
+label lady_grey:
+  fade: "out"
+  wait: 2
+  $ tea_lady_grey = True
+  fade: "in"
+  jump got_tea
+  
+label hmnc:
+  fade: "out"
+  wait: 2
+  $ tea_hmnc = True
+  fade: "in"
+  jump got_tea
+  
+label oolong:
+  fade: "out"
+  wait: 2
+  $ tea_oolong = True
+  fade: "in"
+  jump got_tea
 	
 label got_tea:
   $ got_tea = True
-	chisomo "Good choice."
-	chisomo "Think you can handle the kettle yourself?"
-	nalini "I'm sure I can."
+  chisomo "Good choice."
+  chisomo "Think you can handle the kettle yourself?"
+  nalini "I'm sure I can."
 	
 label already_tea:
   chisomo "Enjoy."
