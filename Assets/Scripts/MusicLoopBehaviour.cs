@@ -51,7 +51,7 @@ public class MusicLoopBehaviour : MonoBehaviour
 		if (_wait < 0f) {
 			int next = _clipIndex;
 			if (_clipCount <= 1) {
-				PlayClip(next);
+				PlayClip(0);
 				return;
 			}
 
