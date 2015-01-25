@@ -425,9 +425,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 459744817}
   - 212: {fileID: 459744818}
+  - 111: {fileID: 459744819}
   m_Layer: 0
   m_Name: Head
-  m_TagString: HeightSort
+  m_TagString: ChefsHead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -466,6 +467,21 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: 6a659052b57ff4c44941764f3d0b2622, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!111 &459744819
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 459744816}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: cf201638d71464289a6cf917615d3fa0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: cf201638d71464289a6cf917615d3fa0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!43 &581587757
 Mesh:
   m_ObjectHideFlags: 0
@@ -2263,7 +2279,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
 --- !u!1 &1102064981
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,7 +2332,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
 --- !u!1 &1155583452
 GameObject:
   m_ObjectHideFlags: 0
@@ -2782,7 +2798,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 6862f3cd43c784b298293b1dd63cf011, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1437789314
@@ -3307,6 +3323,6 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: 1006d599c008b42479856430724bcd69, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0

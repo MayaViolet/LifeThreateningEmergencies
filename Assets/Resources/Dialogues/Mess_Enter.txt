@@ -8,7 +8,8 @@ label start:
     jump visited_farm_once
   endif
   
-  wait: 1
+  animate: "ChefsHead"
+  wait: 2
   
   chisomo "Alright, time to get off my ass and start preparing dinner."
   chisomo "Enok, we're running low on carrots. Go grab some more, will you?"
