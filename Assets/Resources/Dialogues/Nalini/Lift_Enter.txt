@@ -128,3 +128,4 @@ label made_tea:
 	ai "Confirmed. Destination: engineering."
 	
 	fade: "out"
+	transition: "Credits"
